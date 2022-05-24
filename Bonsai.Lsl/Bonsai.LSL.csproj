@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Title>Bonsai.LSL</Title>
+    <Description>A package for the Bonsai visual programming language.</Description>
+    <Authors></Authors>
+    <Copyright>Copyright ©  2022</Copyright>
+    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageIcon></PackageIcon>
+    <PackageOutputPath></PackageOutputPath>
+    <PackageTags>Bonsai Rx Bonsai.LSL</PackageTags>
+    <TargetFramework>net472</TargetFramework>
+    <Features>strict</Features>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bonsai.Core" Version="2.6.3" />
+  </ItemGroup>
+
+</Project>
