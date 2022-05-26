@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Authors>NeuroGEARS</Authors>
+    <Title>Bonsai - LSL Library</Title>
+    <Description>Bonsai Library containing interfaces for streaming data from devices implementing the LSL protocol.</Description>
+    <Copyright>Copyright © NeuroGEARS 2022</Copyright>
+    <ProjectUrl>https://github.com/emotional-cities/lsl</ProjectUrl>
+    <PackageLicenseUrl>https://github.com/emotional-cities/lsl/blob/main/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://bonsai-rx.org/assets/images/bonsai.png</PackageIconUrl>
+    <PackageOutputPath>..\bin\$(Configuration)</PackageOutputPath>
+    <PackageTags>Bonsai Rx LSL Lab Streaming Layer</PackageTags>
+    <IncludeSymbols Condition="'$(Configuration)'=='Release'">true</IncludeSymbols>
+    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+    <TargetFramework>net472</TargetFramework>
+    <Features>strict</Features>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bonsai.Core" Version="2.6.0" />
+  </ItemGroup>
+
+</Project>
