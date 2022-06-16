@@ -1,8 +1,7 @@
-﻿using LSL;
-using System;
+﻿using System;
 using System.Reactive.Linq;
 
-namespace Bonsai.LSL
+namespace Bonsai.Lsl
 {
     public class FloatStreamBroadcaster : Sink<float>
     {

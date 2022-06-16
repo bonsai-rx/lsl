@@ -1,9 +1,8 @@
 ﻿using System;
-using LSL;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 
-namespace Bonsai.LSL
+namespace Bonsai.Lsl
 {
     public class FloatStreamReceiver : Source<TimestampedSample<float>>
     {
