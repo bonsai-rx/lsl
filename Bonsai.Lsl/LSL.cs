@@ -24,7 +24,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace LSL
+namespace Bonsai.Lsl
 {
     /// <summary>
     /// C# API for the lab streaming layer.
