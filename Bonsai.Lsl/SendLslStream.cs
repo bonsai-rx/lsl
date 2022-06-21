@@ -18,8 +18,8 @@ namespace Bonsai.Lsl
 
         public override Expression Build(IEnumerable<Expression> arguments)
         {
-            var streamName = StreamName;
-            var streamType = StreamType;
+            var streamName = Expression.Parameter(typeof(string));
+            var streamType = Expression.Parameter(typeof(string));
             var source = arguments.First(); // input source
             var parameterTypes = source.Type.GetGenericArguments(); // source types
             var inputParameter = Expression.Parameter(parameterTypes[0]);
@@ -27,15 +27,18 @@ namespace Bonsai.Lsl
 
             // need one expression that produces a stream outlet of the correct format
             var buildStream = StreamBuilder.OutletStream(streamName, streamType, inputParameter);
-            var streamBuilder = Expression.Lambda(buildStream, inputParameter);
+            var streamBuilder = Expression.Lambda<Func<string, string, StreamOutlet>>(buildStream, new List<ParameterExpression>() { streamName, streamType });
+
+            var func = streamBuilder.Compile();
+            var outlet = func("a", "b");
 
             // need one expression that writes to the outlet with the correct format
 
             //                     this     .Process         <parameterTypes>(source, streamBuilder, streamWriter)
-            return Expression.Call(builder, nameof(Process), parameterTypes, source, streamBuilder, null);
+            return Expression.Call(builder, nameof(Process), parameterTypes, source, streamBuilder);
         }
 
-        IObservable<TSource> Process<TSource>(IObservable<TSource> source, Func<StreamOutlet> streamBuilder, Action<StreamOutlet, TSource> streamWriter)
+        IObservable<TSource> Process<TSource>(IObservable<TSource> source, Func<string, string, StreamOutlet> streamBuilder)
         {
             //return source.Do(input => { });
 
@@ -44,7 +47,7 @@ namespace Bonsai.Lsl
                 {
                     //StreamInfo info = new StreamInfo(StreamName, StreamType, 1, 0, channel_format_t.cf_float32, Uid);
                     //return new StreamOutlet(info);
-                    return streamBuilder();
+                    return streamBuilder(StreamName, StreamType);
                 },
                 outlet => source.Do(input =>
                 {

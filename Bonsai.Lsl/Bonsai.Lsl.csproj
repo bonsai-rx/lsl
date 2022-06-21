@@ -21,4 +21,10 @@
     <PackageReference Include="Bonsai.Core" Version="2.6.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="lsl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
