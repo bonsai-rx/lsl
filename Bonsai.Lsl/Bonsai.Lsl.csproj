@@ -13,6 +13,7 @@
     <IncludeSymbols Condition="'$(Configuration)'=='Release'">true</IncludeSymbols>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
     <TargetFramework>net472</TargetFramework>
+	<LangVersion>9.0</LangVersion>
     <Features>strict</Features>
     <Version>0.1.0</Version>
   </PropertyGroup>
