@@ -19,6 +19,13 @@ namespace Bonsai.Lsl
 
         static readonly MethodInfo CreateOutletMethod = typeof(StreamBuilder).GetMethod(nameof(StreamBuilder.CreateOutlet));
 
+        static readonly MethodInfo WriteInt64 = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(float[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteDouble = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(double[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteInt32 = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(int[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteInt16 = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(short[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteChar = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(char[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteString = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(string[]), typeof(double), typeof(bool) });
+
         public static Expression OutletStream(Expression nameParam, Expression typeParam, Expression parameter)
         {
             var type = parameter.Type;
@@ -26,6 +33,10 @@ namespace Bonsai.Lsl
 
             switch (typeCode)
             {
+                // int
+                case TypeCode.Int32:
+                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, Expression.Constant(channel_format_t.cf_int32, typeof(channel_format_t)));
+
                 // float
                 case TypeCode.Single:
                     return Expression.Call(CreateOutletMethod, nameParam, typeParam, Expression.Constant(channel_format_t.cf_float32, typeof(channel_format_t)));  
@@ -37,53 +48,34 @@ namespace Bonsai.Lsl
                 default:
                     return null;
             }
-
-            //var typeTagBuilder = new StringBuilder();
-            //var outletStreamBuilder = CreateOutletStreamBuilder(parameter, typeTagBuilder);
-
-            //return Expression.Block(outletStreamBuilder);
         }
 
-        //static Expression CreateOutletStreamBuilder(Expression parameter, StringBuilder typeTagBuilder)
-        //{
-        //    var type = parameter.Type;
-        //    var typeCode = Type.GetTypeCode(type);
-        //    switch (typeCode)
-        //    {
-        //        // float 
-        //        case TypeCode.Single:
-        //            // need to return an expression call that creates a stream of type float
-        //            //StreamInfo info = new StreamInfo(StreamName, StreamType, 1, 0, channel_format_t.cf_float32, Uid);
-        //            //return new StreamOutlet(info);
-        //            return Expression.Call(typeof(StreamBuilder), nameof(CreateOutlet), null, null, null, null, null, null);
+        public static Expression OutletWriter(Expression outlet, Expression data)
+        {
+            var type = data.Type;
+            var typeCode = Type.GetTypeCode(type);
+            NewArrayExpression dataArray;
 
-        //        // double
-        //        case TypeCode.Double:
-        //            return null;
+            switch (typeCode)
+            {
+                // int
+                case TypeCode.Int32:
+                    data = Expression.NewArrayInit(typeof(int), new List<Expression> { data });
+                    return Expression.Call(outlet, WriteInt32, data, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
-        //        // int
-        //        case TypeCode.Int32:
-        //            return null;
+                // float
+                case TypeCode.Single:
+                    return null;
 
-        //        // short
-        //        case TypeCode.Int16:
-        //            return null;
+                // long
+                case TypeCode.Int64:
+                    data = Expression.Convert(data, typeof(float));
+                    dataArray = Expression.NewArrayInit(typeof(float), new List<Expression> { data });
+                    return Expression.Call(outlet, WriteInt64, dataArray, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
-        //        // char
-        //        case TypeCode.Char:
-        //            return null;
-
-        //        // string
-        //        case TypeCode.String:
-        //            return null;
-
-        //        //object
-        //        case TypeCode.Object:
-        //            return null;
-
-        //        default:
-        //            return null;
-        //    }
-        //}
+                default:
+                    return null;
+            }
+        }
     }
 }

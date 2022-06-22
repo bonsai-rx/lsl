@@ -22,26 +22,28 @@ namespace Bonsai.Lsl
             var streamType = Expression.Parameter(typeof(string));
             var source = arguments.First(); // input source
             var parameterTypes = source.Type.GetGenericArguments(); // source types
-            var inputParameter = Expression.Parameter(parameterTypes[0]);
+            var inputParameter = Expression.Parameter(parameterTypes[0], "inputParameter");
             var builder = Expression.Constant(this);
 
             // need one expression that produces a stream outlet of the correct format
             var buildStream = StreamBuilder.OutletStream(streamName, streamType, inputParameter);
             var streamBuilder = Expression.Lambda<Func<string, string, StreamOutlet>>(buildStream, new List<ParameterExpression>() { streamName, streamType });
 
-            var func = streamBuilder.Compile();
-            var outlet = func("a", "b");
-
             // need one expression that writes to the outlet with the correct format
+            var outletParam = Expression.Parameter(typeof(StreamOutlet), "outletParam");
+            var dataParam = Expression.Parameter(parameterTypes[0], "dataParam");
+
+            var buildWriter = StreamBuilder.OutletWriter(outletParam, dataParam);
+            var streamWriter = Expression.Lambda(buildWriter, new List<ParameterExpression>() { outletParam, dataParam });
+
+            streamWriter.Compile();
 
             //                     this     .Process         <parameterTypes>(source, streamBuilder, streamWriter)
-            return Expression.Call(builder, nameof(Process), parameterTypes, source, streamBuilder);
+            return Expression.Call(builder, nameof(Process), parameterTypes, source, streamBuilder, streamWriter);
         }
 
-        IObservable<TSource> Process<TSource>(IObservable<TSource> source, Func<string, string, StreamOutlet> streamBuilder)
+        IObservable<TSource> Process<TSource>(IObservable<TSource> source, Func<string, string, StreamOutlet> streamBuilder, Action<StreamOutlet, TSource> streamWriter)
         {
-            //return source.Do(input => { });
-
             return Observable.Using(
                 () =>
                 {
@@ -51,8 +53,8 @@ namespace Bonsai.Lsl
                 },
                 outlet => source.Do(input =>
                 {
-                    //outlet.push_sample(data);
-                    //streamWriter(outlet, input);
+                    //outlet.push_sample(new float[] { input });
+                    streamWriter(outlet, input);
                 })
             );
         }

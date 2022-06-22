@@ -469,7 +469,6 @@ namespace Bonsai.Lsl
         public void push_sample(char[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_ctp(obj, data, timestamp, pushthrough ? 1 : 0); }
         public void push_sample(string[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_strtp(obj, data, timestamp, pushthrough ? 1 : 0); }
 
-
         // ===================================================
         // === Pushing an chunk of samples into the outlet ===
         // ===================================================
