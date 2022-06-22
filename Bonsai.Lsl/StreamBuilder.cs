@@ -100,8 +100,8 @@ namespace Bonsai.Lsl
 
                 // long
                 case TypeCode.Int64:
-                    data = Expression.Convert(data, typeof(float)); // no LSL long writer, need to convert to float
-                    data = Expression.NewArrayInit(typeof(float), new List<Expression> { data });
+                    data = Expression.NewArrayInit(typeof(long), new List<Expression> { data });
+                    data = Expression.Convert(data, typeof(float[])); // no LSL long writer, need to convert to float
                     return Expression.Call(outlet, WriteFloat, data, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
                 case TypeCode.Object:
