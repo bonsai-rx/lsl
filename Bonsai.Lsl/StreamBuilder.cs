@@ -10,15 +10,17 @@ namespace Bonsai.Lsl
 {
     static class StreamBuilder
     {
-
+        // Generate a StreamInfo/StreamOutlet from parameters
         public static StreamOutlet CreateOutlet(string streamName, string streamType, int channelCount, channel_format_t channelFormat)
         {
             var info = new StreamInfo(streamName, streamType, channelCount, LSL.IRREGULAR_RATE, channelFormat, "");
             return new StreamOutlet(info);
         }
 
+        // Reflection reference to outlet creation method
         static readonly MethodInfo CreateOutletMethod = typeof(StreamBuilder).GetMethod(nameof(StreamBuilder.CreateOutlet));
 
+        // Reflection references to push_sample overload methods
         static readonly MethodInfo WriteFloat = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(float[]), typeof(double), typeof(bool) });
         static readonly MethodInfo WriteDouble = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(double[]), typeof(double), typeof(bool) });
         static readonly MethodInfo WriteInt32 = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(int[]), typeof(double), typeof(bool) });
@@ -26,6 +28,7 @@ namespace Bonsai.Lsl
         static readonly MethodInfo WriteChar = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(char[]), typeof(double), typeof(bool) });
         static readonly MethodInfo WriteString = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(string[]), typeof(double), typeof(bool) });
 
+        // Generates an expression representing StreamOutlet creation, dependent on input data type (parameter)
         public static Expression OutletStream(Expression nameParam, Expression typeParam, Expression parameter)
         {
             var type = parameter.Type;
@@ -66,10 +69,19 @@ namespace Bonsai.Lsl
             }
         }
 
+        // Generates an expression representing a write action to an outlet based on data type
         public static Expression OutletWriter(Expression outlet, Expression data)
         {
             var type = data.Type;
             var typeCode = Type.GetTypeCode(type);
+
+            if (type.IsArray)
+            {
+
+            } else
+            {
+
+            }
 
             switch (typeCode)
             {
@@ -100,8 +112,8 @@ namespace Bonsai.Lsl
 
                 // long
                 case TypeCode.Int64:
-                    data = Expression.NewArrayInit(typeof(long), new List<Expression> { data });
-                    data = Expression.Convert(data, typeof(float[])); // no LSL long writer, need to convert to float
+                    data = Expression.Convert(data, typeof(float)); // no LSL long writer, need to convert to float
+                    data = Expression.NewArrayInit(typeof(float), new List<Expression> { data });
                     return Expression.Call(outlet, WriteFloat, data, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
                 case TypeCode.Object:
