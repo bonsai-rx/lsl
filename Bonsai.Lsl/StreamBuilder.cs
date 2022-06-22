@@ -73,53 +73,65 @@ namespace Bonsai.Lsl
         public static Expression OutletWriter(Expression outlet, Expression data)
         {
             var type = data.Type;
-            var typeCode = Type.GetTypeCode(type);
+            TypeCode typeCode; // the typecode that we switch by depends on whether the input data is already in an array
+            Expression formatData; // the way that we format the data to be pushed also depends on whether it is already in an array
 
+            // if the data is in an array already, we need to switch by the element data type and there is no need to format
             if (type.IsArray)
             {
-
-            } else
+                typeCode = Type.GetTypeCode(
+                    Expression.ArrayAccess(data, new List<Expression> { Expression.Constant(1, typeof(int)) }).Type
+                );
+                formatData = data;
+            }
+            // if we have just a single value, we need to format the data into a single element array
+            else
             {
-
+                typeCode = Type.GetTypeCode(type);
+                formatData = Expression.NewArrayInit(type, new List<Expression> { data });
             }
 
             switch (typeCode)
             {
                 // float
                 case TypeCode.Single:
-                    data = Expression.NewArrayInit(typeof(float), new List<Expression> { data });
-                    return Expression.Call(outlet, WriteFloat, data, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
+                    return Expression.Call(outlet, WriteFloat, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
                 // double
                 case TypeCode.Double:
-                    data = Expression.NewArrayInit(typeof(double), new List<Expression> { data });
-                    return Expression.Call(outlet, WriteDouble, data, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
+                    return Expression.Call(outlet, WriteDouble, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
                 // int
                 case TypeCode.Int32:
-                    data = Expression.NewArrayInit(typeof(int), new List<Expression> { data });
-                    return Expression.Call(outlet, WriteInt32, data, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
+                    return Expression.Call(outlet, WriteInt32, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
                 // short
                 case TypeCode.Int16:
-                    data = Expression.NewArrayInit(typeof(short), new List<Expression> { data });
-                    return Expression.Call(outlet, WriteInt16, data, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
+                    return Expression.Call(outlet, WriteInt16, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
                 // string
                 case TypeCode.String:
-                    data = Expression.NewArrayInit(typeof(string), new List<Expression> { data });
-                    return Expression.Call(outlet, WriteString, data, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
+                    return Expression.Call(outlet, WriteString, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
                 // long
                 case TypeCode.Int64:
+                    // won't work if data is already an array
                     data = Expression.Convert(data, typeof(float)); // no LSL long writer, need to convert to float
                     data = Expression.NewArrayInit(typeof(float), new List<Expression> { data });
                     return Expression.Call(outlet, WriteFloat, data, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
+
+                //var conversion = Expression.Call(typeof(StreamBuilder), "ConvertToFloatArray", new Type[] { typeof(long) }, formatData);
+                //return Expression.Call(outlet, WriteFloat, conversion, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
                 case TypeCode.Object:
                 default:
                     return null;
             }
+        }
+
+        public static float[] ConvertToFloatArray<T>(T[] inArray)
+        {
+            return inArray.Cast<float>().ToArray();
         }
     }
 }
