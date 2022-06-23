@@ -18,8 +18,8 @@ namespace Bonsai.Lsl
 
         public override Expression Build(IEnumerable<Expression> arguments)
         {
-            var streamName = Expression.Parameter(typeof(string));
-            var streamType = Expression.Parameter(typeof(string));
+            var streamName = Expression.Parameter(typeof(string), "streamName");
+            var streamType = Expression.Parameter(typeof(string), "streamType");
             var source = arguments.First(); // input source
             var parameterTypes = source.Type.GetGenericArguments(); // source types
             var inputParameter = Expression.Parameter(parameterTypes[0], "inputParameter");
@@ -28,6 +28,9 @@ namespace Bonsai.Lsl
             // need one expression that produces a stream outlet of the correct format
             var buildStream = StreamBuilder.OutletStream(streamName, streamType, inputParameter);
             var streamBuilder = Expression.Lambda<Func<string, string, StreamOutlet>>(buildStream, new List<ParameterExpression>() { streamName, streamType });
+            //var streamBuilder = Expression.Lambda(buildStream, new List<ParameterExpression>() { streamName, streamType, inputParameter });
+
+            streamBuilder.Compile();
 
             // need one expression that writes to the outlet with the correct format
             var outletParam = Expression.Parameter(typeof(StreamOutlet), "outletParam");
@@ -35,8 +38,6 @@ namespace Bonsai.Lsl
 
             var buildWriter = StreamBuilder.OutletWriter(outletParam, dataParam);
             var streamWriter = Expression.Lambda(buildWriter, new List<ParameterExpression>() { outletParam, dataParam });
-
-            streamWriter.Compile();
 
             //                     this     .Process         <parameterTypes>(source, streamBuilder, streamWriter)
             return Expression.Call(builder, nameof(Process), parameterTypes, source, streamBuilder, streamWriter);

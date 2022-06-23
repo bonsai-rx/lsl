@@ -27,14 +27,26 @@ namespace Bonsai.Lsl
         static readonly MethodInfo WriteInt16 = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(short[]), typeof(double), typeof(bool) });
         static readonly MethodInfo WriteChar = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(char[]), typeof(double), typeof(bool) });
         static readonly MethodInfo WriteString = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(string[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteLong = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(long[]), typeof(double), typeof(bool) });
 
         // Generates an expression representing StreamOutlet creation, dependent on input data type (parameter)
         public static Expression OutletStream(Expression nameParam, Expression typeParam, Expression parameter)
         {
             var type = parameter.Type;
-            var typeCode = Type.GetTypeCode(type);
-
             Expression channelCount = type.IsArray ? Expression.ArrayLength(parameter) : Expression.Constant(1);
+            TypeCode typeCode; // the typecode that we switch by depends on whether the input data is already in an array
+
+            // if the data is in an array already, we need to switch by the element data type, otherwise we will get object as type
+            if (type.IsArray)
+            {
+                typeCode = Type.GetTypeCode(
+                    Expression.ArrayAccess(parameter, new List<Expression> { Expression.Constant(1, typeof(int)) }).Type
+                );
+            }
+            else
+            {
+                typeCode = Type.GetTypeCode(type);
+            }
 
             switch (typeCode)
             {
@@ -115,13 +127,7 @@ namespace Bonsai.Lsl
 
                 // long
                 case TypeCode.Int64:
-                    // won't work if data is already an array
-                    data = Expression.Convert(data, typeof(float)); // no LSL long writer, need to convert to float
-                    data = Expression.NewArrayInit(typeof(float), new List<Expression> { data });
-                    return Expression.Call(outlet, WriteFloat, data, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
-
-                //var conversion = Expression.Call(typeof(StreamBuilder), "ConvertToFloatArray", new Type[] { typeof(long) }, formatData);
-                //return Expression.Call(outlet, WriteFloat, conversion, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
+                    return Expression.Call(outlet, WriteLong, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool)));
 
                 case TypeCode.Object:
                 default:
@@ -129,6 +135,7 @@ namespace Bonsai.Lsl
             }
         }
 
+        // TODO - use something like this for conversions in future, things that can't be passed to LSL interface
         public static float[] ConvertToFloatArray<T>(T[] inArray)
         {
             return inArray.Cast<float>().ToArray();
