@@ -30,7 +30,7 @@ namespace Bonsai.Lsl
         static readonly MethodInfo WriteLong = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(long[]), typeof(double), typeof(bool) });
 
         // Generates an expression representing StreamOutlet creation, dependent on input data type (parameter)
-        public static Expression OutletStream(Expression nameParam, Expression typeParam, Expression channelParam, Expression parameter)
+        public static Expression OutletStream(Expression nameParam, Expression typeParam, Expression channelCount, Expression parameter)
         {
             var type = parameter.Type;
             TypeCode typeCode; // the typecode that we switch by depends on whether the input data is already in an array
@@ -51,32 +51,32 @@ namespace Bonsai.Lsl
             {
                 // float
                 case TypeCode.Single:
-                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelParam, Expression.Constant(channel_format_t.cf_float32, typeof(channel_format_t)));
+                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_float32, typeof(channel_format_t)));
 
                 // double
                 case TypeCode.Double:
-                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelParam, Expression.Constant(channel_format_t.cf_double64, typeof(channel_format_t)));
+                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_double64, typeof(channel_format_t)));
 
                 // int
                 case TypeCode.Int32:
-                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelParam, Expression.Constant(channel_format_t.cf_int32, typeof(channel_format_t)));
+                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_int32, typeof(channel_format_t)));
 
                 // short
                 case TypeCode.Int16:
-                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelParam, Expression.Constant(channel_format_t.cf_int16, typeof(channel_format_t)));
+                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_int16, typeof(channel_format_t)));
 
                 // string
                 case TypeCode.String:
-                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelParam, Expression.Constant(channel_format_t.cf_string, typeof(channel_format_t)));
+                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_string, typeof(channel_format_t)));
 
                 // long
                 case TypeCode.Int64:
-                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelParam, Expression.Constant(channel_format_t.cf_int64, typeof(channel_format_t)));
+                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_int64, typeof(channel_format_t)));
 
                 // For any other types, we need largest type that can hold other types (double64)
                 case TypeCode.Object:
                 default:
-                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelParam, Expression.Constant(channel_format_t.cf_double64, typeof(channel_format_t)));
+                    return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_double64, typeof(channel_format_t)));
             }
         }
 

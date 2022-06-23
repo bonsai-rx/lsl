@@ -14,6 +14,7 @@ namespace Bonsai.Lsl
     {
         public string StreamName { get; set; }
         public string StreamType { get; set; }
+        public int ChannelCount { get; set; }
         public string Uid { get; set; }
 
         public override Expression Build(IEnumerable<Expression> arguments)
@@ -48,7 +49,7 @@ namespace Bonsai.Lsl
                 {
                     //StreamInfo info = new StreamInfo(StreamName, StreamType, 1, 0, channel_format_t.cf_float32, Uid);
                     //return new StreamOutlet(info);
-                    return streamBuilder(StreamName, StreamType, 2);
+                    return streamBuilder(StreamName, StreamType, ChannelCount);
                 },
                 outlet => source.Do(input =>
                 {
