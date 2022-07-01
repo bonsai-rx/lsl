@@ -17,8 +17,16 @@ namespace Bonsai.Lsl
             return new StreamOutlet(info);
         }
 
-        // Reflection reference to outlet creation method
+        // Generate a StreamInfo/StreamInlet from parameters
+        public static StreamInlet CreateInlet(string streamName, int channelCount, processing_options_t processingOptions)
+        {
+            StreamInfo info = LSL.resolve_stream("name", streamName, channelCount)[0]; // TODO - assumes first returned stream is correct
+            return new StreamInlet(info, postproc_flags: processingOptions);
+        }
+
+        // Reflection reference to outlet/inlet creation method
         static readonly MethodInfo CreateOutletMethod = typeof(StreamBuilder).GetMethod(nameof(StreamBuilder.CreateOutlet));
+        static readonly MethodInfo CreateInletMethod = typeof(StreamBuilder).GetMethod(nameof(StreamBuilder.CreateInlet));
 
         // Reflection references to push_sample overload methods
         static readonly MethodInfo WriteFloat = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(float[]), typeof(double), typeof(bool) });
@@ -28,6 +36,15 @@ namespace Bonsai.Lsl
         static readonly MethodInfo WriteChar = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(char[]), typeof(double), typeof(bool) });
         static readonly MethodInfo WriteString = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(string[]), typeof(double), typeof(bool) });
         static readonly MethodInfo WriteLong = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(long[]), typeof(double), typeof(bool) });
+
+        // Reflection references to push_sample overload methods
+        static readonly MethodInfo ReadFloat = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(float[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo ReadDouble = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(double[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo ReadInt32 = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(int[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo ReadInt16 = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(short[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo ReadChar = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(char[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo ReadString = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(string[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo ReadLong = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(long[]), typeof(double), typeof(bool) });
 
         // Generates an expression representing StreamOutlet creation, dependent on input data type (parameter)
         public static Expression OutletStream(Expression nameParam, Expression typeParam, Expression channelCount, Expression parameter)
@@ -78,6 +95,11 @@ namespace Bonsai.Lsl
                 default:
                     return Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_double64, typeof(channel_format_t)));
             }
+        }
+
+        public static Expression InletStream(Expression nameParam, Expression channelCount)
+        {
+            return Expression.Call(CreateInletMethod, nameParam, channelCount, Expression.Constant(processing_options_t.proc_ALL));
         }
 
         // Generates an expression representing a write action to an outlet based on data type
@@ -131,6 +153,72 @@ namespace Bonsai.Lsl
                 case TypeCode.Object:
                 default:
                     return null;
+            }
+        }
+
+        public static Expression InletReader(string typeTag, Expression inlet, Expression dataBuffer)
+        {
+            switch (typeTag[0]) // TODO - doesn't do multiple tags yet
+            {
+                // float
+                case TypeTag.Float:
+                    return Expression.Call(inlet, ReadFloat, dataBuffer);
+
+                // double
+                case TypeTag.Double:
+                    return Expression.Call(inlet, ReadDouble, dataBuffer);
+
+                // int
+                case TypeTag.Int32:
+                    return Expression.Call(inlet, ReadInt32, dataBuffer);
+
+                // short - TODO no short typetag
+
+                // string
+                case TypeTag.String:
+                    return Expression.Call(inlet, ReadString, dataBuffer);
+
+                // long
+                case TypeTag.Int64:
+                    return Expression.Call(inlet, ReadLong, dataBuffer);
+
+                case TypeTag.Blob:
+                default:
+                    return null;
+
+            }
+        }
+
+        public static Expression InletBuffer(string typeTag, Expression channelCount)
+        {
+            switch (typeTag[0]) // TODO - doesn't do multiple tags yet
+            {
+                // float
+                case TypeTag.Float:
+                    return Expression.NewArrayBounds(typeof(float), channelCount);
+
+                // double
+                case TypeTag.Double:
+                    return Expression.NewArrayBounds(typeof(double), channelCount);
+
+                // int
+                case TypeTag.Int32:
+                    return Expression.NewArrayBounds(typeof(int), channelCount);
+
+                // short - TODO no short typetag
+
+                // string
+                case TypeTag.String:
+                    return Expression.NewArrayBounds(typeof(string), channelCount);
+
+                // long
+                case TypeTag.Int64:
+                    return Expression.NewArrayBounds(typeof(long), channelCount);
+
+                case TypeTag.Blob:
+                default:
+                    return null;
+
             }
         }
 

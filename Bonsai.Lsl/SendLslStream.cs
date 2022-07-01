@@ -1,11 +1,9 @@
 ﻿using Bonsai.Expressions;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reactive.Linq;
-
 
 namespace Bonsai.Lsl
 {
@@ -27,7 +25,7 @@ namespace Bonsai.Lsl
             var inputParameter = Expression.Parameter(parameterTypes[0], "inputParameter");
             var builder = Expression.Constant(this);
 
-            // need one expression that produces a stream outlet of the correct format
+            // need one expression that produces a stream outlet of the correct format - TODO don't like this naming convention of swapping 'build' position in variable name
             var buildStream = StreamBuilder.OutletStream(streamName, streamType, channelCount, inputParameter);
             var streamBuilder = Expression.Lambda<Func<string, string, int, StreamOutlet>>(buildStream, new List<ParameterExpression>() { streamName, streamType, channelCount });
 
@@ -55,7 +53,7 @@ namespace Bonsai.Lsl
                 {
                     //outlet.push_sample(new float[] { input });
                     streamWriter(outlet, input);
-                })
+                }).Finally(() => { outlet.Close(); })
             );
         }
     }
