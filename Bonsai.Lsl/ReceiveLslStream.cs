@@ -15,7 +15,7 @@ namespace Bonsai.Lsl
     {
         public string StreamName { get; set; }
         [TypeConverter(typeof(TypeTagConverter))]
-        public string TypeTag { get; set; } = Lsl.TypeTag.Double.ToString();
+        public string TypeTag { get; set; } = Lsl.TypeTag.Int64.ToString();
         public int ChannelCount { get; set; }
 
         static readonly Range<int> argumentRange = Range.Create(lowerBound: 0, upperBound: 0);
@@ -37,35 +37,21 @@ namespace Bonsai.Lsl
             // need one expression to read from that inlet
             var typeTag = TypeTag;
             var streamInlet = Expression.Parameter(typeof(StreamInlet), "streamInlet");
-            var buildReader = StreamBuilder.InletReader(typeTag, buildInlet, channelCount);
+            var buildReader = StreamBuilder.InletReader(typeTag, streamInlet, channelCount);
             var readerBuilder = Expression.Lambda<Func<StreamInlet, int, double>>(buildReader, new List<ParameterExpression> { streamInlet, channelCount });
 
-            //// need one expression that creates an appropriately typed data buffer
-            //var typeTag = TypeTag;
-            //var buildBuffer = StreamBuilder.InletBuffer(typeTag, channelCount);
-            //var bufferBuilder = Expression.Lambda(buildBuffer, new List<ParameterExpression>() { channelCount });
+            var parameterTypes = new Type[] { typeof(double) }; // placeholder for generic stuff later
 
-            //// need one expression that creates an inlet reader
-            //var streamInlet = Expression.Parameter(typeof(StreamInlet), "streamInlet");
-            //var buffer = Expression.Parameter(typeof(Array), "dataBuffer");
-            //var buildReader = StreamBuilder.InletReader(typeTag, streamInlet, buffer);
-            //var readerBuilder = Expression.Lambda(buildReader, new List<ParameterExpression> { streamInlet, buffer });
-
-            //return Expression.Call(typeof(ReceiveLslStream), 
-            //    nameof(Generate), 
-            //    bufferBuilder.ReturnType.GetGenericArguments(), 
-            //    Expression.Constant(StreamName), 
-            //    Expression.Constant(ChannelCount),
-            //    inletBuilder, bufferBuilder, readerBuilder);
-
-            return Expression.Call(GenerateMethod,
-                Expression.Constant(StreamName),
-                Expression.Constant(ChannelCount),
+            return Expression.Call(builder,
+                nameof(Generate),
+                parameterTypes,
+                Expression.Constant(StreamName, typeof(string)),
+                Expression.Constant(ChannelCount, typeof(int)),
                 inletBuilder,
-                readerBuilder); ;
+                readerBuilder);
         }
 
-        static IObservable<double> Generate(string streamName, int channelCount, 
+        IObservable<double> Generate<T>(string streamName, int channelCount, 
             Func<string, int, StreamInlet> inletBuilder, 
             Func<StreamInlet, int, double> readerBuilder)
         {
@@ -73,7 +59,7 @@ namespace Bonsai.Lsl
             {
                 return Task.Factory.StartNew(() =>
                 {
-                    var streamInlet = inletBuilder(streamName, channelCount);
+                    StreamInlet streamInlet = inletBuilder(streamName, channelCount);
                     streamInlet.open_stream();
 
                     while (!cancellationToken.IsCancellationRequested)
@@ -86,13 +72,5 @@ namespace Bonsai.Lsl
                 });
             });
         }
-
-        static readonly MethodInfo GenerateMethod = typeof(ReceiveLslStream).GetMethod(nameof(ReceiveLslStream.Generate));
-
-        //TimestampedSample<T[]> GetSample<T>(StreamInlet inlet, T sampleArray)
-        //{
-        //    double sampleTime = inlet.pull_sample(sampleArray);
-        //    return new TimestampedSample<T[]>(sampleTime, sampleArray);
-        //}
     }
 }
