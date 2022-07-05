@@ -14,13 +14,18 @@ namespace Bonsai.Lsl
     {
         public string StreamName { get; set; }
         [TypeConverter(typeof(TypeTagConverter))]
-        public string TypeTag { get; set; }
+        public string TypeTag { get; set; } = Lsl.TypeTag.Int64.ToString();
         public int ChannelCount { get; set; }
+
+        static readonly Range<int> argumentRange = Range.Create(lowerBound: 0, upperBound: 0);
+        public override Range<int> ArgumentRange
+        {
+            get { return argumentRange; }
+        }
 
         public override Expression Build(IEnumerable<Expression> arguments)
         {
             var streamName = Expression.Parameter(typeof(string), "streamName");
-            //var typeTag = Expression.Parameter(typeof(string), "typeTag");
             var channelCount = Expression.Parameter(typeof(int), "channelCount");
             var inlet = Expression.Parameter(typeof(StreamInlet), "streamInlet");
             var builder = Expression.Constant(this);
@@ -40,18 +45,18 @@ namespace Bonsai.Lsl
             var buildReader = StreamBuilder.InletReader(typeTag, streamInlet, buffer);
             var readerBuilder = Expression.Lambda(buildReader, new List<ParameterExpression> { streamInlet, buffer });
 
-            return Expression.Call(builder, 
+            return Expression.Call(typeof(ReceiveLslStream), 
                 nameof(Generate), 
                 bufferBuilder.ReturnType.GetGenericArguments(), 
                 Expression.Constant(StreamName), 
                 Expression.Constant(ChannelCount),
-                inletBuilder, bufferBuilder);
+                inletBuilder, bufferBuilder, readerBuilder);
         }
 
         static IObservable<TimestampedSample<TResult>> Generate<TResult>(string streamName, int channelCount, 
             Func<string, int, StreamInlet> inletBuilder, 
             Func<int, TResult[]> bufferBuilder, 
-            Func<StreamInlet, TResult[], double> inletReader)
+            Func<StreamInlet, TResult[], double> readerBuilder)
         {
             return Observable.Create<TimestampedSample<TResult>>((observer, cancellationToken) =>
             {
@@ -63,7 +68,7 @@ namespace Bonsai.Lsl
 
                     while (!cancellationToken.IsCancellationRequested)
                     {
-                        double sampleTime = inletReader(streamInlet, sampleArray);
+                        double sampleTime = readerBuilder(streamInlet, sampleArray);
                         var timestampedSample = new TimestampedSample<TResult>(sampleTime, sampleArray);
                         observer.OnNext(timestampedSample);
                     }

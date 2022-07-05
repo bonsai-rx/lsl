@@ -38,13 +38,13 @@ namespace Bonsai.Lsl
         static readonly MethodInfo WriteLong = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(long[]), typeof(double), typeof(bool) });
 
         // Reflection references to push_sample overload methods
-        static readonly MethodInfo ReadFloat = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(float[]), typeof(double), typeof(bool) });
-        static readonly MethodInfo ReadDouble = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(double[]), typeof(double), typeof(bool) });
-        static readonly MethodInfo ReadInt32 = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(int[]), typeof(double), typeof(bool) });
-        static readonly MethodInfo ReadInt16 = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(short[]), typeof(double), typeof(bool) });
-        static readonly MethodInfo ReadChar = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(char[]), typeof(double), typeof(bool) });
-        static readonly MethodInfo ReadString = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(string[]), typeof(double), typeof(bool) });
-        static readonly MethodInfo ReadLong = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(long[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo ReadFloat = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(float[]), typeof(double) });
+        static readonly MethodInfo ReadDouble = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(double[]), typeof(double) });
+        static readonly MethodInfo ReadInt32 = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(int[]), typeof(double) });
+        static readonly MethodInfo ReadInt16 = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(short[]), typeof(double) });
+        static readonly MethodInfo ReadChar = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(char[]), typeof(double) });
+        static readonly MethodInfo ReadString = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(string[]), typeof(double) });
+        static readonly MethodInfo ReadLong = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(long[]), typeof(double) });
 
         // Generates an expression representing StreamOutlet creation, dependent on input data type (parameter)
         public static Expression OutletStream(Expression nameParam, Expression typeParam, Expression channelCount, Expression parameter)
@@ -162,30 +162,29 @@ namespace Bonsai.Lsl
             {
                 // float
                 case TypeTag.Float:
-                    return Expression.Call(inlet, ReadFloat, dataBuffer);
+                    return Expression.Call(inlet, ReadFloat, dataBuffer, Expression.Constant(LSL.FOREVER));
 
                 // double
                 case TypeTag.Double:
-                    return Expression.Call(inlet, ReadDouble, dataBuffer);
+                    return Expression.Call(inlet, ReadDouble, dataBuffer, Expression.Constant(LSL.FOREVER));
 
                 // int
                 case TypeTag.Int32:
-                    return Expression.Call(inlet, ReadInt32, dataBuffer);
+                    return Expression.Call(inlet, ReadInt32, dataBuffer, Expression.Constant(LSL.FOREVER));
 
                 // short - TODO no short typetag
 
                 // string
                 case TypeTag.String:
-                    return Expression.Call(inlet, ReadString, dataBuffer);
+                    return Expression.Call(inlet, ReadString, dataBuffer, Expression.Constant(LSL.FOREVER));
 
                 // long
                 case TypeTag.Int64:
-                    return Expression.Call(inlet, ReadLong, dataBuffer);
+                    return Expression.Call(inlet, ReadLong, dataBuffer, Expression.Constant(LSL.FOREVER));
 
                 case TypeTag.Blob:
                 default:
                     return null;
-
             }
         }
 
