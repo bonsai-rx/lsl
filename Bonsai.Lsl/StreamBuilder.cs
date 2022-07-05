@@ -156,37 +156,76 @@ namespace Bonsai.Lsl
             }
         }
 
-        public static Expression InletReader(string typeTag, Expression inlet, Expression dataBuffer)
+        public static Expression InletReader(string typeTag, Expression inlet, Expression channelCount)
         {
-            switch (typeTag[0]) // TODO - doesn't do multiple tags yet
+            NewArrayExpression buffer;
+            switch (typeTag[0]) // TODO - doesn't do multiple tags yet 
             {
                 // float
                 case TypeTag.Float:
-                    return Expression.Call(inlet, ReadFloat, dataBuffer, Expression.Constant(LSL.FOREVER));
+                    buffer = Expression.NewArrayBounds(typeof(float), channelCount);
+                    return Expression.Call(inlet, ReadFloat, buffer, Expression.Constant(LSL.FOREVER));
 
                 // double
                 case TypeTag.Double:
-                    return Expression.Call(inlet, ReadDouble, dataBuffer, Expression.Constant(LSL.FOREVER));
+                    buffer = Expression.NewArrayBounds(typeof(double), channelCount);
+                    return Expression.Call(inlet, ReadDouble, buffer, Expression.Constant(LSL.FOREVER));
 
                 // int
                 case TypeTag.Int32:
-                    return Expression.Call(inlet, ReadInt32, dataBuffer, Expression.Constant(LSL.FOREVER));
+                    buffer = Expression.NewArrayBounds(typeof(int), channelCount);
+                    return Expression.Call(inlet, ReadInt32, buffer, Expression.Constant(LSL.FOREVER));
 
                 // short - TODO no short typetag
 
                 // string
                 case TypeTag.String:
-                    return Expression.Call(inlet, ReadString, dataBuffer, Expression.Constant(LSL.FOREVER));
+                    buffer = Expression.NewArrayBounds(typeof(string), channelCount);
+                    return Expression.Call(inlet, ReadString, buffer, Expression.Constant(LSL.FOREVER));
 
                 // long
                 case TypeTag.Int64:
-                    return Expression.Call(inlet, ReadLong, dataBuffer, Expression.Constant(LSL.FOREVER));
+                    buffer = Expression.NewArrayBounds(typeof(long), channelCount);
+                    return Expression.Call(inlet, ReadLong, buffer, Expression.Constant(LSL.FOREVER));
 
+                // other
                 case TypeTag.Blob:
                 default:
                     return null;
-            }
+            } 
         }
+
+        //public static Expression InletReader(string typeTag, Expression inlet, Expression dataBuffer)
+        //{
+        //    switch (typeTag[0]) // TODO - doesn't do multiple tags yet
+        //    {
+        //        // float
+        //        case TypeTag.Float:
+        //            return Expression.Call(inlet, ReadFloat, dataBuffer, Expression.Constant(LSL.FOREVER));
+
+        //        // double
+        //        case TypeTag.Double:
+        //            return Expression.Call(inlet, ReadDouble, dataBuffer, Expression.Constant(LSL.FOREVER));
+
+        //        // int
+        //        case TypeTag.Int32:
+        //            return Expression.Call(inlet, ReadInt32, dataBuffer, Expression.Constant(LSL.FOREVER));
+
+        //        // short - TODO no short typetag
+
+        //        // string
+        //        case TypeTag.String:
+        //            return Expression.Call(inlet, ReadString, dataBuffer, Expression.Constant(LSL.FOREVER));
+
+        //        // long
+        //        case TypeTag.Int64:
+        //            return Expression.Call(inlet, ReadLong, dataBuffer, Expression.Constant(LSL.FOREVER));
+
+        //        case TypeTag.Blob:
+        //        default:
+        //            return null;
+        //    }
+        //}
 
         public static Expression InletBuffer(string typeTag, Expression channelCount)
         {
@@ -221,10 +260,9 @@ namespace Bonsai.Lsl
             }
         }
 
-        // TODO - use something like this for conversions in future, things that can't be passed to LSL interface
-        public static float[] ConvertToFloatArray<T>(T[] inArray)
-        {
-            return inArray.Cast<float>().ToArray();
-        }
+        //public static InletReader<T> BuildInletReader<T>(string streamName, int channelCount, processing_options_t processingOptions)
+        //{
+        //    return new InletReader<T>(streamName, channelCount, processingOptions);
+        //}
     }
 }
