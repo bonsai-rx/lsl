@@ -38,16 +38,17 @@ namespace Bonsai.Lsl
             var typeTag = TypeTag;
             var buildBuffer = StreamBuilder.InletBuffer(typeTag, channelCount);
             var bufferBuilder = Expression.Lambda(buildBuffer, new List<ParameterExpression>() { channelCount });
+            var dataType = bufferBuilder.ReturnType.GetElementType();
 
             // need one expression that creates an inlet reader
             var streamInlet = Expression.Parameter(typeof(StreamInlet), "streamInlet");
-            var buffer = Expression.Parameter(typeof(Array), "dataBuffer");
+            var buffer = Expression.Parameter(bufferBuilder.ReturnType, "dataBuffer");
             var buildReader = StreamBuilder.InletReader(typeTag, streamInlet, buffer);
             var readerBuilder = Expression.Lambda(buildReader, new List<ParameterExpression> { streamInlet, buffer });
 
             return Expression.Call(typeof(ReceiveLslStream), 
                 nameof(Generate), 
-                bufferBuilder.ReturnType.GetGenericArguments(), 
+                new Type[] { dataType }, 
                 Expression.Constant(StreamName), 
                 Expression.Constant(ChannelCount),
                 inletBuilder, bufferBuilder, readerBuilder);

@@ -20,7 +20,7 @@ namespace Bonsai.Lsl
         // Generate a StreamInfo/StreamInlet from parameters
         public static StreamInlet CreateInlet(string streamName, int channelCount, processing_options_t processingOptions)
         {
-            StreamInfo info = LSL.resolve_stream("name", streamName, channelCount)[0]; // TODO - assumes first returned stream is correct
+            StreamInfo info = LSL.resolve_stream("name", streamName)[0]; // TODO - assumes first returned stream is correct
             return new StreamInlet(info, postproc_flags: processingOptions);
         }
 
