@@ -468,7 +468,7 @@ namespace Bonsai.Lsl
         public void push_sample(short[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_stp(obj, data, timestamp, pushthrough ? 1 : 0); }
         public void push_sample(char[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_ctp(obj, data, timestamp, pushthrough ? 1 : 0); }
         public void push_sample(string[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_strtp(obj, data, timestamp, pushthrough ? 1 : 0); }
-
+        public void push_sample(long[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_ltp(obj, data, timestamp, pushthrough ? 1 : 0); }
 
         // ===================================================
         // === Pushing an chunk of samples into the outlet ===
@@ -627,6 +627,7 @@ namespace Bonsai.Lsl
         public double pull_sample(int[] sample, double timeout = LSL.FOREVER) { int ec = 0; double res = dll.lsl_pull_sample_i(obj, sample, sample.Length, timeout, ref ec); LSL.check_error(ec); return res; }
         public double pull_sample(short[] sample, double timeout = LSL.FOREVER) { int ec = 0; double res = dll.lsl_pull_sample_s(obj, sample, sample.Length, timeout, ref ec); LSL.check_error(ec); return res; }
         public double pull_sample(char[] sample, double timeout = LSL.FOREVER) { int ec = 0; double res = dll.lsl_pull_sample_c(obj, sample, sample.Length, timeout, ref ec); LSL.check_error(ec); return res; }
+        public double pull_sample(long[] sample, double timeout = LSL.FOREVER) { int ec = 0; double res = dll.lsl_pull_sample_l(obj, sample, sample.Length, timeout, ref ec); LSL.check_error(ec); return res; }
         public double pull_sample(string[] sample, double timeout = LSL.FOREVER)
         {
             int ec = 0;
@@ -983,6 +984,9 @@ namespace Bonsai.Lsl
         public static extern int lsl_push_sample_ftp(IntPtr obj, float[] data, double timestamp, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_sample_ltp(IntPtr obj, long[] data, double timestamp, int pushthrough);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern int lsl_push_sample_dtp(IntPtr obj, double[] data, double timestamp, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
@@ -1095,6 +1099,9 @@ namespace Bonsai.Lsl
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern double lsl_pull_sample_c(IntPtr obj, char[] buffer, int buffer_elements, double timeout, ref int ec);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern double lsl_pull_sample_l(IntPtr obj, long[] buffer, int buffer_elements, double timeout, ref int ec);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern double lsl_pull_sample_str(IntPtr obj, IntPtr[] buffer, int buffer_elements, double timeout, ref int ec);

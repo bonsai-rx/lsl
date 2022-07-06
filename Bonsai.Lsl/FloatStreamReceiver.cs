@@ -15,7 +15,7 @@ namespace Bonsai.Lsl
             {
                 return Task.Factory.StartNew(() =>
                 {
-                    StreamInfo info = global::LSL.LSL.resolve_stream("name", ResolveStreamName, 1)[0];
+                    StreamInfo info = LSL.resolve_stream("name", ResolveStreamName, 1)[0];
                     StreamInlet inlet = new StreamInlet(info, postproc_flags: InletProcessing);
                     inlet.open_stream();
                     float[] sampleArray = new float[info.channel_count()];
