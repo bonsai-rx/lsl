@@ -40,8 +40,23 @@ namespace Bonsai.Lsl
             return Expression.Call(builder, nameof(Process), parameterTypes, source, streamBuilder, streamWriter);
         }
 
-        IObservable<TSource> Process<TSource>(IObservable<TSource> source, Func<string, string, int, StreamOutlet> streamBuilder, Action<StreamOutlet, TSource> streamWriter)
+        IObservable<double> Process<TSource>(IObservable<TSource> source, Func<string, string, int, StreamOutlet> streamBuilder, Action<StreamOutlet, TSource> streamWriter)
         {
+            //return Observable.Using(
+            //    () =>
+            //    {
+            //        //StreamInfo info = new StreamInfo(StreamName, StreamType, 1, 0, channel_format_t.cf_float32, Uid);
+            //        //return new StreamOutlet(info);
+            //        return streamBuilder(StreamName, StreamType, ChannelCount);
+            //    },
+            //    outlet => source.Do(input =>
+            //    {
+            //        //outlet.push_sample(new float[] { input });
+            //        Console.WriteLine(LSL.local_clock());
+            //        streamWriter(outlet, input);
+            //    }).Finally(() => { outlet.Close(); })
+            //);
+
             return Observable.Using(
                 () =>
                 {
@@ -49,10 +64,11 @@ namespace Bonsai.Lsl
                     //return new StreamOutlet(info);
                     return streamBuilder(StreamName, StreamType, ChannelCount);
                 },
-                outlet => source.Do(input =>
+                outlet => source.Select(input =>
                 {
                     //outlet.push_sample(new float[] { input });
                     streamWriter(outlet, input);
+                    return LSL.local_clock();
                 }).Finally(() => { outlet.Close(); })
             );
         }
