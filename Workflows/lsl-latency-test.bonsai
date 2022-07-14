@@ -3,8 +3,8 @@
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:lsl="clr-namespace:Bonsai.Lsl;assembly=Bonsai.Lsl"
-                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -91,7 +91,7 @@
         <io:Overwrite>true</io:Overwrite>
         <io:Suffix>None</io:Suffix>
         <io:IncludeHeader>false</io:IncludeHeader>
-        <io:Selector>Item1,Item2</io:Selector>
+        <io:Selector>Item1,Item2,Item3</io:Selector>
       </Expression>
     </Nodes>
     <Edges>
