@@ -78,11 +78,5 @@ namespace Bonsai.Lsl
                 });
             });
         }
-
-        //TimestampedSample<T[]> GetSample<T>(StreamInlet inlet, T sampleArray)
-        //{
-        //    double sampleTime = inlet.pull_sample(sampleArray);
-        //    return new TimestampedSample<T[]>(sampleTime, sampleArray);
-        //}
     }
 }
