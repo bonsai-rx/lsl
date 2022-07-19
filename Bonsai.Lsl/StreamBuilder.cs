@@ -46,6 +46,21 @@ namespace Bonsai.Lsl
         static readonly MethodInfo ReadString = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(string[]), typeof(double) });
         static readonly MethodInfo ReadLong = typeof(StreamInlet).GetMethod(nameof(StreamInlet.pull_sample), new[] { typeof(long[]), typeof(double) });
 
+        // Copied from OSC Message builder
+        static IEnumerable<MemberInfo> GetDataMembers(Type type)
+        {
+            var members = Enumerable.Concat<MemberInfo>(
+                type.GetFields(BindingFlags.Instance | BindingFlags.Public),
+                type.GetProperties(BindingFlags.Instance | BindingFlags.Public));
+            if (type.IsInterface)
+            {
+                members = members.Concat(type
+                    .GetInterfaces()
+                    .SelectMany(i => i.GetProperties(BindingFlags.Instance | BindingFlags.Public)));
+            }
+            return members.OrderBy(member => member.MetadataToken);
+        }
+
         // Generates an expression representing StreamOutlet creation, dependent on input data type (parameter)
         public static Expression OutletStream(Expression nameParam, Expression typeParam, Expression channelCount, Expression parameter)
         {
@@ -153,6 +168,18 @@ namespace Bonsai.Lsl
                 case TypeCode.Object:
                 default:
                     return null;
+                    //var members = GetDataMembers(type);
+
+                    //return Expression.Block(members.Select(member =>
+                    //{
+                    //    var memberAccess = Expression.MakeMemberAccess(data, member);
+                    //    if (memberAccess.Type == type)
+                    //    {
+                    //        throw new ArgumentException("Recursive data types are not supported.", nameof(data));
+                    //    }
+
+                    //    return OutletWriter(outlet, formatData);
+                    //}));
             }
         }
 
