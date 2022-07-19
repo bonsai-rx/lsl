@@ -26,7 +26,12 @@ namespace Bonsai.Lsl
             var builder = Expression.Constant(this);
 
             // Generates required outlets
-            var buildStream = ObjectStreamBuilder.OutletStream(streamName, streamType, channelCount, inputParameter);
+            var buildOutlets = ObjectStreamBuilder.OutletStream(streamName, streamType, channelCount, inputParameter);
+
+            // Generate required writers
+            var outletParam = Expression.Parameter(typeof(StreamOutlet), "outletParam");
+            var dataParam = Expression.Parameter(parameterTypes[0], "dataParam");
+            var buildWriters = ObjectStreamBuilder.OutletWriter(outletParam, dataParam);
 
             //                     this     .Process        <parameterTypes>(source)
             return Expression.Call(builder, nameof(Process), parameterTypes, source);

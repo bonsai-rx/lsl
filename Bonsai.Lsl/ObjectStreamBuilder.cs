@@ -19,6 +19,14 @@ namespace Bonsai.Lsl
 
         static readonly MethodInfo CreateOutletMethod = typeof(StreamBuilder).GetMethod(nameof(StreamBuilder.CreateOutlet));
 
+        static readonly MethodInfo WriteFloat = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(float[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteDouble = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(double[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteInt32 = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(int[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteInt16 = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(short[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteChar = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(char[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteString = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(string[]), typeof(double), typeof(bool) });
+        static readonly MethodInfo WriteLong = typeof(StreamOutlet).GetMethod(nameof(StreamOutlet.push_sample), new[] { typeof(long[]), typeof(double), typeof(bool) });
+
         // Copied from OSC Message builder
         static IEnumerable<MemberInfo> GetDataMembers(Type type)
         {
@@ -35,10 +43,11 @@ namespace Bonsai.Lsl
         }
 
         // Generates an expression representing StreamOutlet creation, dependent on input data type (parameter)
+        // TODO in this configuration we always use 1 channel, change the channel count parameter
         public static List<Expression> OutletStream(Expression nameParam, Expression typeParam, Expression channelCount, Expression parameter)
         {
             var type = parameter.Type;
-            TypeCode typeCode = Type.GetTypeCode(type); ; // the typecode that we switch by depends on whether the input data is already in an array
+            TypeCode typeCode = Type.GetTypeCode(type); // the typecode that we switch by depends on whether the input data is already in an array
             List<Expression> expressions = new List<Expression>();
 
             switch (typeCode)
@@ -82,6 +91,81 @@ namespace Bonsai.Lsl
                     {
                         var memberAccess = Expression.MakeMemberAccess(parameter, member);
                         expressions.AddRange(OutletStream(nameParam, typeParam, channelCount, memberAccess));
+                    }
+                    break;
+            }
+
+            return expressions;
+        }
+
+        public static List<Expression> OutletWriter(Expression outlet, Expression data)
+        {
+            var type = data.Type;
+            TypeCode typeCode = Type.GetTypeCode(type); // the typecode that we switch by depends on whether the input data is already in an array
+            Expression formatData; // the way that we format the data to be pushed also depends on whether it is already in an array
+            var expressions = new List<Expression>();
+
+            //// if the data is in an array already, we need to switch by the element data type and there is no need to format
+            //if (type.IsArray)
+            //{
+            //    typeCode = Type.GetTypeCode(
+            //        Expression.ArrayAccess(data, new List<Expression> { Expression.Constant(1, typeof(int)) }).Type
+            //    );
+            //    formatData = data;
+            //}
+            //// if we have just a single value, we need to format the data into a single element array
+            //else
+            //{
+            //    typeCode = Type.GetTypeCode(type);
+            //    formatData = Expression.NewArrayInit(type, new List<Expression> { data });
+            //}
+
+            switch (typeCode)
+            {
+                // float
+                case TypeCode.Single:
+                    formatData = Expression.NewArrayInit(type, new List<Expression> { data });
+                    expressions.Add(Expression.Call(outlet, WriteFloat, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool))));
+                    break;
+
+                // double
+                case TypeCode.Double:
+                    formatData = Expression.NewArrayInit(type, new List<Expression> { data });
+                    expressions.Add(Expression.Call(outlet, WriteDouble, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool))));
+                    break;
+
+                // int
+                case TypeCode.Int32:
+                    formatData = Expression.NewArrayInit(type, new List<Expression> { data });
+                    expressions.Add(Expression.Call(outlet, WriteInt32, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool))));
+                    break;
+
+                // short
+                case TypeCode.Int16:
+                    formatData = Expression.NewArrayInit(type, new List<Expression> { data });
+                    expressions.Add(Expression.Call(outlet, WriteInt16, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool))));
+                    break;
+
+                // string
+                case TypeCode.String:
+                    formatData = Expression.NewArrayInit(type, new List<Expression> { data });
+                    expressions.Add(Expression.Call(outlet, WriteString, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool))));
+                    break;
+
+                // long
+                case TypeCode.Int64:
+                    formatData = Expression.NewArrayInit(type, new List<Expression> { data });
+                    expressions.Add(Expression.Call(outlet, WriteLong, formatData, Expression.Constant(0.0, typeof(double)), Expression.Constant(true, typeof(bool))));
+                    break;
+
+                case TypeCode.Object:
+                default:
+                    // recursion time
+                    var members = GetDataMembers(type);
+                    foreach (MemberInfo member in members)
+                    {
+                        var memberAccess = Expression.MakeMemberAccess(data, member);
+                        expressions.AddRange(OutletWriter(outlet, memberAccess));
                     }
                     break;
             }
