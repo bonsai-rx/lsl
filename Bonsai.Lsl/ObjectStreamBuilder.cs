@@ -35,42 +35,42 @@ namespace Bonsai.Lsl
         }
 
         // Generates an expression representing StreamOutlet creation, dependent on input data type (parameter)
-        public static Expression OutletStream(Expression nameParam, Expression typeParam, Expression channelCount, Expression parameter, List<Expression> outletExpressions)
+        public static List<Expression> OutletStream(Expression nameParam, Expression typeParam, Expression channelCount, Expression parameter)
         {
             var type = parameter.Type;
             TypeCode typeCode = Type.GetTypeCode(type); ; // the typecode that we switch by depends on whether the input data is already in an array
-            Expression exp;
+            List<Expression> expressions = new List<Expression>();
 
             switch (typeCode)
             {
                 // float
                 case TypeCode.Single:
-                    exp = Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_float32, typeof(channel_format_t)));
+                    expressions.Add(Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_float32, typeof(channel_format_t))));
                     break;
 
                 // double
                 case TypeCode.Double:
-                    exp = Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_double64, typeof(channel_format_t)));
+                    expressions.Add(Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_double64, typeof(channel_format_t))));
                     break;
 
                 // int
                 case TypeCode.Int32:
-                    exp = Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_int32, typeof(channel_format_t)));
+                    expressions.Add(Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_int32, typeof(channel_format_t))));
                     break;
 
                 // short
                 case TypeCode.Int16:
-                    exp = Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_int16, typeof(channel_format_t)));
+                    expressions.Add(Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_int16, typeof(channel_format_t))));
                     break;
 
                 // string
                 case TypeCode.String:
-                    exp = Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_string, typeof(channel_format_t)));
+                    expressions.Add(Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_string, typeof(channel_format_t))));
                     break;
 
                 // long
                 case TypeCode.Int64:
-                    exp = Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_int64, typeof(channel_format_t)));
+                    expressions.Add(Expression.Call(CreateOutletMethod, nameParam, typeParam, channelCount, Expression.Constant(channel_format_t.cf_int64, typeof(channel_format_t))));
                     break;
 
                 // For an object, we recurse through object members and generate a stream for each
@@ -78,15 +78,15 @@ namespace Bonsai.Lsl
                 default:
                     // recursion time
                     var members = GetDataMembers(type);
-                    return Expression.Block(members.Select(member =>
+                    foreach (MemberInfo member in members)
                     {
                         var memberAccess = Expression.MakeMemberAccess(parameter, member);
-                        return OutletStream(nameParam, typeParam, channelCount, memberAccess, outletExpressions);
-                    }));
+                        expressions.AddRange(OutletStream(nameParam, typeParam, channelCount, memberAccess));
+                    }
+                    break;
             }
 
-            outletExpressions.Add(exp);
-            return exp;
+            return expressions;
         }
     }
 }
