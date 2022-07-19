@@ -27,11 +27,13 @@ namespace Bonsai.Lsl
 
             // Generates required outlets
             var buildOutlets = ObjectStreamBuilder.OutletStream(streamName, streamType, channelCount, inputParameter);
+            var outletFuncs = buildOutlets.Select(outlet => Expression.Lambda(outlet, new List<ParameterExpression> { streamName, streamType, channelCount })).ToList();
 
             // Generate required writers
             var outletParam = Expression.Parameter(typeof(StreamOutlet), "outletParam");
             var dataParam = Expression.Parameter(parameterTypes[0], "dataParam");
             var buildWriters = ObjectStreamBuilder.OutletWriter(outletParam, dataParam);
+            var writerFuncs = buildWriters.Select(writer => Expression.Lambda(writer, new List<ParameterExpression> { outletParam, dataParam }));
 
             //                     this     .Process        <parameterTypes>(source)
             return Expression.Call(builder, nameof(Process), parameterTypes, source);
