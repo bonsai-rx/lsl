@@ -98,6 +98,54 @@ namespace Bonsai.Lsl
             return expressions;
         }
 
+        public static List<Expression> ObjectAccessor(Expression data)
+        {
+            var type = data.Type;
+            TypeCode typeCode = Type.GetTypeCode(type); // the typecode that we switch by depends on whether the input data is already in an array
+            var expressions = new List<Expression>();
+
+            switch (typeCode)
+            {
+                // float
+                case TypeCode.Single:
+                    expressions.Add(data);
+                    break;
+
+                // double
+                case TypeCode.Double:
+                    expressions.Add(data); break;
+
+                // int
+                case TypeCode.Int32:
+                    expressions.Add(data); break;
+
+                // short
+                case TypeCode.Int16:
+                    expressions.Add(data); break;
+
+                // string
+                case TypeCode.String:
+                    expressions.Add(data); break;
+
+                // long
+                case TypeCode.Int64:
+                    expressions.Add(data); break;
+
+                case TypeCode.Object:
+                default:
+                    // recursion time
+                    var members = GetDataMembers(type);
+                    foreach (MemberInfo member in members)
+                    {
+                        var memberAccess = Expression.MakeMemberAccess(data, member);
+                        expressions.AddRange(ObjectAccessor(memberAccess));
+                    }
+                    break;
+            }
+
+            return expressions;
+        }
+
         public static List<Expression> OutletWriter(Expression outlet, Expression data)
         {
             var type = data.Type;

@@ -29,6 +29,12 @@ namespace Bonsai.Lsl
             var buildOutlets = ObjectStreamBuilder.OutletStream(streamName, streamType, channelCount, inputParameter);
             var outletFuncs = buildOutlets.Select(outlet => Expression.Lambda(outlet, new List<ParameterExpression> { streamName, streamType, channelCount })).ToList();
 
+            // Experimental - object accessor - DEBUG
+            //var buildAccessors = ObjectStreamBuilder.ObjectAccessor(inputParameter);
+            //var accessorFuncs = buildAccessors.Select(access => Expression.Lambda<Func<object>>(access, new List<ParameterExpression> { })).ToList();
+            //var comp = accessorFuncs[0].Compile();
+            //comp();
+
             // Generate required writers
             var outletParam = Expression.Parameter(typeof(StreamOutlet), "outletParam");
             var dataParam = Expression.Parameter(parameterTypes[0], "dataParam");
@@ -41,7 +47,17 @@ namespace Bonsai.Lsl
 
         IObservable<List<double>> Process<TSource>(IObservable<TSource> source)
         {
-            return Observable.Never(new List<double> { 1 }); 
+            return Observable.Never(new List<double> { 1 });
         }
+
+        //IObservable<List<double>> Process<TSource>(IObservable<TSource> source, List<Func<string, string, int, StreamOutlet>> outletBuilder)
+        //{
+        //    return Observable.Never(new List<double> { 1 });
+        //}
+
+        //IObservable<List<double>> Process<TSource>(IObservable<TSource> source, List<Func<string, string, int, StreamOutlet>> outletBuilder, List<Action<StreamOutlet, TSource>> streamWriter)
+        //{
+        //    return Observable.Never(new List<double> { 1 });
+        //}
     }
 }
