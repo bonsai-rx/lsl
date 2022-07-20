@@ -23,6 +23,8 @@
 
 using System;
 using System.Runtime.InteropServices;
+#pragma warning disable 1570, 1573, 1587, 1591
+
 
 namespace Bonsai.Lsl.Native
 {
@@ -41,7 +43,7 @@ namespace Bonsai.Lsl.Native
     /// 
     /// </summary>
 
-    public abstract class LSLObject : SafeHandle
+    internal abstract class LSLObject : SafeHandle
     {
         public IntPtr obj { get => handle; }
         public LSLObject(IntPtr obj) : base(IntPtr.Zero, true)
@@ -73,12 +75,12 @@ namespace Bonsai.Lsl.Native
     /// <summary>
     /// Static functions implemented in liblsl
     /// </summary>
-    public static class LSL
+    internal static class LSL
     {
         /// <summary>
         /// Helper method to dispose a StreamInfo[] array
         /// </summary>
-        /// <param name="arr">Array to be disposed</param>
+        /// <param name="array">Array to be disposed</param>
         public static void DisposeArray(this StreamInfo[] array)
         {
             foreach (var si in array) si.Dispose();
@@ -226,7 +228,7 @@ namespace Bonsai.Lsl.Native
     }
 
     /// <summary>Data format of a channel (each transmitted sample holds an array of channels).</summary>
-    public enum channel_format_t : int
+    internal enum channel_format_t : int
     {
         cf_float32 = 1,     // For up to 24-bit precision measurements in the appropriate physical unit 
                             // (e.g., microvolts). Integers from -16777216 to 16777216 are represented accurately.
@@ -248,7 +250,7 @@ namespace Bonsai.Lsl.Native
     /**
     * Post-processing options for stream inlets.
     */
-    public enum processing_options_t : int
+    internal enum processing_options_t : int
     {
         proc_none = 0,              // No automatic post-processing; return the ground-truth time stamps for manual
                                     // post-processing. This is the default behavior of the inlet.
@@ -270,7 +272,7 @@ namespace Bonsai.Lsl.Native
         proc_ALL = 1 | 2 | 4 | 8    // The combination of all possible post-processing options.
     };
 
-    public class StreamInfo : LSLObject
+    internal class StreamInfo : LSLObject
     {
         /**
         * Construct a new StreamInfo object.
@@ -432,7 +434,7 @@ namespace Bonsai.Lsl.Native
     * A stream outlet.
     * Outlets are used to make streaming data (and the meta-data) available on the lab network.
     */
-    public class StreamOutlet : LSLObject
+    internal class StreamOutlet : LSLObject
     {
         /**
         * Establish a new stream outlet. This makes the stream discoverable.
@@ -536,7 +538,7 @@ namespace Bonsai.Lsl.Native
     * A stream inlet.
     * Inlets are used to receive streaming data (and meta-data) from the lab network.
     */
-    public class StreamInlet : LSLObject
+    internal class StreamInlet : LSLObject
     {
         /**
                 * Construct a new stream inlet from a resolved stream info.
@@ -715,7 +717,7 @@ namespace Bonsai.Lsl.Native
     * Insider note: The interface is modeled after a subset of pugixml's node type and is compatible with it.
     * See also http://pugixml.googlecode.com/svn/tags/latest/docs/manual/access.html for additional documentation.
     */
-    public struct XMLElement
+    internal struct XMLElement
     {
         public XMLElement(IntPtr handle) { obj = handle; }
 
@@ -831,7 +833,7 @@ namespace Bonsai.Lsl.Native
     * visible on the network.
     */
 
-    public class ContinuousResolver : LSLObject
+    internal class ContinuousResolver : LSLObject
     {
         /**
         * Construct a new continuous_resolver that resolves all streams on the network. 
@@ -887,26 +889,44 @@ namespace Bonsai.Lsl.Native
 
     #region Exception Types
 
-    /**
-     * Exception class that indicates that a stream inlet's source has been irrecoverably lost.
-     */
+    /// <summary>
+    /// Represents an error indicating that the source of a stream inlet has been
+    /// irrecoverably lost.
+    /// </summary>
     public class LostException : System.Exception
     {
-        public LostException(string message = "", System.Exception inner = null) { }
+        /// <inheritdoc/>
+        public LostException(string message = "", System.Exception innerException = null)
+            : base(message, innerException)
+        {
+        }
+
+        /// <inheritdoc/>
         protected LostException(System.Runtime.Serialization.SerializationInfo info,
             System.Runtime.Serialization.StreamingContext context)
-        { }
+            : base(info, context)
+        {
+        }
     }
 
-    /**
-     * Exception class that indicates that an internal error has occurred inside liblsl.
-     */
+    /// <summary>
+    /// Represents an error indicating an internal failure has occurred inside liblsl.
+    /// </summary>
     public class InternalException : System.Exception
     {
-        public InternalException(string message = "", System.Exception inner = null) { }
-        protected InternalException(System.Runtime.Serialization.SerializationInfo info,
+        /// <inheritdoc/>
+        public InternalException(string message = "", System.Exception innerException = null)
+            : base(message, innerException)
+        {
+        }
+
+        /// <inheritdoc/>
+        protected InternalException(
+            System.Runtime.Serialization.SerializationInfo info,
             System.Runtime.Serialization.StreamingContext context)
-        { }
+            : base(info, context)
+        {
+        }
     }
     #endregion
 
