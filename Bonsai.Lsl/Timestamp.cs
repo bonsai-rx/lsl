@@ -31,5 +31,22 @@ namespace Bonsai.Lsl
         {
             return source.Select(value => Timestamped.Create(value, LSL.local_clock()));
         }
+
+        /// <summary>
+        /// Records the local LSL timestamp for each sample produced by an
+        /// observable sequence.
+        /// </summary>
+        /// <typeparam name="TSource">
+        /// The type of the elements in the <paramref name="source"/> sequence.
+        /// </typeparam>
+        /// <param name="source">The source sequence to timestamp samples for.</param>
+        /// <returns>
+        /// An observable sequence containing recorded LSL timestamp information
+        /// for each sample in the <paramref name="source"/> sequence.
+        /// </returns>
+        public IObservable<TimestampedSample<TSource>> Process<TSource>(IObservable<TSource[]> source)
+        {
+            return source.Select(value => TimestampedSample.Create(value, LSL.local_clock()));
+        }
     }
 }
