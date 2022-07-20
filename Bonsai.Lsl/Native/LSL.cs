@@ -1,4 +1,4 @@
-// https://github.com/labstreaminglayer/liblsl-Csharp/blob/30c151a3c97509dff508e88b45532f68c535f2da/LSL.cs
+﻿// https://github.com/labstreaminglayer/liblsl-Csharp/blob/30c151a3c97509dff508e88b45532f68c535f2da/LSL.cs
 // MIT License
 
 // Copyright (c) 2018 Christian Kothe
@@ -24,7 +24,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Bonsai.Lsl
+namespace Bonsai.Lsl.Native
 {
     /// <summary>
     /// C# API for the lab streaming layer.

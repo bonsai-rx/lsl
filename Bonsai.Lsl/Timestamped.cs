@@ -4,42 +4,42 @@ using System.Collections.Generic;
 namespace Bonsai.Lsl
 {
     /// <summary>
-    /// Represents a timestamped payload value.
+    /// Represents a timestamped value.
     /// </summary>
-    /// <typeparam name="T">The type of the value in the timestamped payload.</typeparam>
+    /// <typeparam name="T">The type of the value.</typeparam>
     public readonly struct Timestamped<T> : IEquatable<Timestamped<T>>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Timestamped{T}"/> class with the specified
-        /// payload value and timestamp.
+        /// value and timestamp.
         /// </summary>
-        /// <param name="value">The value of the timestamped payload.</param>
-        /// <param name="seconds">The timestamp of the payload, in fractional seconds.</param>
-        public Timestamped(T value, double seconds)
+        /// <param name="value">The value.</param>
+        /// <param name="timestamp">The timestamp, in fractional seconds.</param>
+        public Timestamped(T value, double timestamp)
         {
             Value = value;
-            Seconds = seconds;
+            Timestamp = timestamp;
         }
 
         /// <summary>
-        /// Gets the timestamp of the payload, in fractional seconds.
+        /// Gets the timestamp, in fractional seconds.
         /// </summary>
-        public double Seconds { get; }
+        public double Timestamp { get; }
 
         /// <summary>
-        /// Gets the value of the timestamped payload.
+        /// Gets the value.
         /// </summary>
         public T Value { get; }
 
         /// <summary>
-        /// Deconstructs the components of a timestamped payload into separate variables.
+        /// Deconstructs the components of a timestamped value into separate variables.
         /// </summary>
-        /// <param name="value">The value of the timestamped payload.</param>
-        /// <param name="seconds">The timestamp of the payload, in fractional seconds.</param>
-        public void Deconstruct(out T value, out double seconds)
+        /// <param name="value">The value.</param>
+        /// <param name="timestamp">The timestamp, in fractional seconds.</param>
+        public void Deconstruct(out T value, out double timestamp)
         {
             value = Value;
-            seconds = Seconds;
+            timestamp = Timestamp;
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Bonsai.Lsl
         /// </returns>
         public bool Equals(Timestamped<T> other)
         {
-            return Seconds == other.Seconds && EqualityComparer<T>.Default.Equals(Value, other.Value);
+            return Timestamp == other.Timestamp && EqualityComparer<T>.Default.Equals(Value, other.Value);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Bonsai.Lsl
         /// <returns>An integer value that specifies a hash value for this <see cref="Timestamped{T}"/> structure.</returns>
         public override int GetHashCode()
         {
-            return Seconds.GetHashCode() ^ EqualityComparer<T>.Default.GetHashCode(Value);
+            return Timestamp.GetHashCode() ^ EqualityComparer<T>.Default.GetHashCode(Value);
         }
 
         /// <summary>
@@ -84,12 +84,12 @@ namespace Bonsai.Lsl
         /// structure.
         /// </summary>
         /// <returns>
-        /// A <see cref="string"/> containing the <see cref="Value"/> and <see cref="Seconds"/>
+        /// A <see cref="string"/> containing the <see cref="Value"/> and <see cref="Timestamp"/>
         /// properties of this <see cref="Timestamped{T}"/> structure.
         /// </returns>
         public override string ToString()
         {
-            return $"{Value}@{Seconds}";
+            return $"{Value}@{Timestamp}";
         }
 
         /// <summary>
@@ -127,18 +127,18 @@ namespace Bonsai.Lsl
     public static class Timestamped
     {
         /// <summary>
-        /// Creates a new timestamped payload value.
+        /// Creates a new timestamped value.
         /// </summary>
-        /// <typeparam name="T">The type of the value in the timestamped payload.</typeparam>
-        /// <param name="value">The value of the timestamped payload.</param>
-        /// <param name="seconds">The timestamp of the payload, in fractional seconds.</param>
+        /// <typeparam name="T">The type of the value.</typeparam>
+        /// <param name="value">The value.</param>
+        /// <param name="timestamp">The timestamp, in fractional seconds.</param>
         /// <returns>
         /// A new instance of the <see cref="Timestamped{T}"/> class with the specified
-        /// payload value and timestamp.
+        /// value and timestamp.
         /// </returns>
-        public static Timestamped<T> Create<T>(T value, double seconds)
+        public static Timestamped<T> Create<T>(T value, double timestamp)
         {
-            return new Timestamped<T>(value, seconds);
+            return new Timestamped<T>(value, timestamp);
         }
     }
 }
