@@ -887,51 +887,6 @@ namespace Bonsai.Lsl.Native
         }
     }
 
-    #region Exception Types
-
-    /// <summary>
-    /// Represents an error indicating that the source of a stream inlet has been
-    /// irrecoverably lost.
-    /// </summary>
-    public class LostException : System.Exception
-    {
-        /// <inheritdoc/>
-        public LostException(string message = "", System.Exception innerException = null)
-            : base(message, innerException)
-        {
-        }
-
-        /// <inheritdoc/>
-        protected LostException(System.Runtime.Serialization.SerializationInfo info,
-            System.Runtime.Serialization.StreamingContext context)
-            : base(info, context)
-        {
-        }
-    }
-
-    /// <summary>
-    /// Represents an error indicating an internal failure has occurred inside liblsl.
-    /// </summary>
-    public class InternalException : System.Exception
-    {
-        /// <inheritdoc/>
-        public InternalException(string message = "", System.Exception innerException = null)
-            : base(message, innerException)
-        {
-        }
-
-        /// <inheritdoc/>
-        protected InternalException(
-            System.Runtime.Serialization.SerializationInfo info,
-            System.Runtime.Serialization.StreamingContext context)
-            : base(info, context)
-        {
-        }
-    }
-    #endregion
-
-
-
     #region Internal: C library function definitions
 
     class dll
@@ -1241,6 +1196,52 @@ namespace Bonsai.Lsl.Native
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern void lsl_destroy_continuous_resolver(IntPtr obj);
+    }
+    #endregion
+}
+
+namespace Bonsai.Lsl
+{
+    #region Exception Types
+
+    /// <summary>
+    /// Represents an error indicating that the source of a stream inlet has been
+    /// irrecoverably lost.
+    /// </summary>
+    public class LostException : System.Exception
+    {
+        /// <inheritdoc/>
+        public LostException(string message = "", System.Exception innerException = null)
+            : base(message, innerException)
+        {
+        }
+
+        /// <inheritdoc/>
+        protected LostException(System.Runtime.Serialization.SerializationInfo info,
+            System.Runtime.Serialization.StreamingContext context)
+            : base(info, context)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Represents an error indicating an internal failure has occurred inside liblsl.
+    /// </summary>
+    public class InternalException : System.Exception
+    {
+        /// <inheritdoc/>
+        public InternalException(string message = "", System.Exception innerException = null)
+            : base(message, innerException)
+        {
+        }
+
+        /// <inheritdoc/>
+        protected InternalException(
+            System.Runtime.Serialization.SerializationInfo info,
+            System.Runtime.Serialization.StreamingContext context)
+            : base(info, context)
+        {
+        }
     }
     #endregion
 }
