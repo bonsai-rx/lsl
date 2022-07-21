@@ -28,4 +28,10 @@
     <Content Include="..\..\LICENSE" PackagePath="/" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="..\liblsl\liblsl-1.16.0-Win_i386\bin\*.dll" PackagePath="runtimes\win-x86\native" />
+    <Content Include="..\liblsl\liblsl-1.16.0-Win_amd64\bin\*.dll" PackagePath="runtimes\win-x64\native"
+             CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
+
 </Project>
