@@ -245,7 +245,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the values to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, byte> selector)
         {
@@ -270,7 +270,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the samples to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, byte[]> selector)
         {
@@ -296,7 +296,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped values to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, byte> selector)
         {
@@ -324,7 +324,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped samples to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, byte[]> selector)
         {
@@ -446,7 +446,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the values to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, short> selector)
         {
@@ -471,7 +471,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the samples to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, short[]> selector)
         {
@@ -497,7 +497,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped values to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, short> selector)
         {
@@ -525,7 +525,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped samples to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, short[]> selector)
         {
@@ -647,7 +647,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the values to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, int> selector)
         {
@@ -672,7 +672,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the samples to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, int[]> selector)
         {
@@ -698,7 +698,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped values to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, int> selector)
         {
@@ -726,7 +726,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped samples to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, int[]> selector)
         {
@@ -848,7 +848,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the values to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, float> selector)
         {
@@ -873,7 +873,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the samples to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, float[]> selector)
         {
@@ -899,7 +899,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped values to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, float> selector)
         {
@@ -927,7 +927,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped samples to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, float[]> selector)
         {
@@ -1049,7 +1049,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the values to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, double> selector)
         {
@@ -1074,7 +1074,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the samples to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, double[]> selector)
         {
@@ -1100,7 +1100,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped values to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, double> selector)
         {
@@ -1128,7 +1128,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped samples to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, double[]> selector)
         {
@@ -1250,7 +1250,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the values to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, string> selector)
         {
@@ -1275,7 +1275,7 @@ namespace Bonsai.Lsl
         /// An observable sequence that is identical to the source sequence but where
         /// there is an additional side effect of writing the samples to the LSL stream.
         /// </returns>
-        public IObservable<TSource> Process<TSource>(
+        IObservable<TSource> Process<TSource>(
             IObservable<TSource> source,
             Func<TSource, string[]> selector)
         {
@@ -1301,7 +1301,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped values to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, string> selector)
         {
@@ -1329,7 +1329,7 @@ namespace Bonsai.Lsl
         /// there is an additional side effect of writing the timestamped samples to the
         /// LSL stream.
         /// </returns>
-        public IObservable<Timestamped<TSource>> Process<TSource>(
+        IObservable<Timestamped<TSource>> Process<TSource>(
             IObservable<Timestamped<TSource>> source,
             Func<TSource, string[]> selector)
         {
