@@ -1,4 +1,4 @@
-﻿using Bonsai.Expressions;
+using Bonsai.Expressions;
 using Bonsai.Lsl.Native;
 using System;
 using System.Collections.Generic;
@@ -242,12 +242,12 @@ namespace Bonsai.Lsl
                 return Task.Factory.StartNew(() =>
                 {
                     using var streamInlet = CreateInlet(name, contentType);
-                    var sampleArray = new TResult[channelCount];
                     streamInlet.open_stream();
                     try
                     {
                         while (!cancellationToken.IsCancellationRequested)
                         {
+                            var sampleArray = new TResult[channelCount];
                             var sampleTime = pull_sample(streamInlet, sampleArray);
                             observer.OnNext(TimestampedSample.Create(sampleArray, sampleTime));
                         }
@@ -269,13 +269,13 @@ namespace Bonsai.Lsl
                 return Task.Factory.StartNew(() =>
                 {
                     using var streamInlet = CreateInlet(name, contentType);
-                    var data = new TResult[chunkSize, channelCount];
-                    var timestamps = new double[chunkSize];
                     streamInlet.open_stream();
                     try
                     {
                         while (!cancellationToken.IsCancellationRequested)
                         {
+                            var timestamps = new double[chunkSize];
+                            var data = new TResult[chunkSize, channelCount];
                             var samples = pull_sample(streamInlet, data, timestamps);
                             observer.OnNext(TimestampedChunk.Create(data, timestamps));
                         }
