@@ -48,6 +48,14 @@ namespace Bonsai.Lsl
         [Editor("Bonsai.Design.MultiMemberSelectorEditor, Bonsai.Design", DesignTypes.UITypeEditor)]
         public string Selector { get; set; }
 
+        /// <summary>
+        /// Gets or sets the nominal sampling rate used by the data source, in Hz.
+        /// If a value of zero is specified, the data source will be considered
+        /// to have irregular timing.
+        /// </summary>
+        [Description("The nominal sampling rate used by the data source, in Hz.")]
+        public int SampleRate { get; set; }
+
         /// <inheritdoc/>
         public override Expression Build(IEnumerable<Expression> arguments)
         {
@@ -118,6 +126,7 @@ namespace Bonsai.Lsl
                 throw new InvalidOperationException("A valid LSL stream name must be specified.");
             }
 
+            var sampleRate = SampleRate;
             var contentType = ContentType ?? typeof(TSource).Name;
             var channelCount = ChannelCount;
             if (channelCount <= 0)
@@ -128,7 +137,7 @@ namespace Bonsai.Lsl
             return Observable.Using(
                 () =>
                 {
-                    var streamInfo = new StreamInfo(name, contentType, channelCount, LSL.IRREGULAR_RATE, channelFormat);
+                    var streamInfo = new StreamInfo(name, contentType, channelCount, sampleRate, channelFormat);
                     return new Native.StreamOutlet(streamInfo);
                 },
                 outlet => source.Do(value => writer(value, outlet)));
@@ -1433,6 +1442,7 @@ namespace Bonsai.Lsl
                 throw new InvalidOperationException("A valid LSL stream name must be specified.");
             }
 
+            var sampleRate = SampleRate;
             var contentType = ContentType ?? typeof(Mat).Name;
             var channelCount = ChannelCount;
             if (channelCount <= 0)
@@ -1452,7 +1462,7 @@ namespace Bonsai.Lsl
                     if (outlet == null)
                     {
                         chunkWriter = GetChunkWriter(chunk.Depth, out channel_format_t channelFormat);
-                        var streamInfo = new StreamInfo(name, contentType, channelCount, LSL.IRREGULAR_RATE, channelFormat);
+                        var streamInfo = new StreamInfo(name, contentType, channelCount, sampleRate, channelFormat);
                         outlet = new Native.StreamOutlet(streamInfo);
                         if (chunk.Rows > 1)
                         {
