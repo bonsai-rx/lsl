@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Reactive.Linq;
 using Bonsai.Expressions;
 using Bonsai.Lsl.Native;
+using OpenCV.Net;
 
 namespace Bonsai.Lsl
 {
@@ -1335,6 +1336,142 @@ namespace Bonsai.Lsl
         {
             return Process(source, channel_format_t.cf_string,
                 (sample, outlet) => outlet.push_sample(selector(sample.Value), sample.Timestamp));
+        }
+
+        #endregion
+
+        #region Buffer
+
+        delegate int lsl_push_chunk(
+            IntPtr obj,
+            IntPtr data,
+            uint dataLength,
+            double timestamp,
+            int pushthrough);
+
+        static Action<Native.StreamOutlet, Mat, double> GetWriter(lsl_push_chunk push_chunk)
+        {
+            return (outlet, value, timestamp) =>
+            {
+                var elementCount = value.Rows * value.Cols;
+                push_chunk(outlet.obj, value.Data, (uint)elementCount, timestamp, 1);
+            };
+        }
+
+        static Action<Native.StreamOutlet, Mat, double> GetChunkWriter(Depth depth, out channel_format_t channelFormat)
+        {
+            switch (depth)
+            {
+                case Depth.U8:
+                case Depth.S8:
+                    channelFormat = channel_format_t.cf_int8;
+                    return GetWriter(dll.lsl_push_chunk_ctp);
+                case Depth.U16:
+                case Depth.S16:
+                    channelFormat = channel_format_t.cf_int16;
+                    return GetWriter(dll.lsl_push_chunk_stp);
+                case Depth.S32:
+                    channelFormat = channel_format_t.cf_int32;
+                    return GetWriter(dll.lsl_push_chunk_itp);
+                case Depth.F32:
+                    channelFormat = channel_format_t.cf_float32;
+                    return GetWriter(dll.lsl_push_chunk_ftp);
+                case Depth.F64:
+                    channelFormat = channel_format_t.cf_double64;
+                    return GetWriter(dll.lsl_push_chunk_dtp);
+                case Depth.UserType:
+                default:
+                    throw new ArgumentException("Unsupported array depth.", nameof(depth));
+            }
+        }
+
+        /// <summary>
+        /// Pushes an observable sequence of multi-channel buffers into the specified
+        /// LSL stream.
+        /// </summary>
+        /// <param name="source">
+        /// The sequence of multi-channel buffers to push to the LSL stream. Each buffer
+        /// must have the same number of rows as the total number of channels in the
+        /// stream.
+        /// </param>
+        /// <returns>
+        /// An observable sequence that is identical to the source sequence but where
+        /// there is an additional side effect of writing the buffers to the LSL stream.
+        /// </returns>
+        public IObservable<Mat> Process(IObservable<Mat> source)
+        {
+            return Process(source, chunk => chunk, chunk => 0);
+        }
+
+        /// <summary>
+        /// Pushes an observable sequence of timestamped multi-channel buffers into
+        /// the specified LSL stream.
+        /// </summary>
+        /// <param name="source">
+        /// The sequence of timestamped multi-channel buffers to push to the LSL stream.
+        /// Each buffer must have the same number of rows as the total number of channels
+        /// in the stream.
+        /// </param>
+        /// <returns>
+        /// An observable sequence that is identical to the source sequence but where
+        /// there is an additional side effect of writing the timestamped multi-channel
+        /// buffers to the LSL stream.
+        /// </returns>
+        public IObservable<Timestamped<Mat>> Process(IObservable<Timestamped<Mat>> source)
+        {
+            return Process(source, chunk => chunk.Value, chunk => chunk.Timestamp);
+        }
+
+        IObservable<TSource> Process<TSource>(
+            IObservable<TSource> source,
+            Func<TSource, Mat> chunkSelector,
+            Func<TSource, double> timestampSelector)
+        {
+            var name = Name;
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new InvalidOperationException("A valid LSL stream name must be specified.");
+            }
+
+            var contentType = ContentType ?? typeof(Mat).Name;
+            var channelCount = ChannelCount;
+            if (channelCount <= 0)
+            {
+                throw new InvalidOperationException("The number of channels must be a positive integer.");
+            }
+
+            return Observable.Defer(() =>
+            {
+                Mat buffer = default;
+                Native.StreamOutlet outlet = default;
+                Action<Native.StreamOutlet, Mat, double> chunkWriter = default;
+                return source.Do(value =>
+                {
+                    var chunk = chunkSelector(value);
+                    var timestamp = timestampSelector(value);
+                    if (outlet == null)
+                    {
+                        chunkWriter = GetChunkWriter(chunk.Depth, out channel_format_t channelFormat);
+                        var streamInfo = new StreamInfo(name, contentType, channelCount, LSL.IRREGULAR_RATE, channelFormat);
+                        outlet = new Native.StreamOutlet(streamInfo);
+                        if (chunk.Rows > 1)
+                        {
+                            buffer = new Mat(chunk.Cols, chunk.Rows, chunk.Depth, 1);
+                        }
+                    }
+
+                    if (buffer != null)
+                    {
+                        CV.Transpose(chunk, buffer);
+                        chunk = buffer;
+                    }
+                    chunkWriter(outlet, chunk, timestamp);
+                }).Finally(() =>
+                {
+                    outlet?.Close();
+                    buffer?.Close();
+                });
+            });
         }
 
         #endregion

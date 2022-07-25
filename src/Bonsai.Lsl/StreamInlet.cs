@@ -1,5 +1,6 @@
-using Bonsai.Expressions;
+﻿using Bonsai.Expressions;
 using Bonsai.Lsl.Native;
+using OpenCV.Net;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,19 +65,19 @@ namespace Bonsai.Lsl
             var combinator = Expression.Constant(this);
             if (chunkSize.HasValue)
             {
-                var chunkReader = GetChannelChunkReader(ChannelFormat);
-                var sampleType = new[] { chunkReader.Parameters[1].Type.GetElementType() };
+                var chunkReader = GetChunkReader(ChannelFormat, out Depth channelDepth);
                 return Expression.Call(
                     combinator,
                     nameof(Generate),
-                    sampleType,
+                    null,
                     Expression.Constant(chunkSize.Value),
                     Expression.Constant(channelCount),
+                    Expression.Constant(channelDepth),
                     chunkReader);
             }
             else
             {
-                var sampleReader = GetChannelSampleReader(ChannelFormat);
+                var sampleReader = GetSampleReader(ChannelFormat);
                 var sampleType = new[] { sampleReader.Parameters[1].Type.GetElementType() };
                 if (channelCount == 1)
                 {
@@ -96,7 +97,7 @@ namespace Bonsai.Lsl
             }
         }
 
-        static LambdaExpression GetChannelSampleReader(ChannelFormat format)
+        static LambdaExpression GetSampleReader(ChannelFormat format)
         {
             switch (format)
             {
@@ -131,38 +132,64 @@ namespace Bonsai.Lsl
             }
         }
 
-        static LambdaExpression GetChannelChunkReader(ChannelFormat format)
+        delegate uint lsl_pull_chunk(
+            IntPtr obj,
+            IntPtr data,
+            IntPtr timestamps,
+            uint dataLength,
+            uint timestampLength,
+            double timeout,
+            ref int ec);
+
+        static int PullChunk(Native.StreamInlet inlet, Mat buffer, Mat timestamps, double timeout, lsl_pull_chunk pull_chunk)
         {
-            switch (format)
+            int ec = 0;
+            var res = pull_chunk(
+                inlet.obj,
+                buffer.Data,
+                timestamps.Data,
+                (uint)(buffer.Rows * buffer.Cols),
+                (uint)timestamps.Cols,
+                timeout,
+                ref ec);
+            LSL.check_error(ec);
+            return (int)res / buffer.Cols;
+        }
+
+        static LambdaExpression GetChunkReader(ChannelFormat channelFormat, out Depth channelDepth)
+        {
+            switch (channelFormat)
             {
                 case ChannelFormat.Float32:
-                    Expression<Func<Native.StreamInlet, float[,], double[], int>> floatReader;
-                    floatReader = (inlet, data, timestamp) => inlet.pull_chunk(data, timestamp, LSL.FOREVER);
+                    Expression<Func<Native.StreamInlet, Mat, Mat, int>> floatReader;
+                    floatReader = (inlet, chunk, timestamp) => PullChunk(inlet, chunk, timestamp, LSL.FOREVER, dll.lsl_pull_chunk_f);
+                    channelDepth = Depth.F32;
                     return floatReader;
                 case ChannelFormat.Double64:
-                    Expression<Func<Native.StreamInlet, double[,], double[], int>> doubleReader;
-                    doubleReader = (inlet, data, timestamp) => inlet.pull_chunk(data, timestamp, LSL.FOREVER);
+                    Expression<Func<Native.StreamInlet, Mat, Mat, int>> doubleReader;
+                    doubleReader = (inlet, chunk, timestamp) => PullChunk(inlet, chunk, timestamp, LSL.FOREVER, dll.lsl_pull_chunk_d);
+                    channelDepth = Depth.F64;
                     return doubleReader;
-                case ChannelFormat.String:
-                    Expression<Func<Native.StreamInlet, string[,], double[], int>> stringReader;
-                    stringReader = (inlet, data, timestamp) => inlet.pull_chunk(data, timestamp, LSL.FOREVER);
-                    return stringReader;
                 case ChannelFormat.Int32:
-                    Expression<Func<Native.StreamInlet, int[,], double[], int>> intReader;
-                    intReader = (inlet, data, timestamp) => inlet.pull_chunk(data, timestamp, LSL.FOREVER);
+                    Expression<Func<Native.StreamInlet, Mat, Mat, int>> intReader;
+                    intReader = (inlet, chunk, timestamp) => PullChunk(inlet, chunk, timestamp, LSL.FOREVER, dll.lsl_pull_chunk_i);
+                    channelDepth = Depth.S32;
                     return intReader;
                 case ChannelFormat.Int16:
-                    Expression<Func<Native.StreamInlet, short[,], double[], int>> shortReader;
-                    shortReader = (inlet, data, timestamp) => inlet.pull_chunk(data, timestamp, LSL.FOREVER);
+                    Expression<Func<Native.StreamInlet, Mat, Mat, int>> shortReader;
+                    shortReader = (inlet, chunk, timestamp) => PullChunk(inlet, chunk, timestamp, LSL.FOREVER, dll.lsl_pull_chunk_s);
+                    channelDepth = Depth.S16;
                     return shortReader;
                 case ChannelFormat.Int8:
-                    Expression<Func<Native.StreamInlet, byte[,], double[], int>> byteReader;
-                    byteReader = (inlet, data, timestamp) => inlet.pull_chunk(data, timestamp, LSL.FOREVER);
+                    Expression<Func<Native.StreamInlet, Mat, Mat, int>> byteReader;
+                    byteReader = (inlet, chunk, timestamp) => PullChunk(inlet, chunk, timestamp, LSL.FOREVER, dll.lsl_pull_chunk_c);
+                    channelDepth = Depth.U8;
                     return byteReader;
                 case ChannelFormat.Int64:
+                case ChannelFormat.String:
                 case ChannelFormat.Undefined:
                 default:
-                    throw new ArgumentException("Unsupported channel format.", nameof(format));
+                    throw new ArgumentException("Unsupported chunk channel format.", nameof(channelFormat));
             }
         }
 
@@ -257,26 +284,29 @@ namespace Bonsai.Lsl
             });
         }
 
-        IObservable<TimestampedChunk<TResult>> Generate<TResult>(
+        IObservable<TimestampedChunkBuffer> Generate(
             int chunkSize,
             int channelCount,
-            Func<Native.StreamInlet, TResult[,], double[], int> pull_sample)
+            Depth sampleDepth,
+            Func<Native.StreamInlet, Mat, Mat, int> pull_sample)
         {
             var name = Name;
             var contentType = ContentType;
-            return Observable.Create<TimestampedChunk<TResult>>((observer, cancellationToken) =>
+            return Observable.Create<TimestampedChunkBuffer>((observer, cancellationToken) =>
             {
                 return Task.Factory.StartNew(() =>
                 {
                     using var streamInlet = CreateInlet(name, contentType);
+                    using var buffer = new Mat(chunkSize, channelCount, sampleDepth, 1);
                     streamInlet.open_stream();
                     try
                     {
                         while (!cancellationToken.IsCancellationRequested)
                         {
-                            var timestamps = new double[chunkSize];
-                            var data = new TResult[chunkSize, channelCount];
-                            var samples = pull_sample(streamInlet, data, timestamps);
+                            var timestamps = new Mat(1, chunkSize, Depth.F64, 1);
+                            var samples = pull_sample(streamInlet, buffer, timestamps);
+                            var data = new Mat(channelCount, chunkSize, sampleDepth, 1);
+                            CV.Transpose(buffer, data);
                             observer.OnNext(TimestampedChunk.Create(data, timestamps));
                         }
                     }
