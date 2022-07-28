@@ -1,10 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Authors>NeuroGEARS</Authors>
     <Title>Bonsai - LSL Library</Title>
     <Description>Bonsai Library containing interfaces for streaming data from devices implementing the LSL protocol.</Description>
     <Copyright>Copyright © NeuroGEARS 2022</Copyright>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <ProjectUrl>https://github.com/emotional-cities/lsl</ProjectUrl>
     <PackageLicenseUrl>https://github.com/emotional-cities/lsl/blob/main/LICENSE</PackageLicenseUrl>
     <PackageIconUrl>https://bonsai-rx.org/assets/images/bonsai.png</PackageIconUrl>
@@ -12,13 +13,26 @@
     <PackageTags>Bonsai Rx LSL Lab Streaming Layer</PackageTags>
     <IncludeSymbols Condition="'$(Configuration)'=='Release'">true</IncludeSymbols>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TargetFramework>net472</TargetFramework>
+    <LangVersion>8.0</LangVersion>
     <Features>strict</Features>
     <Version>0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Bonsai.Core" Version="2.6.0" />
+    <PackageReference Include="OpenCV.Net" Version="3.4.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="..\..\LICENSE" PackagePath="/" />
+    <Content Include="..\..\icon.png" PackagePath="/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\liblsl\win-x86\bin\*.dll" PackagePath="runtimes\win-x86\native" />
+    <Content Include="..\liblsl\win-x64\bin\*.dll" PackagePath="runtimes\win-x64\native" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

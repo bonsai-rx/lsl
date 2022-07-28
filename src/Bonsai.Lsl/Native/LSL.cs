@@ -23,8 +23,10 @@
 
 using System;
 using System.Runtime.InteropServices;
+#pragma warning disable 1570, 1573, 1587, 1591
 
-namespace Bonsai.Lsl
+
+namespace Bonsai.Lsl.Native
 {
     /// <summary>
     /// C# API for the lab streaming layer.
@@ -41,7 +43,7 @@ namespace Bonsai.Lsl
     /// 
     /// </summary>
 
-    public abstract class LSLObject : SafeHandle
+    internal abstract class LSLObject : SafeHandle
     {
         public IntPtr obj { get => handle; }
         public LSLObject(IntPtr obj) : base(IntPtr.Zero, true)
@@ -73,12 +75,12 @@ namespace Bonsai.Lsl
     /// <summary>
     /// Static functions implemented in liblsl
     /// </summary>
-    public static class LSL
+    internal static class LSL
     {
         /// <summary>
         /// Helper method to dispose a StreamInfo[] array
         /// </summary>
-        /// <param name="arr">Array to be disposed</param>
+        /// <param name="array">Array to be disposed</param>
         public static void DisposeArray(this StreamInfo[] array)
         {
             foreach (var si in array) si.Dispose();
@@ -226,7 +228,7 @@ namespace Bonsai.Lsl
     }
 
     /// <summary>Data format of a channel (each transmitted sample holds an array of channels).</summary>
-    public enum channel_format_t : int
+    internal enum channel_format_t : int
     {
         cf_float32 = 1,     // For up to 24-bit precision measurements in the appropriate physical unit 
                             // (e.g., microvolts). Integers from -16777216 to 16777216 are represented accurately.
@@ -248,7 +250,7 @@ namespace Bonsai.Lsl
     /**
     * Post-processing options for stream inlets.
     */
-    public enum processing_options_t : int
+    internal enum processing_options_t : int
     {
         proc_none = 0,              // No automatic post-processing; return the ground-truth time stamps for manual
                                     // post-processing. This is the default behavior of the inlet.
@@ -270,7 +272,7 @@ namespace Bonsai.Lsl
         proc_ALL = 1 | 2 | 4 | 8    // The combination of all possible post-processing options.
     };
 
-    public class StreamInfo : LSLObject
+    internal class StreamInfo : LSLObject
     {
         /**
         * Construct a new StreamInfo object.
@@ -432,7 +434,7 @@ namespace Bonsai.Lsl
     * A stream outlet.
     * Outlets are used to make streaming data (and the meta-data) available on the lab network.
     */
-    public class StreamOutlet : LSLObject
+    internal class StreamOutlet : LSLObject
     {
         /**
         * Establish a new stream outlet. This makes the stream discoverable.
@@ -466,8 +468,9 @@ namespace Bonsai.Lsl
         public void push_sample(double[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_dtp(obj, data, timestamp, pushthrough ? 1 : 0); }
         public void push_sample(int[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_itp(obj, data, timestamp, pushthrough ? 1 : 0); }
         public void push_sample(short[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_stp(obj, data, timestamp, pushthrough ? 1 : 0); }
-        public void push_sample(char[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_ctp(obj, data, timestamp, pushthrough ? 1 : 0); }
+        public void push_sample(byte[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_ctp(obj, data, timestamp, pushthrough ? 1 : 0); }
         public void push_sample(string[] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_strtp(obj, data, timestamp, pushthrough ? 1 : 0); }
+        public void push_sample(IntPtr[] data, uint[] lengths, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_sample_buftp(obj, data, lengths, timestamp, pushthrough ? 1 : 0); }
 
 
         // ===================================================
@@ -486,8 +489,9 @@ namespace Bonsai.Lsl
         public void push_chunk(double[,] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_chunk_dtp(obj, data, (uint)data.Length, timestamp, pushthrough ? 1 : 0); }
         public void push_chunk(int[,] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_chunk_itp(obj, data, (uint)data.Length, timestamp, pushthrough ? 1 : 0); }
         public void push_chunk(short[,] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_chunk_stp(obj, data, (uint)data.Length, timestamp, pushthrough ? 1 : 0); }
-        public void push_chunk(char[,] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_chunk_ctp(obj, data, (uint)data.Length, timestamp, pushthrough ? 1 : 0); }
+        public void push_chunk(byte[,] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_chunk_ctp(obj, data, (uint)data.Length, timestamp, pushthrough ? 1 : 0); }
         public void push_chunk(string[,] data, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_chunk_strtp(obj, data, (uint)data.Length, timestamp, pushthrough ? 1 : 0); }
+        public void push_chunk(IntPtr[,] data, uint[] lengths, double timestamp = 0.0, bool pushthrough = true) { dll.lsl_push_chunk_buftp(obj, data, lengths, (uint)data.Length, timestamp, pushthrough ? 1 : 0); }
 
         /**
         * Push a chunk of multiplexed samples into the outlet. One timestamp per sample is provided.
@@ -500,8 +504,9 @@ namespace Bonsai.Lsl
         public void push_chunk(double[,] data, double[] timestamps, bool pushthrough = true) { dll.lsl_push_chunk_dtnp(obj, data, (uint)data.Length, timestamps, pushthrough ? 1 : 0); }
         public void push_chunk(int[,] data, double[] timestamps, bool pushthrough = true) { dll.lsl_push_chunk_itnp(obj, data, (uint)data.Length, timestamps, pushthrough ? 1 : 0); }
         public void push_chunk(short[,] data, double[] timestamps, bool pushthrough = true) { dll.lsl_push_chunk_stnp(obj, data, (uint)data.Length, timestamps, pushthrough ? 1 : 0); }
-        public void push_chunk(char[,] data, double[] timestamps, bool pushthrough = true) { dll.lsl_push_chunk_ctnp(obj, data, (uint)data.Length, timestamps, pushthrough ? 1 : 0); }
+        public void push_chunk(byte[,] data, double[] timestamps, bool pushthrough = true) { dll.lsl_push_chunk_ctnp(obj, data, (uint)data.Length, timestamps, pushthrough ? 1 : 0); }
         public void push_chunk(string[,] data, double[] timestamps, bool pushthrough = true) { dll.lsl_push_chunk_strtnp(obj, data, (uint)data.Length, timestamps, pushthrough ? 1 : 0); }
+        public void push_chunk(IntPtr[,] data, uint[] lengths, double[] timestamps, bool pushthrough = true) { dll.lsl_push_chunk_buftnp(obj, data, lengths, (uint)data.Length, timestamps, pushthrough ? 1 : 0); }
 
 
         // ===============================
@@ -536,7 +541,7 @@ namespace Bonsai.Lsl
     * A stream inlet.
     * Inlets are used to receive streaming data (and meta-data) from the lab network.
     */
-    public class StreamInlet : LSLObject
+    internal class StreamInlet : LSLObject
     {
         /**
                 * Construct a new stream inlet from a resolved stream info.
@@ -626,7 +631,7 @@ namespace Bonsai.Lsl
         public double pull_sample(double[] sample, double timeout = LSL.FOREVER) { int ec = 0; double res = dll.lsl_pull_sample_d(obj, sample, sample.Length, timeout, ref ec); LSL.check_error(ec); return res; }
         public double pull_sample(int[] sample, double timeout = LSL.FOREVER) { int ec = 0; double res = dll.lsl_pull_sample_i(obj, sample, sample.Length, timeout, ref ec); LSL.check_error(ec); return res; }
         public double pull_sample(short[] sample, double timeout = LSL.FOREVER) { int ec = 0; double res = dll.lsl_pull_sample_s(obj, sample, sample.Length, timeout, ref ec); LSL.check_error(ec); return res; }
-        public double pull_sample(char[] sample, double timeout = LSL.FOREVER) { int ec = 0; double res = dll.lsl_pull_sample_c(obj, sample, sample.Length, timeout, ref ec); LSL.check_error(ec); return res; }
+        public double pull_sample(byte[] sample, double timeout = LSL.FOREVER) { int ec = 0; double res = dll.lsl_pull_sample_c(obj, sample, sample.Length, timeout, ref ec); LSL.check_error(ec); return res; }
         public double pull_sample(string[] sample, double timeout = LSL.FOREVER)
         {
             int ec = 0;
@@ -664,7 +669,7 @@ namespace Bonsai.Lsl
         public int pull_chunk(double[,] data_buffer, double[] timestamp_buffer, double timeout = 0.0) { int ec = 0; uint res = dll.lsl_pull_chunk_d(obj, data_buffer, timestamp_buffer, (uint)data_buffer.Length, (uint)timestamp_buffer.Length, timeout, ref ec); LSL.check_error(ec); return (int)res / data_buffer.GetLength(1); }
         public int pull_chunk(int[,] data_buffer, double[] timestamp_buffer, double timeout = 0.0) { int ec = 0; uint res = dll.lsl_pull_chunk_i(obj, data_buffer, timestamp_buffer, (uint)data_buffer.Length, (uint)timestamp_buffer.Length, timeout, ref ec); LSL.check_error(ec); return (int)res / data_buffer.GetLength(1); }
         public int pull_chunk(short[,] data_buffer, double[] timestamp_buffer, double timeout = 0.0) { int ec = 0; uint res = dll.lsl_pull_chunk_s(obj, data_buffer, timestamp_buffer, (uint)data_buffer.Length, (uint)timestamp_buffer.Length, timeout, ref ec); LSL.check_error(ec); return (int)res / data_buffer.GetLength(1); }
-        public int pull_chunk(char[,] data_buffer, double[] timestamp_buffer, double timeout = 0.0) { int ec = 0; uint res = dll.lsl_pull_chunk_c(obj, data_buffer, timestamp_buffer, (uint)data_buffer.Length, (uint)timestamp_buffer.Length, timeout, ref ec); LSL.check_error(ec); return (int)res / data_buffer.GetLength(1); }
+        public int pull_chunk(byte[,] data_buffer, double[] timestamp_buffer, double timeout = 0.0) { int ec = 0; uint res = dll.lsl_pull_chunk_c(obj, data_buffer, timestamp_buffer, (uint)data_buffer.Length, (uint)timestamp_buffer.Length, timeout, ref ec); LSL.check_error(ec); return (int)res / data_buffer.GetLength(1); }
         public int pull_chunk(string[,] data_buffer, double[] timestamp_buffer, double timeout = 0.0)
         {
             int ec = 0;
@@ -715,7 +720,7 @@ namespace Bonsai.Lsl
     * Insider note: The interface is modeled after a subset of pugixml's node type and is compatible with it.
     * See also http://pugixml.googlecode.com/svn/tags/latest/docs/manual/access.html for additional documentation.
     */
-    public struct XMLElement
+    internal struct XMLElement
     {
         public XMLElement(IntPtr handle) { obj = handle; }
 
@@ -831,7 +836,7 @@ namespace Bonsai.Lsl
     * visible on the network.
     */
 
-    public class ContinuousResolver : LSLObject
+    internal class ContinuousResolver : LSLObject
     {
         /**
         * Construct a new continuous_resolver that resolves all streams on the network. 
@@ -884,33 +889,6 @@ namespace Bonsai.Lsl
             dll.lsl_destroy_continuous_resolver(obj);
         }
     }
-
-    #region Exception Types
-
-    /**
-     * Exception class that indicates that a stream inlet's source has been irrecoverably lost.
-     */
-    public class LostException : System.Exception
-    {
-        public LostException(string message = "", System.Exception inner = null) { }
-        protected LostException(System.Runtime.Serialization.SerializationInfo info,
-            System.Runtime.Serialization.StreamingContext context)
-        { }
-    }
-
-    /**
-     * Exception class that indicates that an internal error has occurred inside liblsl.
-     */
-    public class InternalException : System.Exception
-    {
-        public InternalException(string message = "", System.Exception inner = null) { }
-        protected InternalException(System.Runtime.Serialization.SerializationInfo info,
-            System.Runtime.Serialization.StreamingContext context)
-        { }
-    }
-    #endregion
-
-
 
     #region Internal: C library function definitions
 
@@ -992,13 +970,13 @@ namespace Bonsai.Lsl
         public static extern int lsl_push_sample_stp(IntPtr obj, short[] data, double timestamp, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
-        public static extern int lsl_push_sample_ctp(IntPtr obj, char[] data, double timestamp, int pushthrough);
+        public static extern int lsl_push_sample_ctp(IntPtr obj, byte[] data, double timestamp, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern int lsl_push_sample_strtp(IntPtr obj, string[] data, double timestamp, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
-        public static extern int lsl_push_sample_buftp(IntPtr obj, char[][] data, uint[] lengths, double timestamp, int pushthrough);
+        public static extern int lsl_push_sample_buftp(IntPtr obj, IntPtr[] data, uint[] lengths, double timestamp, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern int lsl_push_chunk_ftp(IntPtr obj, float[,] data, uint data_elements, double timestamp, int pushthrough);
@@ -1025,10 +1003,46 @@ namespace Bonsai.Lsl
         public static extern int lsl_push_chunk_stnp(IntPtr obj, short[,] data, uint data_elements, double[] timestamps, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
-        public static extern int lsl_push_chunk_ctp(IntPtr obj, char[,] data, uint data_elements, double timestamp, int pushthrough);
+        public static extern int lsl_push_chunk_ctp(IntPtr obj, byte[,] data, uint data_elements, double timestamp, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
-        public static extern int lsl_push_chunk_ctnp(IntPtr obj, char[,] data, uint data_elements, double[] timestamps, int pushthrough);
+        public static extern int lsl_push_chunk_ctnp(IntPtr obj, byte[,] data, uint data_elements, double[] timestamps, int pushthrough);
+
+        // =======================
+        // == Push Raw Buffers ===
+        // =======================
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_chunk_ftp(IntPtr obj, IntPtr data, uint data_elements, double timestamp, int pushthrough);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_chunk_ftnp(IntPtr obj, IntPtr data, uint data_elements, IntPtr timestamps, int pushthrough);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_chunk_dtp(IntPtr obj, IntPtr data, uint data_elements, double timestamp, int pushthrough);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_chunk_dtnp(IntPtr obj, IntPtr data, uint data_elements, IntPtr timestamps, int pushthrough);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_chunk_itp(IntPtr obj, IntPtr data, uint data_elements, double timestamp, int pushthrough);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_chunk_itnp(IntPtr obj, IntPtr data, uint data_elements, IntPtr timestamps, int pushthrough);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_chunk_stp(IntPtr obj, IntPtr data, uint data_elements, double timestamp, int pushthrough);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_chunk_stnp(IntPtr obj, IntPtr data, uint data_elements, IntPtr timestamps, int pushthrough);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_chunk_ctp(IntPtr obj, IntPtr data, uint data_elements, double timestamp, int pushthrough);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern int lsl_push_chunk_ctnp(IntPtr obj, IntPtr data, uint data_elements, IntPtr timestamps, int pushthrough);
+
+        /***/
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern int lsl_push_chunk_strtp(IntPtr obj, string[,] data, uint data_elements, double timestamp, int pushthrough);
@@ -1037,10 +1051,10 @@ namespace Bonsai.Lsl
         public static extern int lsl_push_chunk_strtnp(IntPtr obj, string[,] data, uint data_elements, double[] timestamps, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
-        public static extern int lsl_push_chunk_buftp(IntPtr obj, char[][] data, uint[] lengths, uint data_elements, double timestamp, int pushthrough);
+        public static extern int lsl_push_chunk_buftp(IntPtr obj, IntPtr[,] data, uint[] lengths, uint data_elements, double timestamp, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
-        public static extern int lsl_push_chunk_buftnp(IntPtr obj, char[][] data, uint[] lengths, uint data_elements, double[] timestamps, int pushthrough);
+        public static extern int lsl_push_chunk_buftnp(IntPtr obj, IntPtr[,] data, uint[] lengths, uint data_elements, double[] timestamps, int pushthrough);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern int lsl_have_consumers(IntPtr obj);
@@ -1094,13 +1108,13 @@ namespace Bonsai.Lsl
         public static extern double lsl_pull_sample_s(IntPtr obj, short[] buffer, int buffer_elements, double timeout, ref int ec);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
-        public static extern double lsl_pull_sample_c(IntPtr obj, char[] buffer, int buffer_elements, double timeout, ref int ec);
+        public static extern double lsl_pull_sample_c(IntPtr obj, byte[] buffer, int buffer_elements, double timeout, ref int ec);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern double lsl_pull_sample_str(IntPtr obj, IntPtr[] buffer, int buffer_elements, double timeout, ref int ec);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
-        public static extern double lsl_pull_sample_buf(IntPtr obj, char[][] buffer, uint[] buffer_lengths, int buffer_elements, double timeout, ref int ec);
+        public static extern double lsl_pull_sample_buf(IntPtr obj, IntPtr[] buffer, uint[] buffer_lengths, int buffer_elements, double timeout, ref int ec);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern void lsl_destroy_string(IntPtr str);
@@ -1118,13 +1132,34 @@ namespace Bonsai.Lsl
         public static extern uint lsl_pull_chunk_s(IntPtr obj, short[,] data_buffer, double[] timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
-        public static extern uint lsl_pull_chunk_c(IntPtr obj, char[,] data_buffer, double[] timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
+        public static extern uint lsl_pull_chunk_c(IntPtr obj, byte[,] data_buffer, double[] timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern uint lsl_pull_chunk_str(IntPtr obj, IntPtr[,] data_buffer, double[] timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
-        public static extern uint lsl_pull_chunk_buf(IntPtr obj, char[][,] data_buffer, uint[,] lengths_buffer, double[] timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
+        public static extern uint lsl_pull_chunk_buf(IntPtr obj, IntPtr[,] data_buffer, uint[,] lengths_buffer, double[] timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
+
+        // =======================
+        // == Pull Raw Buffers ===
+        // =======================
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern uint lsl_pull_chunk_f(IntPtr obj, IntPtr data_buffer, IntPtr timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern uint lsl_pull_chunk_d(IntPtr obj, IntPtr data_buffer, IntPtr timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern uint lsl_pull_chunk_i(IntPtr obj, IntPtr data_buffer, IntPtr timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern uint lsl_pull_chunk_s(IntPtr obj, IntPtr data_buffer, IntPtr timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
+
+        [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern uint lsl_pull_chunk_c(IntPtr obj, IntPtr data_buffer, IntPtr timestamp_buffer, uint data_buffer_elements, uint timestamp_buffer_elements, double timeout, ref int ec);
+
+        /***/
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern uint lsl_samples_available(IntPtr obj);
@@ -1221,6 +1256,52 @@ namespace Bonsai.Lsl
 
         [DllImport(libname, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, ExactSpelling = true)]
         public static extern void lsl_destroy_continuous_resolver(IntPtr obj);
+    }
+    #endregion
+}
+
+namespace Bonsai.Lsl
+{
+    #region Exception Types
+
+    /// <summary>
+    /// Represents an error indicating that the source of a stream inlet has been
+    /// irrecoverably lost.
+    /// </summary>
+    public class LostException : System.Exception
+    {
+        /// <inheritdoc/>
+        public LostException(string message = "", System.Exception innerException = null)
+            : base(message, innerException)
+        {
+        }
+
+        /// <inheritdoc/>
+        protected LostException(System.Runtime.Serialization.SerializationInfo info,
+            System.Runtime.Serialization.StreamingContext context)
+            : base(info, context)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Represents an error indicating an internal failure has occurred inside liblsl.
+    /// </summary>
+    public class InternalException : System.Exception
+    {
+        /// <inheritdoc/>
+        public InternalException(string message = "", System.Exception innerException = null)
+            : base(message, innerException)
+        {
+        }
+
+        /// <inheritdoc/>
+        protected InternalException(
+            System.Runtime.Serialization.SerializationInfo info,
+            System.Runtime.Serialization.StreamingContext context)
+            : base(info, context)
+        {
+        }
     }
     #endregion
 }
