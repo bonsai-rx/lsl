@@ -56,6 +56,9 @@ namespace Bonsai.Lsl
         [Description("The nominal sampling rate used by the data source, in Hz.")]
         public int SampleRate { get; set; }
 
+        [Description("A Unique identifier usually associated to the EEG device (eg. the MAC address)")]
+        public string UniqId { get; set; }
+
         /// <inheritdoc/>
         public override Expression Build(IEnumerable<Expression> arguments)
         {
@@ -137,7 +140,7 @@ namespace Bonsai.Lsl
             return Observable.Using(
                 () =>
                 {
-                    var streamInfo = new StreamInfo(name, contentType, channelCount, sampleRate, channelFormat);
+                    var streamInfo = new StreamInfo(name, contentType, channelCount, sampleRate, channelFormat,UniqId);
                     return new Native.StreamOutlet(streamInfo);
                 },
                 outlet => source.Do(value => writer(value, outlet)));
