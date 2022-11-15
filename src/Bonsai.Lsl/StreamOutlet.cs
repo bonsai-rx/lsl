@@ -56,8 +56,16 @@ namespace Bonsai.Lsl
         [Description("The nominal sampling rate used by the data source, in Hz.")]
         public int SampleRate { get; set; }
 
-        [Description("A Unique identifier usually associated to the EEG device (eg. the MAC address)")]
-        public string UniqId { get; set; }
+        /// <summary>
+        /// Gets or sets the unique identifier of the stream data source.
+        /// </summary>
+        /// <remarks>
+        /// The unique source (or device) identifier is an optional piece of
+        /// information that, if available, allows endpoints to re-acquire
+        /// a stream automatically once it is back online.
+        /// </remarks>
+        [Description("The unique identifier of the stream data source.")]
+        public string SourceId { get; set; }
 
         /// <inheritdoc/>
         public override Expression Build(IEnumerable<Expression> arguments)
@@ -129,6 +137,7 @@ namespace Bonsai.Lsl
                 throw new InvalidOperationException("A valid LSL stream name must be specified.");
             }
 
+            var sourceId = SourceId;
             var sampleRate = SampleRate;
             var contentType = ContentType ?? typeof(TSource).Name;
             var channelCount = ChannelCount;
@@ -140,7 +149,7 @@ namespace Bonsai.Lsl
             return Observable.Using(
                 () =>
                 {
-                    var streamInfo = new StreamInfo(name, contentType, channelCount, sampleRate, channelFormat,UniqId);
+                    var streamInfo = new StreamInfo(name, contentType, channelCount, sampleRate, channelFormat, sourceId);
                     return new Native.StreamOutlet(streamInfo);
                 },
                 outlet => source.Do(value => writer(value, outlet)));
