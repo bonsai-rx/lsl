@@ -1,8 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Authors>NeuroGEARS</Authors>
     <Title>Bonsai - LSL Library</Title>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <Description>Bonsai Library containing interfaces for streaming data from devices implementing the LSL protocol.</Description>
     <Copyright>Copyright © NeuroGEARS 2022</Copyright>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
