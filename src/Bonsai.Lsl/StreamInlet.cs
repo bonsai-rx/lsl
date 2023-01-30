@@ -57,6 +57,12 @@ namespace Bonsai.Lsl
         [Description("Specifies the data format of each channel in the LSL stream.")]
         public ChannelFormat ChannelFormat { get; set; } = ChannelFormat.Float32;
 
+        /// <summary>
+        /// Gets or sets a value specifying the postprocessing time-synchronisation options to use on an LSL stream inlet.
+        /// </summary>
+        [Description("Specifies the postprocessing options of an LSL stream inlet.")]
+        public ProcessingFlags ProcessingOptions { get; set; } = ProcessingFlags.All;
+
         /// <inheritdoc/>
         public override Expression Build(IEnumerable<Expression> arguments)
         {
@@ -215,7 +221,7 @@ namespace Bonsai.Lsl
             return streamInfo;
         }
 
-        static Native.StreamInlet CreateInlet(string name, string type)
+        static Native.StreamInlet CreateInlet(string name, string type, ProcessingFlags procFlags)
         {
             StreamInfo streamInfo;
             if (name is null && type is null)
@@ -231,7 +237,7 @@ namespace Bonsai.Lsl
                 streamInfo = ResolveStream("name", name);
             }
             else streamInfo = ResolveStream($"name='{name}' and type='{type}'");
-            return new Native.StreamInlet(streamInfo);
+            return new Native.StreamInlet(streamInfo, postproc_flags: (processing_options_t)procFlags);
         }
 
         IObservable<Timestamped<TResult>> Generate<TResult>(Func<Native.StreamInlet, TResult[], double> pull_sample)
@@ -242,7 +248,7 @@ namespace Bonsai.Lsl
             {
                 return Task.Factory.StartNew(() =>
                 {
-                    using var streamInlet = CreateInlet(name, contentType);
+                    using var streamInlet = CreateInlet(name, contentType, ProcessingOptions);
                     var sampleArray = new TResult[1];
                     streamInlet.open_stream();
                     try
@@ -268,7 +274,7 @@ namespace Bonsai.Lsl
             {
                 return Task.Factory.StartNew(() =>
                 {
-                    using var streamInlet = CreateInlet(name, contentType);
+                    using var streamInlet = CreateInlet(name, contentType, ProcessingOptions);
                     streamInlet.open_stream();
                     try
                     {
@@ -296,7 +302,7 @@ namespace Bonsai.Lsl
             {
                 return Task.Factory.StartNew(() =>
                 {
-                    using var streamInlet = CreateInlet(name, contentType);
+                    using var streamInlet = CreateInlet(name, contentType, ProcessingOptions);
                     using var buffer = new Mat(chunkSize, channelCount, sampleDepth, 1);
                     streamInlet.open_stream();
                     try
@@ -314,5 +320,41 @@ namespace Bonsai.Lsl
                 });
             });
         }
+    }
+
+    /// <summary>
+    /// Options for post-processing of samples for an LSL stream inlet.
+    /// </summary>
+    public enum ProcessingFlags
+    {
+        /// <summary>
+        /// No automatic post-processing. Gives ground-truth timestamps for manual post-processing.
+        /// </summary>
+        None = processing_options_t.proc_none,
+
+        /// <summary>
+        /// Perform automatic clock-synchronisation.
+        /// </summary>
+        Clocksync = processing_options_t.proc_clocksync,
+
+        /// <summary>
+        /// Remove jitter from timestamps.
+        /// </summary>
+        Dejitter = processing_options_t.proc_dejitter,
+
+        /// <summary>
+        /// Force timestamps to be monotonically ascending.
+        /// </summary>
+        Monotonize = processing_options_t.proc_monotonize,
+
+        /// <summary>
+        /// Post-processing is thread-safe (same inlet can be read from by multiple threads) at the cost of more CPU usage.
+        /// </summary>
+        Threadsafe = processing_options_t.proc_threadsafe,
+
+        /// <summary>
+        /// Use all available postprocessing options.
+        /// </summary>
+        All = processing_options_t.proc_ALL
     }
 }
