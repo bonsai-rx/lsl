@@ -61,7 +61,7 @@ namespace Bonsai.Lsl
         /// Gets or sets a value specifying the postprocessing time-synchronisation options to use on an LSL stream inlet.
         /// </summary>
         [Description("Specifies the postprocessing options of an LSL stream inlet.")]
-        public ProcessingFlags ProcessingOptions { get; set; } = ProcessingFlags.All;
+        public ProcessingOptions ProcessingOptions { get; set; } = ProcessingOptions.All;
 
         /// <inheritdoc/>
         public override Expression Build(IEnumerable<Expression> arguments)
@@ -221,7 +221,7 @@ namespace Bonsai.Lsl
             return streamInfo;
         }
 
-        static Native.StreamInlet CreateInlet(string name, string type, ProcessingFlags procFlags)
+        static Native.StreamInlet CreateInlet(string name, string type, ProcessingOptions procFlags)
         {
             StreamInfo streamInfo;
             if (name is null && type is null)
@@ -325,7 +325,7 @@ namespace Bonsai.Lsl
     /// <summary>
     /// Options for post-processing of samples for an LSL stream inlet.
     /// </summary>
-    public enum ProcessingFlags
+    public enum ProcessingOptions
     {
         /// <summary>
         /// No automatic post-processing. Gives ground-truth timestamps for manual post-processing.

@@ -38,10 +38,4 @@
     <Content Include="..\liblsl\win-x64\bin\*.dll" PackagePath="runtimes\win-x64\native" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Native\LSL.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-  </ItemGroup>
-
 </Project>
