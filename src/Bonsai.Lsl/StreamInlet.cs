@@ -325,6 +325,7 @@ namespace Bonsai.Lsl
     /// <summary>
     /// Specifies options for post-processing of samples for an LSL stream inlet.
     /// </summary>
+    [Flags]
     public enum ProcessingOptions
     {
         /// <summary>
