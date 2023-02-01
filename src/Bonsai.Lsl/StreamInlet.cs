@@ -58,9 +58,9 @@ namespace Bonsai.Lsl
         public ChannelFormat ChannelFormat { get; set; } = ChannelFormat.Float32;
 
         /// <summary>
-        /// Gets or sets a value specifying the postprocessing time-synchronisation options to use on an LSL stream inlet.
+        /// Gets or sets a value specifying the postprocessing time synchronization options to use on the LSL stream.
         /// </summary>
-        [Description("Specifies the postprocessing options of an LSL stream inlet.")]
+        [Description("Specifies the postprocessing time synchronization options to use on the LSL stream.")]
         public ProcessingOptions ProcessingOptions { get; set; } = ProcessingOptions.All;
 
         /// <inheritdoc/>
@@ -221,7 +221,7 @@ namespace Bonsai.Lsl
             return streamInfo;
         }
 
-        static Native.StreamInlet CreateInlet(string name, string type, ProcessingOptions procFlags)
+        static Native.StreamInlet CreateInlet(string name, string type, ProcessingOptions processingFlags)
         {
             StreamInfo streamInfo;
             if (name is null && type is null)
@@ -237,7 +237,7 @@ namespace Bonsai.Lsl
                 streamInfo = ResolveStream("name", name);
             }
             else streamInfo = ResolveStream($"name='{name}' and type='{type}'");
-            return new Native.StreamInlet(streamInfo, postproc_flags: (processing_options_t)procFlags);
+            return new Native.StreamInlet(streamInfo, postproc_flags: (processing_options_t)processingFlags);
         }
 
         IObservable<Timestamped<TResult>> Generate<TResult>(Func<Native.StreamInlet, TResult[], double> pull_sample)
@@ -323,22 +323,22 @@ namespace Bonsai.Lsl
     }
 
     /// <summary>
-    /// Options for post-processing of samples for an LSL stream inlet.
+    /// Specifies options for post-processing of samples for an LSL stream inlet.
     /// </summary>
     public enum ProcessingOptions
     {
         /// <summary>
-        /// No automatic post-processing. Gives ground-truth timestamps for manual post-processing.
+        /// No automatic post-processing. Provides ground truth timestamps for manual post-processing.
         /// </summary>
         None = processing_options_t.proc_none,
 
         /// <summary>
-        /// Perform automatic clock-synchronisation.
+        /// Perform automatic clock synchronization.
         /// </summary>
         Clocksync = processing_options_t.proc_clocksync,
 
         /// <summary>
-        /// Remove jitter from timestamps.
+        /// Remove random jitter from timestamps using a trend-adjusted smoothing algorithm.
         /// </summary>
         Dejitter = processing_options_t.proc_dejitter,
 
