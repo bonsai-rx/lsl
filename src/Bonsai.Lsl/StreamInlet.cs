@@ -57,6 +57,12 @@ namespace Bonsai.Lsl
         [Description("Specifies the data format of each channel in the LSL stream.")]
         public ChannelFormat ChannelFormat { get; set; } = ChannelFormat.Float32;
 
+        /// <summary>
+        /// Gets or sets a value specifying the postprocessing time synchronization options to use on the LSL stream.
+        /// </summary>
+        [Description("Specifies the postprocessing time synchronization options to use on the LSL stream.")]
+        public ProcessingOptions ProcessingOptions { get; set; } = ProcessingOptions.All;
+
         /// <inheritdoc/>
         public override Expression Build(IEnumerable<Expression> arguments)
         {
@@ -215,7 +221,7 @@ namespace Bonsai.Lsl
             return streamInfo;
         }
 
-        static Native.StreamInlet CreateInlet(string name, string type)
+        static Native.StreamInlet CreateInlet(string name, string type, ProcessingOptions processingFlags)
         {
             StreamInfo streamInfo;
             if (name is null && type is null)
@@ -231,7 +237,7 @@ namespace Bonsai.Lsl
                 streamInfo = ResolveStream("name", name);
             }
             else streamInfo = ResolveStream($"name='{name}' and type='{type}'");
-            return new Native.StreamInlet(streamInfo);
+            return new Native.StreamInlet(streamInfo, postproc_flags: (processing_options_t)processingFlags);
         }
 
         IObservable<Timestamped<TResult>> Generate<TResult>(Func<Native.StreamInlet, TResult[], double> pull_sample)
@@ -242,7 +248,7 @@ namespace Bonsai.Lsl
             {
                 return Task.Factory.StartNew(() =>
                 {
-                    using var streamInlet = CreateInlet(name, contentType);
+                    using var streamInlet = CreateInlet(name, contentType, ProcessingOptions);
                     var sampleArray = new TResult[1];
                     streamInlet.open_stream();
                     try
@@ -268,7 +274,7 @@ namespace Bonsai.Lsl
             {
                 return Task.Factory.StartNew(() =>
                 {
-                    using var streamInlet = CreateInlet(name, contentType);
+                    using var streamInlet = CreateInlet(name, contentType, ProcessingOptions);
                     streamInlet.open_stream();
                     try
                     {
@@ -296,7 +302,7 @@ namespace Bonsai.Lsl
             {
                 return Task.Factory.StartNew(() =>
                 {
-                    using var streamInlet = CreateInlet(name, contentType);
+                    using var streamInlet = CreateInlet(name, contentType, ProcessingOptions);
                     using var buffer = new Mat(chunkSize, channelCount, sampleDepth, 1);
                     streamInlet.open_stream();
                     try
@@ -314,5 +320,42 @@ namespace Bonsai.Lsl
                 });
             });
         }
+    }
+
+    /// <summary>
+    /// Specifies options for post-processing of samples for an LSL stream inlet.
+    /// </summary>
+    [Flags]
+    public enum ProcessingOptions
+    {
+        /// <summary>
+        /// No automatic post-processing. Provides ground truth timestamps for manual post-processing.
+        /// </summary>
+        None = processing_options_t.proc_none,
+
+        /// <summary>
+        /// Perform automatic clock synchronization.
+        /// </summary>
+        Clocksync = processing_options_t.proc_clocksync,
+
+        /// <summary>
+        /// Remove random jitter from timestamps using a trend-adjusted smoothing algorithm.
+        /// </summary>
+        Dejitter = processing_options_t.proc_dejitter,
+
+        /// <summary>
+        /// Force timestamps to be monotonically ascending.
+        /// </summary>
+        Monotonize = processing_options_t.proc_monotonize,
+
+        /// <summary>
+        /// Post-processing is thread-safe (same inlet can be read from by multiple threads) at the cost of more CPU usage.
+        /// </summary>
+        Threadsafe = processing_options_t.proc_threadsafe,
+
+        /// <summary>
+        /// Use all available postprocessing options.
+        /// </summary>
+        All = processing_options_t.proc_ALL
     }
 }
