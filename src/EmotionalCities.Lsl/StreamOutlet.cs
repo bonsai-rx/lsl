@@ -4,11 +4,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reactive.Linq;
+using Bonsai;
 using Bonsai.Expressions;
-using Bonsai.Lsl.Native;
+using EmotionalCities.Lsl.Native;
 using OpenCV.Net;
 
-namespace Bonsai.Lsl
+namespace EmotionalCities.Lsl
 {
     /// <summary>
     /// Represents an operator that pushes data buffers from an observable sequence

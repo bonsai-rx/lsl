@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Bonsai.Lsl
+namespace EmotionalCities.Lsl
 {
     /// <summary>
     /// Represents a timestamped value.

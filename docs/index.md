@@ -1,4 +1,4 @@
-# **Bonsai - LSL** Documentation
+# **Emotional Cities - LSL** Documentation
 
 Bonsai Library containing interfaces for streaming data from devices implementing the [Lab Streaming Layer](https://labstreaminglayer.readthedocs.io/index.html) protocol.
 

@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
 #pragma warning disable 1570, 1573, 1587, 1591
 
 
-namespace Bonsai.Lsl.Native
+namespace EmotionalCities.Lsl.Native
 {
     /// <summary>
     /// C# API for the lab streaming layer.
@@ -1260,7 +1260,7 @@ namespace Bonsai.Lsl.Native
     #endregion
 }
 
-namespace Bonsai.Lsl
+namespace EmotionalCities.Lsl
 {
     #region Exception Types
 

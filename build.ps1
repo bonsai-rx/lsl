@@ -28,5 +28,5 @@ Get-Dependency -TargetFile ".\win-x64.zip" `
 Get-Dependency -TargetFile ".\win-x86.zip" `
                -TargetHash "E5CAB1330CB42E665FB74B343A859DA4" `
                -Uri "https://github.com/sccn/liblsl/releases/download/v1.16.0/liblsl-1.16.0-Win_i386.zip"
-Write-Host ("Building Bonsai.Lsl")
-& dotnet build -c Release .\src\Bonsai.Lsl.sln
+Write-Host ("Building EmotionalCities.Lsl")
+& dotnet build -c Release .\src\EmotionalCities.Lsl.sln
