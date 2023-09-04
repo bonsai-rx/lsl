@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenCV.Net;
 
-namespace Bonsai.Lsl
+namespace EmotionalCities.Lsl
 {
     /// <summary>
     /// Represents a timestamped chunk.

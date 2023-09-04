@@ -2,9 +2,10 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Reactive.Linq;
-using Bonsai.Lsl.Native;
+using EmotionalCities.Lsl.Native;
+using Bonsai;
 
-namespace Bonsai.Lsl
+namespace EmotionalCities.Lsl
 {
     /// <summary>
     /// Represents an operator that records the local LSL timestamp for each element

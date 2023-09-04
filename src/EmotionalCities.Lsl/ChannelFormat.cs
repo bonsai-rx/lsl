@@ -1,4 +1,4 @@
-﻿namespace Bonsai.Lsl
+﻿namespace EmotionalCities.Lsl
 {
     /// <summary>
     /// Specifies the data format of a LSL channel.

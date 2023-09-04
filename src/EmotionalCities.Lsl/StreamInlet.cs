@@ -1,5 +1,6 @@
-﻿using Bonsai.Expressions;
-using Bonsai.Lsl.Native;
+﻿using Bonsai;
+using Bonsai.Expressions;
+using EmotionalCities.Lsl.Native;
 using OpenCV.Net;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Linq.Expressions;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 
-namespace Bonsai.Lsl
+namespace EmotionalCities.Lsl
 {
     /// <summary>
     /// Represents an operator that pulls data buffers from the specified LSL stream

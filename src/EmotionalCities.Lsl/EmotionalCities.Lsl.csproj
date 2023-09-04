@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Authors>NeuroGEARS</Authors>
-    <Title>Bonsai - LSL Library</Title>
+    <Title>Emotional Cities - LSL Library</Title>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <Description>Bonsai Library containing interfaces for streaming data from devices implementing the LSL protocol.</Description>
     <Copyright>Copyright © NeuroGEARS Ltd 2022</Copyright>
@@ -20,7 +20,7 @@
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <Features>strict</Features>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

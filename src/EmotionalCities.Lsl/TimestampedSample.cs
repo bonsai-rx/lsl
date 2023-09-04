@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bonsai.Lsl
+namespace EmotionalCities.Lsl
 {
     /// <summary>
     /// Represents a timestamped sample.
