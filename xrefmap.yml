@@ -1,0 +1,1463 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: EmotionalCities.Lsl
+  name: EmotionalCities.Lsl
+  href: api/EmotionalCities.Lsl.html
+  commentId: N:EmotionalCities.Lsl
+  fullName: EmotionalCities.Lsl
+  nameWithType: EmotionalCities.Lsl
+- uid: EmotionalCities.Lsl.ChannelFormat
+  name: ChannelFormat
+  href: api/EmotionalCities.Lsl.ChannelFormat.html
+  commentId: T:EmotionalCities.Lsl.ChannelFormat
+  fullName: EmotionalCities.Lsl.ChannelFormat
+  nameWithType: ChannelFormat
+- uid: EmotionalCities.Lsl.ChannelFormat.Double64
+  name: Double64
+  href: api/EmotionalCities.Lsl.ChannelFormat.html#EmotionalCities_Lsl_ChannelFormat_Double64
+  commentId: F:EmotionalCities.Lsl.ChannelFormat.Double64
+  fullName: EmotionalCities.Lsl.ChannelFormat.Double64
+  nameWithType: ChannelFormat.Double64
+- uid: EmotionalCities.Lsl.ChannelFormat.Float32
+  name: Float32
+  href: api/EmotionalCities.Lsl.ChannelFormat.html#EmotionalCities_Lsl_ChannelFormat_Float32
+  commentId: F:EmotionalCities.Lsl.ChannelFormat.Float32
+  fullName: EmotionalCities.Lsl.ChannelFormat.Float32
+  nameWithType: ChannelFormat.Float32
+- uid: EmotionalCities.Lsl.ChannelFormat.Int16
+  name: Int16
+  href: api/EmotionalCities.Lsl.ChannelFormat.html#EmotionalCities_Lsl_ChannelFormat_Int16
+  commentId: F:EmotionalCities.Lsl.ChannelFormat.Int16
+  fullName: EmotionalCities.Lsl.ChannelFormat.Int16
+  nameWithType: ChannelFormat.Int16
+- uid: EmotionalCities.Lsl.ChannelFormat.Int32
+  name: Int32
+  href: api/EmotionalCities.Lsl.ChannelFormat.html#EmotionalCities_Lsl_ChannelFormat_Int32
+  commentId: F:EmotionalCities.Lsl.ChannelFormat.Int32
+  fullName: EmotionalCities.Lsl.ChannelFormat.Int32
+  nameWithType: ChannelFormat.Int32
+- uid: EmotionalCities.Lsl.ChannelFormat.Int64
+  name: Int64
+  href: api/EmotionalCities.Lsl.ChannelFormat.html#EmotionalCities_Lsl_ChannelFormat_Int64
+  commentId: F:EmotionalCities.Lsl.ChannelFormat.Int64
+  fullName: EmotionalCities.Lsl.ChannelFormat.Int64
+  nameWithType: ChannelFormat.Int64
+- uid: EmotionalCities.Lsl.ChannelFormat.Int8
+  name: Int8
+  href: api/EmotionalCities.Lsl.ChannelFormat.html#EmotionalCities_Lsl_ChannelFormat_Int8
+  commentId: F:EmotionalCities.Lsl.ChannelFormat.Int8
+  fullName: EmotionalCities.Lsl.ChannelFormat.Int8
+  nameWithType: ChannelFormat.Int8
+- uid: EmotionalCities.Lsl.ChannelFormat.String
+  name: String
+  href: api/EmotionalCities.Lsl.ChannelFormat.html#EmotionalCities_Lsl_ChannelFormat_String
+  commentId: F:EmotionalCities.Lsl.ChannelFormat.String
+  fullName: EmotionalCities.Lsl.ChannelFormat.String
+  nameWithType: ChannelFormat.String
+- uid: EmotionalCities.Lsl.ChannelFormat.Undefined
+  name: Undefined
+  href: api/EmotionalCities.Lsl.ChannelFormat.html#EmotionalCities_Lsl_ChannelFormat_Undefined
+  commentId: F:EmotionalCities.Lsl.ChannelFormat.Undefined
+  fullName: EmotionalCities.Lsl.ChannelFormat.Undefined
+  nameWithType: ChannelFormat.Undefined
+- uid: EmotionalCities.Lsl.InternalException
+  name: InternalException
+  href: api/EmotionalCities.Lsl.InternalException.html
+  commentId: T:EmotionalCities.Lsl.InternalException
+  fullName: EmotionalCities.Lsl.InternalException
+  nameWithType: InternalException
+- uid: EmotionalCities.Lsl.InternalException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  name: InternalException(SerializationInfo, StreamingContext)
+  href: api/EmotionalCities.Lsl.InternalException.html#EmotionalCities_Lsl_InternalException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
+  commentId: M:EmotionalCities.Lsl.InternalException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  fullName: EmotionalCities.Lsl.InternalException.InternalException(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  nameWithType: InternalException.InternalException(SerializationInfo, StreamingContext)
+- uid: EmotionalCities.Lsl.InternalException.#ctor(System.String,System.Exception)
+  name: InternalException(String, Exception)
+  href: api/EmotionalCities.Lsl.InternalException.html#EmotionalCities_Lsl_InternalException__ctor_System_String_System_Exception_
+  commentId: M:EmotionalCities.Lsl.InternalException.#ctor(System.String,System.Exception)
+  fullName: EmotionalCities.Lsl.InternalException.InternalException(System.String, System.Exception)
+  nameWithType: InternalException.InternalException(String, Exception)
+- uid: EmotionalCities.Lsl.InternalException.#ctor*
+  name: InternalException
+  href: api/EmotionalCities.Lsl.InternalException.html#EmotionalCities_Lsl_InternalException__ctor_
+  commentId: Overload:EmotionalCities.Lsl.InternalException.#ctor
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.InternalException.InternalException
+  nameWithType: InternalException.InternalException
+- uid: EmotionalCities.Lsl.LostException
+  name: LostException
+  href: api/EmotionalCities.Lsl.LostException.html
+  commentId: T:EmotionalCities.Lsl.LostException
+  fullName: EmotionalCities.Lsl.LostException
+  nameWithType: LostException
+- uid: EmotionalCities.Lsl.LostException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  name: LostException(SerializationInfo, StreamingContext)
+  href: api/EmotionalCities.Lsl.LostException.html#EmotionalCities_Lsl_LostException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
+  commentId: M:EmotionalCities.Lsl.LostException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  fullName: EmotionalCities.Lsl.LostException.LostException(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  nameWithType: LostException.LostException(SerializationInfo, StreamingContext)
+- uid: EmotionalCities.Lsl.LostException.#ctor(System.String,System.Exception)
+  name: LostException(String, Exception)
+  href: api/EmotionalCities.Lsl.LostException.html#EmotionalCities_Lsl_LostException__ctor_System_String_System_Exception_
+  commentId: M:EmotionalCities.Lsl.LostException.#ctor(System.String,System.Exception)
+  fullName: EmotionalCities.Lsl.LostException.LostException(System.String, System.Exception)
+  nameWithType: LostException.LostException(String, Exception)
+- uid: EmotionalCities.Lsl.LostException.#ctor*
+  name: LostException
+  href: api/EmotionalCities.Lsl.LostException.html#EmotionalCities_Lsl_LostException__ctor_
+  commentId: Overload:EmotionalCities.Lsl.LostException.#ctor
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.LostException.LostException
+  nameWithType: LostException.LostException
+- uid: EmotionalCities.Lsl.ProcessingOptions
+  name: ProcessingOptions
+  href: api/EmotionalCities.Lsl.ProcessingOptions.html
+  commentId: T:EmotionalCities.Lsl.ProcessingOptions
+  fullName: EmotionalCities.Lsl.ProcessingOptions
+  nameWithType: ProcessingOptions
+- uid: EmotionalCities.Lsl.ProcessingOptions.All
+  name: All
+  href: api/EmotionalCities.Lsl.ProcessingOptions.html#EmotionalCities_Lsl_ProcessingOptions_All
+  commentId: F:EmotionalCities.Lsl.ProcessingOptions.All
+  fullName: EmotionalCities.Lsl.ProcessingOptions.All
+  nameWithType: ProcessingOptions.All
+- uid: EmotionalCities.Lsl.ProcessingOptions.Clocksync
+  name: Clocksync
+  href: api/EmotionalCities.Lsl.ProcessingOptions.html#EmotionalCities_Lsl_ProcessingOptions_Clocksync
+  commentId: F:EmotionalCities.Lsl.ProcessingOptions.Clocksync
+  fullName: EmotionalCities.Lsl.ProcessingOptions.Clocksync
+  nameWithType: ProcessingOptions.Clocksync
+- uid: EmotionalCities.Lsl.ProcessingOptions.Dejitter
+  name: Dejitter
+  href: api/EmotionalCities.Lsl.ProcessingOptions.html#EmotionalCities_Lsl_ProcessingOptions_Dejitter
+  commentId: F:EmotionalCities.Lsl.ProcessingOptions.Dejitter
+  fullName: EmotionalCities.Lsl.ProcessingOptions.Dejitter
+  nameWithType: ProcessingOptions.Dejitter
+- uid: EmotionalCities.Lsl.ProcessingOptions.Monotonize
+  name: Monotonize
+  href: api/EmotionalCities.Lsl.ProcessingOptions.html#EmotionalCities_Lsl_ProcessingOptions_Monotonize
+  commentId: F:EmotionalCities.Lsl.ProcessingOptions.Monotonize
+  fullName: EmotionalCities.Lsl.ProcessingOptions.Monotonize
+  nameWithType: ProcessingOptions.Monotonize
+- uid: EmotionalCities.Lsl.ProcessingOptions.None
+  name: None
+  href: api/EmotionalCities.Lsl.ProcessingOptions.html#EmotionalCities_Lsl_ProcessingOptions_None
+  commentId: F:EmotionalCities.Lsl.ProcessingOptions.None
+  fullName: EmotionalCities.Lsl.ProcessingOptions.None
+  nameWithType: ProcessingOptions.None
+- uid: EmotionalCities.Lsl.ProcessingOptions.Threadsafe
+  name: Threadsafe
+  href: api/EmotionalCities.Lsl.ProcessingOptions.html#EmotionalCities_Lsl_ProcessingOptions_Threadsafe
+  commentId: F:EmotionalCities.Lsl.ProcessingOptions.Threadsafe
+  fullName: EmotionalCities.Lsl.ProcessingOptions.Threadsafe
+  nameWithType: ProcessingOptions.Threadsafe
+- uid: EmotionalCities.Lsl.StreamInlet
+  name: StreamInlet
+  href: api/EmotionalCities.Lsl.StreamInlet.html
+  commentId: T:EmotionalCities.Lsl.StreamInlet
+  fullName: EmotionalCities.Lsl.StreamInlet
+  nameWithType: StreamInlet
+- uid: EmotionalCities.Lsl.StreamInlet.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
+  name: Build(IEnumerable<Expression>)
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_Build_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression__
+  commentId: M:EmotionalCities.Lsl.StreamInlet.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
+  name.vb: Build(IEnumerable(Of Expression))
+  fullName: EmotionalCities.Lsl.StreamInlet.Build(System.Collections.Generic.IEnumerable<System.Linq.Expressions.Expression>)
+  fullName.vb: EmotionalCities.Lsl.StreamInlet.Build(System.Collections.Generic.IEnumerable(Of System.Linq.Expressions.Expression))
+  nameWithType: StreamInlet.Build(IEnumerable<Expression>)
+  nameWithType.vb: StreamInlet.Build(IEnumerable(Of Expression))
+- uid: EmotionalCities.Lsl.StreamInlet.Build*
+  name: Build
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_Build_
+  commentId: Overload:EmotionalCities.Lsl.StreamInlet.Build
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamInlet.Build
+  nameWithType: StreamInlet.Build
+- uid: EmotionalCities.Lsl.StreamInlet.ChannelCount
+  name: ChannelCount
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_ChannelCount
+  commentId: P:EmotionalCities.Lsl.StreamInlet.ChannelCount
+  fullName: EmotionalCities.Lsl.StreamInlet.ChannelCount
+  nameWithType: StreamInlet.ChannelCount
+- uid: EmotionalCities.Lsl.StreamInlet.ChannelCount*
+  name: ChannelCount
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_ChannelCount_
+  commentId: Overload:EmotionalCities.Lsl.StreamInlet.ChannelCount
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamInlet.ChannelCount
+  nameWithType: StreamInlet.ChannelCount
+- uid: EmotionalCities.Lsl.StreamInlet.ChannelFormat
+  name: ChannelFormat
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_ChannelFormat
+  commentId: P:EmotionalCities.Lsl.StreamInlet.ChannelFormat
+  fullName: EmotionalCities.Lsl.StreamInlet.ChannelFormat
+  nameWithType: StreamInlet.ChannelFormat
+- uid: EmotionalCities.Lsl.StreamInlet.ChannelFormat*
+  name: ChannelFormat
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_ChannelFormat_
+  commentId: Overload:EmotionalCities.Lsl.StreamInlet.ChannelFormat
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamInlet.ChannelFormat
+  nameWithType: StreamInlet.ChannelFormat
+- uid: EmotionalCities.Lsl.StreamInlet.ChunkSize
+  name: ChunkSize
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_ChunkSize
+  commentId: P:EmotionalCities.Lsl.StreamInlet.ChunkSize
+  fullName: EmotionalCities.Lsl.StreamInlet.ChunkSize
+  nameWithType: StreamInlet.ChunkSize
+- uid: EmotionalCities.Lsl.StreamInlet.ChunkSize*
+  name: ChunkSize
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_ChunkSize_
+  commentId: Overload:EmotionalCities.Lsl.StreamInlet.ChunkSize
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamInlet.ChunkSize
+  nameWithType: StreamInlet.ChunkSize
+- uid: EmotionalCities.Lsl.StreamInlet.ContentType
+  name: ContentType
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_ContentType
+  commentId: P:EmotionalCities.Lsl.StreamInlet.ContentType
+  fullName: EmotionalCities.Lsl.StreamInlet.ContentType
+  nameWithType: StreamInlet.ContentType
+- uid: EmotionalCities.Lsl.StreamInlet.ContentType*
+  name: ContentType
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_ContentType_
+  commentId: Overload:EmotionalCities.Lsl.StreamInlet.ContentType
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamInlet.ContentType
+  nameWithType: StreamInlet.ContentType
+- uid: EmotionalCities.Lsl.StreamInlet.Name
+  name: Name
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_Name
+  commentId: P:EmotionalCities.Lsl.StreamInlet.Name
+  fullName: EmotionalCities.Lsl.StreamInlet.Name
+  nameWithType: StreamInlet.Name
+- uid: EmotionalCities.Lsl.StreamInlet.Name*
+  name: Name
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_Name_
+  commentId: Overload:EmotionalCities.Lsl.StreamInlet.Name
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamInlet.Name
+  nameWithType: StreamInlet.Name
+- uid: EmotionalCities.Lsl.StreamInlet.ProcessingOptions
+  name: ProcessingOptions
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_ProcessingOptions
+  commentId: P:EmotionalCities.Lsl.StreamInlet.ProcessingOptions
+  fullName: EmotionalCities.Lsl.StreamInlet.ProcessingOptions
+  nameWithType: StreamInlet.ProcessingOptions
+- uid: EmotionalCities.Lsl.StreamInlet.ProcessingOptions*
+  name: ProcessingOptions
+  href: api/EmotionalCities.Lsl.StreamInlet.html#EmotionalCities_Lsl_StreamInlet_ProcessingOptions_
+  commentId: Overload:EmotionalCities.Lsl.StreamInlet.ProcessingOptions
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamInlet.ProcessingOptions
+  nameWithType: StreamInlet.ProcessingOptions
+- uid: EmotionalCities.Lsl.StreamOutlet
+  name: StreamOutlet
+  href: api/EmotionalCities.Lsl.StreamOutlet.html
+  commentId: T:EmotionalCities.Lsl.StreamOutlet
+  fullName: EmotionalCities.Lsl.StreamOutlet
+  nameWithType: StreamOutlet
+- uid: EmotionalCities.Lsl.StreamOutlet.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
+  name: Build(IEnumerable<Expression>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Build_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression__
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
+  name.vb: Build(IEnumerable(Of Expression))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Build(System.Collections.Generic.IEnumerable<System.Linq.Expressions.Expression>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Build(System.Collections.Generic.IEnumerable(Of System.Linq.Expressions.Expression))
+  nameWithType: StreamOutlet.Build(IEnumerable<Expression>)
+  nameWithType.vb: StreamOutlet.Build(IEnumerable(Of Expression))
+- uid: EmotionalCities.Lsl.StreamOutlet.Build*
+  name: Build
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Build_
+  commentId: Overload:EmotionalCities.Lsl.StreamOutlet.Build
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamOutlet.Build
+  nameWithType: StreamOutlet.Build
+- uid: EmotionalCities.Lsl.StreamOutlet.ChannelCount
+  name: ChannelCount
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_ChannelCount
+  commentId: P:EmotionalCities.Lsl.StreamOutlet.ChannelCount
+  fullName: EmotionalCities.Lsl.StreamOutlet.ChannelCount
+  nameWithType: StreamOutlet.ChannelCount
+- uid: EmotionalCities.Lsl.StreamOutlet.ChannelCount*
+  name: ChannelCount
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_ChannelCount_
+  commentId: Overload:EmotionalCities.Lsl.StreamOutlet.ChannelCount
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamOutlet.ChannelCount
+  nameWithType: StreamOutlet.ChannelCount
+- uid: EmotionalCities.Lsl.StreamOutlet.ContentType
+  name: ContentType
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_ContentType
+  commentId: P:EmotionalCities.Lsl.StreamOutlet.ContentType
+  fullName: EmotionalCities.Lsl.StreamOutlet.ContentType
+  nameWithType: StreamOutlet.ContentType
+- uid: EmotionalCities.Lsl.StreamOutlet.ContentType*
+  name: ContentType
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_ContentType_
+  commentId: Overload:EmotionalCities.Lsl.StreamOutlet.ContentType
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamOutlet.ContentType
+  nameWithType: StreamOutlet.ContentType
+- uid: EmotionalCities.Lsl.StreamOutlet.Name
+  name: Name
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Name
+  commentId: P:EmotionalCities.Lsl.StreamOutlet.Name
+  fullName: EmotionalCities.Lsl.StreamOutlet.Name
+  nameWithType: StreamOutlet.Name
+- uid: EmotionalCities.Lsl.StreamOutlet.Name*
+  name: Name
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Name_
+  commentId: Overload:EmotionalCities.Lsl.StreamOutlet.Name
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamOutlet.Name
+  nameWithType: StreamOutlet.Name
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{Mat}})
+  name: Process(IObservable<Timestamped<Mat>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_Timestamped_Mat___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{Mat}})
+  name.vb: Process(IObservable(Of Timestamped(Of Mat)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.Timestamped<Mat>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.Timestamped(Of Mat)))
+  nameWithType: StreamOutlet.Process(IObservable<Timestamped<Mat>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Timestamped(Of Mat)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.Byte}})
+  name: Process(IObservable<Timestamped<Byte>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_Timestamped_System_Byte___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.Byte}})
+  name.vb: Process(IObservable(Of Timestamped(Of Byte)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.Timestamped<System.Byte>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.Timestamped(Of System.Byte)))
+  nameWithType: StreamOutlet.Process(IObservable<Timestamped<Byte>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Timestamped(Of Byte)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.Double}})
+  name: Process(IObservable<Timestamped<Double>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_Timestamped_System_Double___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.Double}})
+  name.vb: Process(IObservable(Of Timestamped(Of Double)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.Timestamped<System.Double>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.Timestamped(Of System.Double)))
+  nameWithType: StreamOutlet.Process(IObservable<Timestamped<Double>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Timestamped(Of Double)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.Int16}})
+  name: Process(IObservable<Timestamped<Int16>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_Timestamped_System_Int16___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.Int16}})
+  name.vb: Process(IObservable(Of Timestamped(Of Int16)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.Timestamped<System.Int16>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.Timestamped(Of System.Int16)))
+  nameWithType: StreamOutlet.Process(IObservable<Timestamped<Int16>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Timestamped(Of Int16)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.Int32}})
+  name: Process(IObservable<Timestamped<Int32>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_Timestamped_System_Int32___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.Int32}})
+  name.vb: Process(IObservable(Of Timestamped(Of Int32)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.Timestamped<System.Int32>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.Timestamped(Of System.Int32)))
+  nameWithType: StreamOutlet.Process(IObservable<Timestamped<Int32>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Timestamped(Of Int32)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.Single}})
+  name: Process(IObservable<Timestamped<Single>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_Timestamped_System_Single___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.Single}})
+  name.vb: Process(IObservable(Of Timestamped(Of Single)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.Timestamped<System.Single>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.Timestamped(Of System.Single)))
+  nameWithType: StreamOutlet.Process(IObservable<Timestamped<Single>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Timestamped(Of Single)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.String}})
+  name: Process(IObservable<Timestamped<String>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_Timestamped_System_String___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.Timestamped{System.String}})
+  name.vb: Process(IObservable(Of Timestamped(Of String)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.Timestamped<System.String>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.Timestamped(Of System.String)))
+  nameWithType: StreamOutlet.Process(IObservable<Timestamped<String>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Timestamped(Of String)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.Byte}})
+  name: Process(IObservable<TimestampedChunk<Byte>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedChunk_System_Byte___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.Byte}})
+  name.vb: Process(IObservable(Of TimestampedChunk(Of Byte)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedChunk<System.Byte>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedChunk(Of System.Byte)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedChunk<Byte>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedChunk(Of Byte)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.Double}})
+  name: Process(IObservable<TimestampedChunk<Double>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedChunk_System_Double___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.Double}})
+  name.vb: Process(IObservable(Of TimestampedChunk(Of Double)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedChunk<System.Double>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedChunk(Of System.Double)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedChunk<Double>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedChunk(Of Double)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.Int16}})
+  name: Process(IObservable<TimestampedChunk<Int16>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedChunk_System_Int16___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.Int16}})
+  name.vb: Process(IObservable(Of TimestampedChunk(Of Int16)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedChunk<System.Int16>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedChunk(Of System.Int16)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedChunk<Int16>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedChunk(Of Int16)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.Int32}})
+  name: Process(IObservable<TimestampedChunk<Int32>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedChunk_System_Int32___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.Int32}})
+  name.vb: Process(IObservable(Of TimestampedChunk(Of Int32)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedChunk<System.Int32>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedChunk(Of System.Int32)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedChunk<Int32>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedChunk(Of Int32)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.Single}})
+  name: Process(IObservable<TimestampedChunk<Single>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedChunk_System_Single___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.Single}})
+  name.vb: Process(IObservable(Of TimestampedChunk(Of Single)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedChunk<System.Single>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedChunk(Of System.Single)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedChunk<Single>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedChunk(Of Single)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.String}})
+  name: Process(IObservable<TimestampedChunk<String>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedChunk_System_String___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedChunk{System.String}})
+  name.vb: Process(IObservable(Of TimestampedChunk(Of String)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedChunk<System.String>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedChunk(Of System.String)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedChunk<String>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedChunk(Of String)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.Byte}})
+  name: Process(IObservable<TimestampedSample<Byte>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedSample_System_Byte___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.Byte}})
+  name.vb: Process(IObservable(Of TimestampedSample(Of Byte)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedSample<System.Byte>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedSample(Of System.Byte)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedSample<Byte>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedSample(Of Byte)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.Double}})
+  name: Process(IObservable<TimestampedSample<Double>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedSample_System_Double___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.Double}})
+  name.vb: Process(IObservable(Of TimestampedSample(Of Double)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedSample<System.Double>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedSample(Of System.Double)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedSample<Double>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedSample(Of Double)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.Int16}})
+  name: Process(IObservable<TimestampedSample<Int16>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedSample_System_Int16___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.Int16}})
+  name.vb: Process(IObservable(Of TimestampedSample(Of Int16)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedSample<System.Int16>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedSample(Of System.Int16)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedSample<Int16>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedSample(Of Int16)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.Int32}})
+  name: Process(IObservable<TimestampedSample<Int32>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedSample_System_Int32___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.Int32}})
+  name.vb: Process(IObservable(Of TimestampedSample(Of Int32)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedSample<System.Int32>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedSample(Of System.Int32)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedSample<Int32>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedSample(Of Int32)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.Single}})
+  name: Process(IObservable<TimestampedSample<Single>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedSample_System_Single___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.Single}})
+  name.vb: Process(IObservable(Of TimestampedSample(Of Single)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedSample<System.Single>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedSample(Of System.Single)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedSample<Single>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedSample(Of Single)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.String}})
+  name: Process(IObservable<TimestampedSample<String>>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_EmotionalCities_Lsl_TimestampedSample_System_String___
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{EmotionalCities.Lsl.TimestampedSample{System.String}})
+  name.vb: Process(IObservable(Of TimestampedSample(Of String)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<EmotionalCities.Lsl.TimestampedSample<System.String>>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of EmotionalCities.Lsl.TimestampedSample(Of System.String)))
+  nameWithType: StreamOutlet.Process(IObservable<TimestampedSample<String>>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of TimestampedSample(Of String)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{Mat})
+  name: Process(IObservable<Mat>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_Mat__
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{Mat})
+  name.vb: Process(IObservable(Of Mat))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<Mat>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of Mat))
+  nameWithType: StreamOutlet.Process(IObservable<Mat>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Mat))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Byte[]})
+  name: Process(IObservable<Byte[]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Byte____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Byte[]})
+  name.vb: Process(IObservable(Of Byte()))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Byte[]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Byte()))
+  nameWithType: StreamOutlet.Process(IObservable<Byte[]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Byte()))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Byte[0:,0:]})
+  name: Process(IObservable<Byte[,]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Byte_0__0____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Byte[0:,0:]})
+  name.vb: Process(IObservable(Of Byte(,)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Byte[,]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Byte(,)))
+  nameWithType: StreamOutlet.Process(IObservable<Byte[,]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Byte(,)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Byte})
+  name: Process(IObservable<Byte>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Byte__
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Byte})
+  name.vb: Process(IObservable(Of Byte))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Byte>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Byte))
+  nameWithType: StreamOutlet.Process(IObservable<Byte>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Byte))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Double[]})
+  name: Process(IObservable<Double[]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Double____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Double[]})
+  name.vb: Process(IObservable(Of Double()))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Double[]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Double()))
+  nameWithType: StreamOutlet.Process(IObservable<Double[]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Double()))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Double[0:,0:]})
+  name: Process(IObservable<Double[,]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Double_0__0____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Double[0:,0:]})
+  name.vb: Process(IObservable(Of Double(,)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Double[,]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Double(,)))
+  nameWithType: StreamOutlet.Process(IObservable<Double[,]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Double(,)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Double})
+  name: Process(IObservable<Double>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Double__
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Double})
+  name.vb: Process(IObservable(Of Double))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Double>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Double))
+  nameWithType: StreamOutlet.Process(IObservable<Double>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Double))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int16[]})
+  name: Process(IObservable<Int16[]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Int16____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int16[]})
+  name.vb: Process(IObservable(Of Int16()))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Int16[]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Int16()))
+  nameWithType: StreamOutlet.Process(IObservable<Int16[]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Int16()))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int16[0:,0:]})
+  name: Process(IObservable<Int16[,]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Int16_0__0____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int16[0:,0:]})
+  name.vb: Process(IObservable(Of Int16(,)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Int16[,]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Int16(,)))
+  nameWithType: StreamOutlet.Process(IObservable<Int16[,]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Int16(,)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int16})
+  name: Process(IObservable<Int16>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Int16__
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int16})
+  name.vb: Process(IObservable(Of Int16))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Int16>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Int16))
+  nameWithType: StreamOutlet.Process(IObservable<Int16>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Int16))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int32[]})
+  name: Process(IObservable<Int32[]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Int32____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int32[]})
+  name.vb: Process(IObservable(Of Int32()))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Int32[]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Int32()))
+  nameWithType: StreamOutlet.Process(IObservable<Int32[]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Int32()))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int32[0:,0:]})
+  name: Process(IObservable<Int32[,]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Int32_0__0____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int32[0:,0:]})
+  name.vb: Process(IObservable(Of Int32(,)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Int32[,]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Int32(,)))
+  nameWithType: StreamOutlet.Process(IObservable<Int32[,]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Int32(,)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int32})
+  name: Process(IObservable<Int32>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Int32__
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Int32})
+  name.vb: Process(IObservable(Of Int32))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Int32>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Int32))
+  nameWithType: StreamOutlet.Process(IObservable<Int32>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Int32))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Single[]})
+  name: Process(IObservable<Single[]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Single____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Single[]})
+  name.vb: Process(IObservable(Of Single()))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Single[]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Single()))
+  nameWithType: StreamOutlet.Process(IObservable<Single[]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Single()))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Single[0:,0:]})
+  name: Process(IObservable<Single[,]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Single_0__0____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Single[0:,0:]})
+  name.vb: Process(IObservable(Of Single(,)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Single[,]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Single(,)))
+  nameWithType: StreamOutlet.Process(IObservable<Single[,]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Single(,)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Single})
+  name: Process(IObservable<Single>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_Single__
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.Single})
+  name.vb: Process(IObservable(Of Single))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.Single>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.Single))
+  nameWithType: StreamOutlet.Process(IObservable<Single>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of Single))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.String[]})
+  name: Process(IObservable<String[]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_String____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.String[]})
+  name.vb: Process(IObservable(Of String()))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.String[]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.String()))
+  nameWithType: StreamOutlet.Process(IObservable<String[]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of String()))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.String[0:,0:]})
+  name: Process(IObservable<String[,]>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_String_0__0____
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.String[0:,0:]})
+  name.vb: Process(IObservable(Of String(,)))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.String[,]>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.String(,)))
+  nameWithType: StreamOutlet.Process(IObservable<String[,]>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of String(,)))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.String})
+  name: Process(IObservable<String>)
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_System_IObservable_System_String__
+  commentId: M:EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable{System.String})
+  name.vb: Process(IObservable(Of String))
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable<System.String>)
+  fullName.vb: EmotionalCities.Lsl.StreamOutlet.Process(System.IObservable(Of System.String))
+  nameWithType: StreamOutlet.Process(IObservable<String>)
+  nameWithType.vb: StreamOutlet.Process(IObservable(Of String))
+- uid: EmotionalCities.Lsl.StreamOutlet.Process*
+  name: Process
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Process_
+  commentId: Overload:EmotionalCities.Lsl.StreamOutlet.Process
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamOutlet.Process
+  nameWithType: StreamOutlet.Process
+- uid: EmotionalCities.Lsl.StreamOutlet.SampleRate
+  name: SampleRate
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_SampleRate
+  commentId: P:EmotionalCities.Lsl.StreamOutlet.SampleRate
+  fullName: EmotionalCities.Lsl.StreamOutlet.SampleRate
+  nameWithType: StreamOutlet.SampleRate
+- uid: EmotionalCities.Lsl.StreamOutlet.SampleRate*
+  name: SampleRate
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_SampleRate_
+  commentId: Overload:EmotionalCities.Lsl.StreamOutlet.SampleRate
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamOutlet.SampleRate
+  nameWithType: StreamOutlet.SampleRate
+- uid: EmotionalCities.Lsl.StreamOutlet.Selector
+  name: Selector
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Selector
+  commentId: P:EmotionalCities.Lsl.StreamOutlet.Selector
+  fullName: EmotionalCities.Lsl.StreamOutlet.Selector
+  nameWithType: StreamOutlet.Selector
+- uid: EmotionalCities.Lsl.StreamOutlet.Selector*
+  name: Selector
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_Selector_
+  commentId: Overload:EmotionalCities.Lsl.StreamOutlet.Selector
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamOutlet.Selector
+  nameWithType: StreamOutlet.Selector
+- uid: EmotionalCities.Lsl.StreamOutlet.SourceId
+  name: SourceId
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_SourceId
+  commentId: P:EmotionalCities.Lsl.StreamOutlet.SourceId
+  fullName: EmotionalCities.Lsl.StreamOutlet.SourceId
+  nameWithType: StreamOutlet.SourceId
+- uid: EmotionalCities.Lsl.StreamOutlet.SourceId*
+  name: SourceId
+  href: api/EmotionalCities.Lsl.StreamOutlet.html#EmotionalCities_Lsl_StreamOutlet_SourceId_
+  commentId: Overload:EmotionalCities.Lsl.StreamOutlet.SourceId
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.StreamOutlet.SourceId
+  nameWithType: StreamOutlet.SourceId
+- uid: EmotionalCities.Lsl.Timestamp
+  name: Timestamp
+  href: api/EmotionalCities.Lsl.Timestamp.html
+  commentId: T:EmotionalCities.Lsl.Timestamp
+  fullName: EmotionalCities.Lsl.Timestamp
+  nameWithType: Timestamp
+- uid: EmotionalCities.Lsl.Timestamp.Process*
+  name: Process
+  href: api/EmotionalCities.Lsl.Timestamp.html#EmotionalCities_Lsl_Timestamp_Process_
+  commentId: Overload:EmotionalCities.Lsl.Timestamp.Process
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamp.Process
+  nameWithType: Timestamp.Process
+- uid: EmotionalCities.Lsl.Timestamp.Process``1(System.IObservable{``0[]})
+  name: Process<TSource>(IObservable<TSource[]>)
+  href: api/EmotionalCities.Lsl.Timestamp.html#EmotionalCities_Lsl_Timestamp_Process__1_System_IObservable___0____
+  commentId: M:EmotionalCities.Lsl.Timestamp.Process``1(System.IObservable{``0[]})
+  name.vb: Process(Of TSource)(IObservable(Of TSource()))
+  fullName: EmotionalCities.Lsl.Timestamp.Process<TSource>(System.IObservable<TSource[]>)
+  fullName.vb: EmotionalCities.Lsl.Timestamp.Process(Of TSource)(System.IObservable(Of TSource()))
+  nameWithType: Timestamp.Process<TSource>(IObservable<TSource[]>)
+  nameWithType.vb: Timestamp.Process(Of TSource)(IObservable(Of TSource()))
+- uid: EmotionalCities.Lsl.Timestamp.Process``1(System.IObservable{``0})
+  name: Process<TSource>(IObservable<TSource>)
+  href: api/EmotionalCities.Lsl.Timestamp.html#EmotionalCities_Lsl_Timestamp_Process__1_System_IObservable___0__
+  commentId: M:EmotionalCities.Lsl.Timestamp.Process``1(System.IObservable{``0})
+  name.vb: Process(Of TSource)(IObservable(Of TSource))
+  fullName: EmotionalCities.Lsl.Timestamp.Process<TSource>(System.IObservable<TSource>)
+  fullName.vb: EmotionalCities.Lsl.Timestamp.Process(Of TSource)(System.IObservable(Of TSource))
+  nameWithType: Timestamp.Process<TSource>(IObservable<TSource>)
+  nameWithType.vb: Timestamp.Process(Of TSource)(IObservable(Of TSource))
+- uid: EmotionalCities.Lsl.Timestamped
+  name: Timestamped
+  href: api/EmotionalCities.Lsl.Timestamped.html
+  commentId: T:EmotionalCities.Lsl.Timestamped
+  fullName: EmotionalCities.Lsl.Timestamped
+  nameWithType: Timestamped
+- uid: EmotionalCities.Lsl.Timestamped.Create*
+  name: Create
+  href: api/EmotionalCities.Lsl.Timestamped.html#EmotionalCities_Lsl_Timestamped_Create_
+  commentId: Overload:EmotionalCities.Lsl.Timestamped.Create
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamped.Create
+  nameWithType: Timestamped.Create
+- uid: EmotionalCities.Lsl.Timestamped.Create``1(``0,System.Double)
+  name: Create<T>(T, Double)
+  href: api/EmotionalCities.Lsl.Timestamped.html#EmotionalCities_Lsl_Timestamped_Create__1___0_System_Double_
+  commentId: M:EmotionalCities.Lsl.Timestamped.Create``1(``0,System.Double)
+  name.vb: Create(Of T)(T, Double)
+  fullName: EmotionalCities.Lsl.Timestamped.Create<T>(T, System.Double)
+  fullName.vb: EmotionalCities.Lsl.Timestamped.Create(Of T)(T, System.Double)
+  nameWithType: Timestamped.Create<T>(T, Double)
+  nameWithType.vb: Timestamped.Create(Of T)(T, Double)
+- uid: EmotionalCities.Lsl.Timestamped`1
+  name: Timestamped<T>
+  href: api/EmotionalCities.Lsl.Timestamped-1.html
+  commentId: T:EmotionalCities.Lsl.Timestamped`1
+  name.vb: Timestamped(Of T)
+  fullName: EmotionalCities.Lsl.Timestamped<T>
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T)
+  nameWithType: Timestamped<T>
+  nameWithType.vb: Timestamped(Of T)
+- uid: EmotionalCities.Lsl.Timestamped`1.#ctor(`0,System.Double)
+  name: Timestamped(T, Double)
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1__ctor__0_System_Double_
+  commentId: M:EmotionalCities.Lsl.Timestamped`1.#ctor(`0,System.Double)
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Timestamped(T, System.Double)
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Timestamped(T, System.Double)
+  nameWithType: Timestamped<T>.Timestamped(T, Double)
+  nameWithType.vb: Timestamped(Of T).Timestamped(T, Double)
+- uid: EmotionalCities.Lsl.Timestamped`1.#ctor*
+  name: Timestamped
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1__ctor_
+  commentId: Overload:EmotionalCities.Lsl.Timestamped`1.#ctor
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Timestamped
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Timestamped
+  nameWithType: Timestamped<T>.Timestamped
+  nameWithType.vb: Timestamped(Of T).Timestamped
+- uid: EmotionalCities.Lsl.Timestamped`1.Deconstruct(`0@,System.Double@)
+  name: Deconstruct(out T, out Double)
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_Deconstruct__0__System_Double__
+  commentId: M:EmotionalCities.Lsl.Timestamped`1.Deconstruct(`0@,System.Double@)
+  name.vb: Deconstruct(ByRef T, ByRef Double)
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Deconstruct(out T, out System.Double)
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Deconstruct(ByRef T, ByRef System.Double)
+  nameWithType: Timestamped<T>.Deconstruct(out T, out Double)
+  nameWithType.vb: Timestamped(Of T).Deconstruct(ByRef T, ByRef Double)
+- uid: EmotionalCities.Lsl.Timestamped`1.Deconstruct*
+  name: Deconstruct
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_Deconstruct_
+  commentId: Overload:EmotionalCities.Lsl.Timestamped`1.Deconstruct
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Deconstruct
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Deconstruct
+  nameWithType: Timestamped<T>.Deconstruct
+  nameWithType.vb: Timestamped(Of T).Deconstruct
+- uid: EmotionalCities.Lsl.Timestamped`1.Equals(EmotionalCities.Lsl.Timestamped{`0})
+  name: Equals(Timestamped<T>)
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_Equals_EmotionalCities_Lsl_Timestamped__0__
+  commentId: M:EmotionalCities.Lsl.Timestamped`1.Equals(EmotionalCities.Lsl.Timestamped{`0})
+  name.vb: Equals(Timestamped(Of T))
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Equals(EmotionalCities.Lsl.Timestamped<T>)
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Equals(EmotionalCities.Lsl.Timestamped(Of T))
+  nameWithType: Timestamped<T>.Equals(Timestamped<T>)
+  nameWithType.vb: Timestamped(Of T).Equals(Timestamped(Of T))
+- uid: EmotionalCities.Lsl.Timestamped`1.Equals(System.Object)
+  name: Equals(Object)
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_Equals_System_Object_
+  commentId: M:EmotionalCities.Lsl.Timestamped`1.Equals(System.Object)
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Equals(System.Object)
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Equals(System.Object)
+  nameWithType: Timestamped<T>.Equals(Object)
+  nameWithType.vb: Timestamped(Of T).Equals(Object)
+- uid: EmotionalCities.Lsl.Timestamped`1.Equals*
+  name: Equals
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_Equals_
+  commentId: Overload:EmotionalCities.Lsl.Timestamped`1.Equals
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Equals
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Equals
+  nameWithType: Timestamped<T>.Equals
+  nameWithType.vb: Timestamped(Of T).Equals
+- uid: EmotionalCities.Lsl.Timestamped`1.GetHashCode
+  name: GetHashCode()
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_GetHashCode
+  commentId: M:EmotionalCities.Lsl.Timestamped`1.GetHashCode
+  fullName: EmotionalCities.Lsl.Timestamped<T>.GetHashCode()
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).GetHashCode()
+  nameWithType: Timestamped<T>.GetHashCode()
+  nameWithType.vb: Timestamped(Of T).GetHashCode()
+- uid: EmotionalCities.Lsl.Timestamped`1.GetHashCode*
+  name: GetHashCode
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_GetHashCode_
+  commentId: Overload:EmotionalCities.Lsl.Timestamped`1.GetHashCode
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamped<T>.GetHashCode
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).GetHashCode
+  nameWithType: Timestamped<T>.GetHashCode
+  nameWithType.vb: Timestamped(Of T).GetHashCode
+- uid: EmotionalCities.Lsl.Timestamped`1.op_Equality(EmotionalCities.Lsl.Timestamped{`0},EmotionalCities.Lsl.Timestamped{`0})
+  name: Equality(Timestamped<T>, Timestamped<T>)
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_op_Equality_EmotionalCities_Lsl_Timestamped__0__EmotionalCities_Lsl_Timestamped__0__
+  commentId: M:EmotionalCities.Lsl.Timestamped`1.op_Equality(EmotionalCities.Lsl.Timestamped{`0},EmotionalCities.Lsl.Timestamped{`0})
+  name.vb: Equality(Timestamped(Of T), Timestamped(Of T))
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Equality(EmotionalCities.Lsl.Timestamped<T>, EmotionalCities.Lsl.Timestamped<T>)
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Equality(EmotionalCities.Lsl.Timestamped(Of T), EmotionalCities.Lsl.Timestamped(Of T))
+  nameWithType: Timestamped<T>.Equality(Timestamped<T>, Timestamped<T>)
+  nameWithType.vb: Timestamped(Of T).Equality(Timestamped(Of T), Timestamped(Of T))
+- uid: EmotionalCities.Lsl.Timestamped`1.op_Equality*
+  name: Equality
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_op_Equality_
+  commentId: Overload:EmotionalCities.Lsl.Timestamped`1.op_Equality
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Equality
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Equality
+  nameWithType: Timestamped<T>.Equality
+  nameWithType.vb: Timestamped(Of T).Equality
+- uid: EmotionalCities.Lsl.Timestamped`1.op_Inequality(EmotionalCities.Lsl.Timestamped{`0},EmotionalCities.Lsl.Timestamped{`0})
+  name: Inequality(Timestamped<T>, Timestamped<T>)
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_op_Inequality_EmotionalCities_Lsl_Timestamped__0__EmotionalCities_Lsl_Timestamped__0__
+  commentId: M:EmotionalCities.Lsl.Timestamped`1.op_Inequality(EmotionalCities.Lsl.Timestamped{`0},EmotionalCities.Lsl.Timestamped{`0})
+  name.vb: Inequality(Timestamped(Of T), Timestamped(Of T))
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Inequality(EmotionalCities.Lsl.Timestamped<T>, EmotionalCities.Lsl.Timestamped<T>)
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Inequality(EmotionalCities.Lsl.Timestamped(Of T), EmotionalCities.Lsl.Timestamped(Of T))
+  nameWithType: Timestamped<T>.Inequality(Timestamped<T>, Timestamped<T>)
+  nameWithType.vb: Timestamped(Of T).Inequality(Timestamped(Of T), Timestamped(Of T))
+- uid: EmotionalCities.Lsl.Timestamped`1.op_Inequality*
+  name: Inequality
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_op_Inequality_
+  commentId: Overload:EmotionalCities.Lsl.Timestamped`1.op_Inequality
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Inequality
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Inequality
+  nameWithType: Timestamped<T>.Inequality
+  nameWithType.vb: Timestamped(Of T).Inequality
+- uid: EmotionalCities.Lsl.Timestamped`1.Timestamp
+  name: Timestamp
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_Timestamp
+  commentId: P:EmotionalCities.Lsl.Timestamped`1.Timestamp
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Timestamp
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Timestamp
+  nameWithType: Timestamped<T>.Timestamp
+  nameWithType.vb: Timestamped(Of T).Timestamp
+- uid: EmotionalCities.Lsl.Timestamped`1.Timestamp*
+  name: Timestamp
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_Timestamp_
+  commentId: Overload:EmotionalCities.Lsl.Timestamped`1.Timestamp
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Timestamp
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Timestamp
+  nameWithType: Timestamped<T>.Timestamp
+  nameWithType.vb: Timestamped(Of T).Timestamp
+- uid: EmotionalCities.Lsl.Timestamped`1.ToString
+  name: ToString()
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_ToString
+  commentId: M:EmotionalCities.Lsl.Timestamped`1.ToString
+  fullName: EmotionalCities.Lsl.Timestamped<T>.ToString()
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).ToString()
+  nameWithType: Timestamped<T>.ToString()
+  nameWithType.vb: Timestamped(Of T).ToString()
+- uid: EmotionalCities.Lsl.Timestamped`1.ToString*
+  name: ToString
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_ToString_
+  commentId: Overload:EmotionalCities.Lsl.Timestamped`1.ToString
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamped<T>.ToString
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).ToString
+  nameWithType: Timestamped<T>.ToString
+  nameWithType.vb: Timestamped(Of T).ToString
+- uid: EmotionalCities.Lsl.Timestamped`1.Value
+  name: Value
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_Value
+  commentId: P:EmotionalCities.Lsl.Timestamped`1.Value
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Value
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Value
+  nameWithType: Timestamped<T>.Value
+  nameWithType.vb: Timestamped(Of T).Value
+- uid: EmotionalCities.Lsl.Timestamped`1.Value*
+  name: Value
+  href: api/EmotionalCities.Lsl.Timestamped-1.html#EmotionalCities_Lsl_Timestamped_1_Value_
+  commentId: Overload:EmotionalCities.Lsl.Timestamped`1.Value
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.Timestamped<T>.Value
+  fullName.vb: EmotionalCities.Lsl.Timestamped(Of T).Value
+  nameWithType: Timestamped<T>.Value
+  nameWithType.vb: Timestamped(Of T).Value
+- uid: EmotionalCities.Lsl.TimestampedChunk
+  name: TimestampedChunk
+  href: api/EmotionalCities.Lsl.TimestampedChunk.html
+  commentId: T:EmotionalCities.Lsl.TimestampedChunk
+  fullName: EmotionalCities.Lsl.TimestampedChunk
+  nameWithType: TimestampedChunk
+- uid: EmotionalCities.Lsl.TimestampedChunk.Create(Mat,Mat)
+  name: Create(Mat, Mat)
+  href: api/EmotionalCities.Lsl.TimestampedChunk.html#EmotionalCities_Lsl_TimestampedChunk_Create_Mat_Mat_
+  commentId: M:EmotionalCities.Lsl.TimestampedChunk.Create(Mat,Mat)
+  fullName: EmotionalCities.Lsl.TimestampedChunk.Create(Mat, Mat)
+  nameWithType: TimestampedChunk.Create(Mat, Mat)
+- uid: EmotionalCities.Lsl.TimestampedChunk.Create*
+  name: Create
+  href: api/EmotionalCities.Lsl.TimestampedChunk.html#EmotionalCities_Lsl_TimestampedChunk_Create_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunk.Create
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunk.Create
+  nameWithType: TimestampedChunk.Create
+- uid: EmotionalCities.Lsl.TimestampedChunk.Create``1(``0[0:,0:],System.Double[])
+  name: Create<T>(T[,], Double[])
+  href: api/EmotionalCities.Lsl.TimestampedChunk.html#EmotionalCities_Lsl_TimestampedChunk_Create__1___0_0__0___System_Double___
+  commentId: M:EmotionalCities.Lsl.TimestampedChunk.Create``1(``0[0:,0:],System.Double[])
+  name.vb: Create(Of T)(T(,), Double())
+  fullName: EmotionalCities.Lsl.TimestampedChunk.Create<T>(T[,], System.Double[])
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk.Create(Of T)(T(,), System.Double())
+  nameWithType: TimestampedChunk.Create<T>(T[,], Double[])
+  nameWithType.vb: TimestampedChunk.Create(Of T)(T(,), Double())
+- uid: EmotionalCities.Lsl.TimestampedChunk`1
+  name: TimestampedChunk<T>
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html
+  commentId: T:EmotionalCities.Lsl.TimestampedChunk`1
+  name.vb: TimestampedChunk(Of T)
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T)
+  nameWithType: TimestampedChunk<T>
+  nameWithType.vb: TimestampedChunk(Of T)
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.#ctor(`0[0:,0:],System.Double[])
+  name: TimestampedChunk(T[,], Double[])
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1__ctor__0_0__0___System_Double___
+  commentId: M:EmotionalCities.Lsl.TimestampedChunk`1.#ctor(`0[0:,0:],System.Double[])
+  name.vb: TimestampedChunk(T(,), Double())
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.TimestampedChunk(T[,], System.Double[])
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).TimestampedChunk(T(,), System.Double())
+  nameWithType: TimestampedChunk<T>.TimestampedChunk(T[,], Double[])
+  nameWithType.vb: TimestampedChunk(Of T).TimestampedChunk(T(,), Double())
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.#ctor*
+  name: TimestampedChunk
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1__ctor_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunk`1.#ctor
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.TimestampedChunk
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).TimestampedChunk
+  nameWithType: TimestampedChunk<T>.TimestampedChunk
+  nameWithType.vb: TimestampedChunk(Of T).TimestampedChunk
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.Data
+  name: Data
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_Data
+  commentId: P:EmotionalCities.Lsl.TimestampedChunk`1.Data
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Data
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Data
+  nameWithType: TimestampedChunk<T>.Data
+  nameWithType.vb: TimestampedChunk(Of T).Data
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.Data*
+  name: Data
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_Data_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunk`1.Data
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Data
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Data
+  nameWithType: TimestampedChunk<T>.Data
+  nameWithType.vb: TimestampedChunk(Of T).Data
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.Deconstruct(`0[0:,0:]@,System.Double[]@)
+  name: Deconstruct(out T[,], out Double[])
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_Deconstruct__0_0__0____System_Double____
+  commentId: M:EmotionalCities.Lsl.TimestampedChunk`1.Deconstruct(`0[0:,0:]@,System.Double[]@)
+  name.vb: Deconstruct(ByRef T(,), ByRef Double())
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Deconstruct(out T[,], out System.Double[])
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Deconstruct(ByRef T(,), ByRef System.Double())
+  nameWithType: TimestampedChunk<T>.Deconstruct(out T[,], out Double[])
+  nameWithType.vb: TimestampedChunk(Of T).Deconstruct(ByRef T(,), ByRef Double())
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.Deconstruct*
+  name: Deconstruct
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_Deconstruct_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunk`1.Deconstruct
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Deconstruct
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Deconstruct
+  nameWithType: TimestampedChunk<T>.Deconstruct
+  nameWithType.vb: TimestampedChunk(Of T).Deconstruct
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.Equals(EmotionalCities.Lsl.TimestampedChunk{`0})
+  name: Equals(TimestampedChunk<T>)
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_Equals_EmotionalCities_Lsl_TimestampedChunk__0__
+  commentId: M:EmotionalCities.Lsl.TimestampedChunk`1.Equals(EmotionalCities.Lsl.TimestampedChunk{`0})
+  name.vb: Equals(TimestampedChunk(Of T))
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Equals(EmotionalCities.Lsl.TimestampedChunk<T>)
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Equals(EmotionalCities.Lsl.TimestampedChunk(Of T))
+  nameWithType: TimestampedChunk<T>.Equals(TimestampedChunk<T>)
+  nameWithType.vb: TimestampedChunk(Of T).Equals(TimestampedChunk(Of T))
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.Equals(System.Object)
+  name: Equals(Object)
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_Equals_System_Object_
+  commentId: M:EmotionalCities.Lsl.TimestampedChunk`1.Equals(System.Object)
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Equals(System.Object)
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Equals(System.Object)
+  nameWithType: TimestampedChunk<T>.Equals(Object)
+  nameWithType.vb: TimestampedChunk(Of T).Equals(Object)
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.Equals*
+  name: Equals
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_Equals_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunk`1.Equals
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Equals
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Equals
+  nameWithType: TimestampedChunk<T>.Equals
+  nameWithType.vb: TimestampedChunk(Of T).Equals
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.GetHashCode
+  name: GetHashCode()
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_GetHashCode
+  commentId: M:EmotionalCities.Lsl.TimestampedChunk`1.GetHashCode
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.GetHashCode()
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).GetHashCode()
+  nameWithType: TimestampedChunk<T>.GetHashCode()
+  nameWithType.vb: TimestampedChunk(Of T).GetHashCode()
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.GetHashCode*
+  name: GetHashCode
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_GetHashCode_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunk`1.GetHashCode
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.GetHashCode
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).GetHashCode
+  nameWithType: TimestampedChunk<T>.GetHashCode
+  nameWithType.vb: TimestampedChunk(Of T).GetHashCode
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.op_Equality(EmotionalCities.Lsl.TimestampedChunk{`0},EmotionalCities.Lsl.TimestampedChunk{`0})
+  name: Equality(TimestampedChunk<T>, TimestampedChunk<T>)
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_op_Equality_EmotionalCities_Lsl_TimestampedChunk__0__EmotionalCities_Lsl_TimestampedChunk__0__
+  commentId: M:EmotionalCities.Lsl.TimestampedChunk`1.op_Equality(EmotionalCities.Lsl.TimestampedChunk{`0},EmotionalCities.Lsl.TimestampedChunk{`0})
+  name.vb: Equality(TimestampedChunk(Of T), TimestampedChunk(Of T))
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Equality(EmotionalCities.Lsl.TimestampedChunk<T>, EmotionalCities.Lsl.TimestampedChunk<T>)
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Equality(EmotionalCities.Lsl.TimestampedChunk(Of T), EmotionalCities.Lsl.TimestampedChunk(Of T))
+  nameWithType: TimestampedChunk<T>.Equality(TimestampedChunk<T>, TimestampedChunk<T>)
+  nameWithType.vb: TimestampedChunk(Of T).Equality(TimestampedChunk(Of T), TimestampedChunk(Of T))
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.op_Equality*
+  name: Equality
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_op_Equality_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunk`1.op_Equality
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Equality
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Equality
+  nameWithType: TimestampedChunk<T>.Equality
+  nameWithType.vb: TimestampedChunk(Of T).Equality
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.op_Inequality(EmotionalCities.Lsl.TimestampedChunk{`0},EmotionalCities.Lsl.TimestampedChunk{`0})
+  name: Inequality(TimestampedChunk<T>, TimestampedChunk<T>)
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_op_Inequality_EmotionalCities_Lsl_TimestampedChunk__0__EmotionalCities_Lsl_TimestampedChunk__0__
+  commentId: M:EmotionalCities.Lsl.TimestampedChunk`1.op_Inequality(EmotionalCities.Lsl.TimestampedChunk{`0},EmotionalCities.Lsl.TimestampedChunk{`0})
+  name.vb: Inequality(TimestampedChunk(Of T), TimestampedChunk(Of T))
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Inequality(EmotionalCities.Lsl.TimestampedChunk<T>, EmotionalCities.Lsl.TimestampedChunk<T>)
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Inequality(EmotionalCities.Lsl.TimestampedChunk(Of T), EmotionalCities.Lsl.TimestampedChunk(Of T))
+  nameWithType: TimestampedChunk<T>.Inequality(TimestampedChunk<T>, TimestampedChunk<T>)
+  nameWithType.vb: TimestampedChunk(Of T).Inequality(TimestampedChunk(Of T), TimestampedChunk(Of T))
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.op_Inequality*
+  name: Inequality
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_op_Inequality_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunk`1.op_Inequality
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Inequality
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Inequality
+  nameWithType: TimestampedChunk<T>.Inequality
+  nameWithType.vb: TimestampedChunk(Of T).Inequality
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.Timestamps
+  name: Timestamps
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_Timestamps
+  commentId: P:EmotionalCities.Lsl.TimestampedChunk`1.Timestamps
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Timestamps
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Timestamps
+  nameWithType: TimestampedChunk<T>.Timestamps
+  nameWithType.vb: TimestampedChunk(Of T).Timestamps
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.Timestamps*
+  name: Timestamps
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_Timestamps_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunk`1.Timestamps
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.Timestamps
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).Timestamps
+  nameWithType: TimestampedChunk<T>.Timestamps
+  nameWithType.vb: TimestampedChunk(Of T).Timestamps
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.ToString
+  name: ToString()
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_ToString
+  commentId: M:EmotionalCities.Lsl.TimestampedChunk`1.ToString
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.ToString()
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).ToString()
+  nameWithType: TimestampedChunk<T>.ToString()
+  nameWithType.vb: TimestampedChunk(Of T).ToString()
+- uid: EmotionalCities.Lsl.TimestampedChunk`1.ToString*
+  name: ToString
+  href: api/EmotionalCities.Lsl.TimestampedChunk-1.html#EmotionalCities_Lsl_TimestampedChunk_1_ToString_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunk`1.ToString
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunk<T>.ToString
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunk(Of T).ToString
+  nameWithType: TimestampedChunk<T>.ToString
+  nameWithType.vb: TimestampedChunk(Of T).ToString
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer
+  name: TimestampedChunkBuffer
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html
+  commentId: T:EmotionalCities.Lsl.TimestampedChunkBuffer
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer
+  nameWithType: TimestampedChunkBuffer
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.#ctor(Mat,Mat)
+  name: TimestampedChunkBuffer(Mat, Mat)
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer__ctor_Mat_Mat_
+  commentId: M:EmotionalCities.Lsl.TimestampedChunkBuffer.#ctor(Mat,Mat)
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.TimestampedChunkBuffer(Mat, Mat)
+  nameWithType: TimestampedChunkBuffer.TimestampedChunkBuffer(Mat, Mat)
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.#ctor*
+  name: TimestampedChunkBuffer
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer__ctor_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunkBuffer.#ctor
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.TimestampedChunkBuffer
+  nameWithType: TimestampedChunkBuffer.TimestampedChunkBuffer
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.Data
+  name: Data
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_Data
+  commentId: P:EmotionalCities.Lsl.TimestampedChunkBuffer.Data
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Data
+  nameWithType: TimestampedChunkBuffer.Data
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.Data*
+  name: Data
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_Data_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunkBuffer.Data
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Data
+  nameWithType: TimestampedChunkBuffer.Data
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.Deconstruct(Mat@,Mat@)
+  name: Deconstruct(out Mat, out Mat)
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_Deconstruct_Mat__Mat__
+  commentId: M:EmotionalCities.Lsl.TimestampedChunkBuffer.Deconstruct(Mat@,Mat@)
+  name.vb: Deconstruct(ByRef Mat, ByRef Mat)
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Deconstruct(out Mat, out Mat)
+  fullName.vb: EmotionalCities.Lsl.TimestampedChunkBuffer.Deconstruct(ByRef Mat, ByRef Mat)
+  nameWithType: TimestampedChunkBuffer.Deconstruct(out Mat, out Mat)
+  nameWithType.vb: TimestampedChunkBuffer.Deconstruct(ByRef Mat, ByRef Mat)
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.Deconstruct*
+  name: Deconstruct
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_Deconstruct_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunkBuffer.Deconstruct
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Deconstruct
+  nameWithType: TimestampedChunkBuffer.Deconstruct
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.Equals(EmotionalCities.Lsl.TimestampedChunkBuffer)
+  name: Equals(TimestampedChunkBuffer)
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_Equals_EmotionalCities_Lsl_TimestampedChunkBuffer_
+  commentId: M:EmotionalCities.Lsl.TimestampedChunkBuffer.Equals(EmotionalCities.Lsl.TimestampedChunkBuffer)
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Equals(EmotionalCities.Lsl.TimestampedChunkBuffer)
+  nameWithType: TimestampedChunkBuffer.Equals(TimestampedChunkBuffer)
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.Equals(System.Object)
+  name: Equals(Object)
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_Equals_System_Object_
+  commentId: M:EmotionalCities.Lsl.TimestampedChunkBuffer.Equals(System.Object)
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Equals(System.Object)
+  nameWithType: TimestampedChunkBuffer.Equals(Object)
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.Equals*
+  name: Equals
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_Equals_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunkBuffer.Equals
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Equals
+  nameWithType: TimestampedChunkBuffer.Equals
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.GetHashCode
+  name: GetHashCode()
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_GetHashCode
+  commentId: M:EmotionalCities.Lsl.TimestampedChunkBuffer.GetHashCode
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.GetHashCode()
+  nameWithType: TimestampedChunkBuffer.GetHashCode()
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.GetHashCode*
+  name: GetHashCode
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_GetHashCode_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunkBuffer.GetHashCode
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.GetHashCode
+  nameWithType: TimestampedChunkBuffer.GetHashCode
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.op_Equality(EmotionalCities.Lsl.TimestampedChunkBuffer,EmotionalCities.Lsl.TimestampedChunkBuffer)
+  name: Equality(TimestampedChunkBuffer, TimestampedChunkBuffer)
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_op_Equality_EmotionalCities_Lsl_TimestampedChunkBuffer_EmotionalCities_Lsl_TimestampedChunkBuffer_
+  commentId: M:EmotionalCities.Lsl.TimestampedChunkBuffer.op_Equality(EmotionalCities.Lsl.TimestampedChunkBuffer,EmotionalCities.Lsl.TimestampedChunkBuffer)
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Equality(EmotionalCities.Lsl.TimestampedChunkBuffer, EmotionalCities.Lsl.TimestampedChunkBuffer)
+  nameWithType: TimestampedChunkBuffer.Equality(TimestampedChunkBuffer, TimestampedChunkBuffer)
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.op_Equality*
+  name: Equality
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_op_Equality_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunkBuffer.op_Equality
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Equality
+  nameWithType: TimestampedChunkBuffer.Equality
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.op_Inequality(EmotionalCities.Lsl.TimestampedChunkBuffer,EmotionalCities.Lsl.TimestampedChunkBuffer)
+  name: Inequality(TimestampedChunkBuffer, TimestampedChunkBuffer)
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_op_Inequality_EmotionalCities_Lsl_TimestampedChunkBuffer_EmotionalCities_Lsl_TimestampedChunkBuffer_
+  commentId: M:EmotionalCities.Lsl.TimestampedChunkBuffer.op_Inequality(EmotionalCities.Lsl.TimestampedChunkBuffer,EmotionalCities.Lsl.TimestampedChunkBuffer)
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Inequality(EmotionalCities.Lsl.TimestampedChunkBuffer, EmotionalCities.Lsl.TimestampedChunkBuffer)
+  nameWithType: TimestampedChunkBuffer.Inequality(TimestampedChunkBuffer, TimestampedChunkBuffer)
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.op_Inequality*
+  name: Inequality
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_op_Inequality_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunkBuffer.op_Inequality
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Inequality
+  nameWithType: TimestampedChunkBuffer.Inequality
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.Timestamps
+  name: Timestamps
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_Timestamps
+  commentId: P:EmotionalCities.Lsl.TimestampedChunkBuffer.Timestamps
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Timestamps
+  nameWithType: TimestampedChunkBuffer.Timestamps
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.Timestamps*
+  name: Timestamps
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_Timestamps_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunkBuffer.Timestamps
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.Timestamps
+  nameWithType: TimestampedChunkBuffer.Timestamps
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.ToString
+  name: ToString()
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_ToString
+  commentId: M:EmotionalCities.Lsl.TimestampedChunkBuffer.ToString
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.ToString()
+  nameWithType: TimestampedChunkBuffer.ToString()
+- uid: EmotionalCities.Lsl.TimestampedChunkBuffer.ToString*
+  name: ToString
+  href: api/EmotionalCities.Lsl.TimestampedChunkBuffer.html#EmotionalCities_Lsl_TimestampedChunkBuffer_ToString_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedChunkBuffer.ToString
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedChunkBuffer.ToString
+  nameWithType: TimestampedChunkBuffer.ToString
+- uid: EmotionalCities.Lsl.TimestampedSample
+  name: TimestampedSample
+  href: api/EmotionalCities.Lsl.TimestampedSample.html
+  commentId: T:EmotionalCities.Lsl.TimestampedSample
+  fullName: EmotionalCities.Lsl.TimestampedSample
+  nameWithType: TimestampedSample
+- uid: EmotionalCities.Lsl.TimestampedSample.Create*
+  name: Create
+  href: api/EmotionalCities.Lsl.TimestampedSample.html#EmotionalCities_Lsl_TimestampedSample_Create_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedSample.Create
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedSample.Create
+  nameWithType: TimestampedSample.Create
+- uid: EmotionalCities.Lsl.TimestampedSample.Create``1(``0[],System.Double)
+  name: Create<T>(T[], Double)
+  href: api/EmotionalCities.Lsl.TimestampedSample.html#EmotionalCities_Lsl_TimestampedSample_Create__1___0___System_Double_
+  commentId: M:EmotionalCities.Lsl.TimestampedSample.Create``1(``0[],System.Double)
+  name.vb: Create(Of T)(T(), Double)
+  fullName: EmotionalCities.Lsl.TimestampedSample.Create<T>(T[], System.Double)
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample.Create(Of T)(T(), System.Double)
+  nameWithType: TimestampedSample.Create<T>(T[], Double)
+  nameWithType.vb: TimestampedSample.Create(Of T)(T(), Double)
+- uid: EmotionalCities.Lsl.TimestampedSample`1
+  name: TimestampedSample<T>
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html
+  commentId: T:EmotionalCities.Lsl.TimestampedSample`1
+  name.vb: TimestampedSample(Of T)
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T)
+  nameWithType: TimestampedSample<T>
+  nameWithType.vb: TimestampedSample(Of T)
+- uid: EmotionalCities.Lsl.TimestampedSample`1.#ctor(`0[],System.Double)
+  name: TimestampedSample(T[], Double)
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1__ctor__0___System_Double_
+  commentId: M:EmotionalCities.Lsl.TimestampedSample`1.#ctor(`0[],System.Double)
+  name.vb: TimestampedSample(T(), Double)
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.TimestampedSample(T[], System.Double)
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).TimestampedSample(T(), System.Double)
+  nameWithType: TimestampedSample<T>.TimestampedSample(T[], Double)
+  nameWithType.vb: TimestampedSample(Of T).TimestampedSample(T(), Double)
+- uid: EmotionalCities.Lsl.TimestampedSample`1.#ctor*
+  name: TimestampedSample
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1__ctor_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedSample`1.#ctor
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.TimestampedSample
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).TimestampedSample
+  nameWithType: TimestampedSample<T>.TimestampedSample
+  nameWithType.vb: TimestampedSample(Of T).TimestampedSample
+- uid: EmotionalCities.Lsl.TimestampedSample`1.Data
+  name: Data
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_Data
+  commentId: P:EmotionalCities.Lsl.TimestampedSample`1.Data
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Data
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Data
+  nameWithType: TimestampedSample<T>.Data
+  nameWithType.vb: TimestampedSample(Of T).Data
+- uid: EmotionalCities.Lsl.TimestampedSample`1.Data*
+  name: Data
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_Data_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedSample`1.Data
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Data
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Data
+  nameWithType: TimestampedSample<T>.Data
+  nameWithType.vb: TimestampedSample(Of T).Data
+- uid: EmotionalCities.Lsl.TimestampedSample`1.Deconstruct(`0[]@,System.Double@)
+  name: Deconstruct(out T[], out Double)
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_Deconstruct__0____System_Double__
+  commentId: M:EmotionalCities.Lsl.TimestampedSample`1.Deconstruct(`0[]@,System.Double@)
+  name.vb: Deconstruct(ByRef T(), ByRef Double)
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Deconstruct(out T[], out System.Double)
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Deconstruct(ByRef T(), ByRef System.Double)
+  nameWithType: TimestampedSample<T>.Deconstruct(out T[], out Double)
+  nameWithType.vb: TimestampedSample(Of T).Deconstruct(ByRef T(), ByRef Double)
+- uid: EmotionalCities.Lsl.TimestampedSample`1.Deconstruct*
+  name: Deconstruct
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_Deconstruct_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedSample`1.Deconstruct
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Deconstruct
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Deconstruct
+  nameWithType: TimestampedSample<T>.Deconstruct
+  nameWithType.vb: TimestampedSample(Of T).Deconstruct
+- uid: EmotionalCities.Lsl.TimestampedSample`1.Equals(EmotionalCities.Lsl.TimestampedSample{`0})
+  name: Equals(TimestampedSample<T>)
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_Equals_EmotionalCities_Lsl_TimestampedSample__0__
+  commentId: M:EmotionalCities.Lsl.TimestampedSample`1.Equals(EmotionalCities.Lsl.TimestampedSample{`0})
+  name.vb: Equals(TimestampedSample(Of T))
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Equals(EmotionalCities.Lsl.TimestampedSample<T>)
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Equals(EmotionalCities.Lsl.TimestampedSample(Of T))
+  nameWithType: TimestampedSample<T>.Equals(TimestampedSample<T>)
+  nameWithType.vb: TimestampedSample(Of T).Equals(TimestampedSample(Of T))
+- uid: EmotionalCities.Lsl.TimestampedSample`1.Equals(System.Object)
+  name: Equals(Object)
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_Equals_System_Object_
+  commentId: M:EmotionalCities.Lsl.TimestampedSample`1.Equals(System.Object)
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Equals(System.Object)
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Equals(System.Object)
+  nameWithType: TimestampedSample<T>.Equals(Object)
+  nameWithType.vb: TimestampedSample(Of T).Equals(Object)
+- uid: EmotionalCities.Lsl.TimestampedSample`1.Equals*
+  name: Equals
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_Equals_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedSample`1.Equals
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Equals
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Equals
+  nameWithType: TimestampedSample<T>.Equals
+  nameWithType.vb: TimestampedSample(Of T).Equals
+- uid: EmotionalCities.Lsl.TimestampedSample`1.GetHashCode
+  name: GetHashCode()
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_GetHashCode
+  commentId: M:EmotionalCities.Lsl.TimestampedSample`1.GetHashCode
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.GetHashCode()
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).GetHashCode()
+  nameWithType: TimestampedSample<T>.GetHashCode()
+  nameWithType.vb: TimestampedSample(Of T).GetHashCode()
+- uid: EmotionalCities.Lsl.TimestampedSample`1.GetHashCode*
+  name: GetHashCode
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_GetHashCode_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedSample`1.GetHashCode
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.GetHashCode
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).GetHashCode
+  nameWithType: TimestampedSample<T>.GetHashCode
+  nameWithType.vb: TimestampedSample(Of T).GetHashCode
+- uid: EmotionalCities.Lsl.TimestampedSample`1.op_Equality(EmotionalCities.Lsl.TimestampedSample{`0},EmotionalCities.Lsl.TimestampedSample{`0})
+  name: Equality(TimestampedSample<T>, TimestampedSample<T>)
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_op_Equality_EmotionalCities_Lsl_TimestampedSample__0__EmotionalCities_Lsl_TimestampedSample__0__
+  commentId: M:EmotionalCities.Lsl.TimestampedSample`1.op_Equality(EmotionalCities.Lsl.TimestampedSample{`0},EmotionalCities.Lsl.TimestampedSample{`0})
+  name.vb: Equality(TimestampedSample(Of T), TimestampedSample(Of T))
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Equality(EmotionalCities.Lsl.TimestampedSample<T>, EmotionalCities.Lsl.TimestampedSample<T>)
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Equality(EmotionalCities.Lsl.TimestampedSample(Of T), EmotionalCities.Lsl.TimestampedSample(Of T))
+  nameWithType: TimestampedSample<T>.Equality(TimestampedSample<T>, TimestampedSample<T>)
+  nameWithType.vb: TimestampedSample(Of T).Equality(TimestampedSample(Of T), TimestampedSample(Of T))
+- uid: EmotionalCities.Lsl.TimestampedSample`1.op_Equality*
+  name: Equality
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_op_Equality_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedSample`1.op_Equality
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Equality
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Equality
+  nameWithType: TimestampedSample<T>.Equality
+  nameWithType.vb: TimestampedSample(Of T).Equality
+- uid: EmotionalCities.Lsl.TimestampedSample`1.op_Inequality(EmotionalCities.Lsl.TimestampedSample{`0},EmotionalCities.Lsl.TimestampedSample{`0})
+  name: Inequality(TimestampedSample<T>, TimestampedSample<T>)
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_op_Inequality_EmotionalCities_Lsl_TimestampedSample__0__EmotionalCities_Lsl_TimestampedSample__0__
+  commentId: M:EmotionalCities.Lsl.TimestampedSample`1.op_Inequality(EmotionalCities.Lsl.TimestampedSample{`0},EmotionalCities.Lsl.TimestampedSample{`0})
+  name.vb: Inequality(TimestampedSample(Of T), TimestampedSample(Of T))
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Inequality(EmotionalCities.Lsl.TimestampedSample<T>, EmotionalCities.Lsl.TimestampedSample<T>)
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Inequality(EmotionalCities.Lsl.TimestampedSample(Of T), EmotionalCities.Lsl.TimestampedSample(Of T))
+  nameWithType: TimestampedSample<T>.Inequality(TimestampedSample<T>, TimestampedSample<T>)
+  nameWithType.vb: TimestampedSample(Of T).Inequality(TimestampedSample(Of T), TimestampedSample(Of T))
+- uid: EmotionalCities.Lsl.TimestampedSample`1.op_Inequality*
+  name: Inequality
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_op_Inequality_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedSample`1.op_Inequality
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Inequality
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Inequality
+  nameWithType: TimestampedSample<T>.Inequality
+  nameWithType.vb: TimestampedSample(Of T).Inequality
+- uid: EmotionalCities.Lsl.TimestampedSample`1.Timestamp
+  name: Timestamp
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_Timestamp
+  commentId: P:EmotionalCities.Lsl.TimestampedSample`1.Timestamp
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Timestamp
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Timestamp
+  nameWithType: TimestampedSample<T>.Timestamp
+  nameWithType.vb: TimestampedSample(Of T).Timestamp
+- uid: EmotionalCities.Lsl.TimestampedSample`1.Timestamp*
+  name: Timestamp
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_Timestamp_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedSample`1.Timestamp
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.Timestamp
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).Timestamp
+  nameWithType: TimestampedSample<T>.Timestamp
+  nameWithType.vb: TimestampedSample(Of T).Timestamp
+- uid: EmotionalCities.Lsl.TimestampedSample`1.ToString
+  name: ToString()
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_ToString
+  commentId: M:EmotionalCities.Lsl.TimestampedSample`1.ToString
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.ToString()
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).ToString()
+  nameWithType: TimestampedSample<T>.ToString()
+  nameWithType.vb: TimestampedSample(Of T).ToString()
+- uid: EmotionalCities.Lsl.TimestampedSample`1.ToString*
+  name: ToString
+  href: api/EmotionalCities.Lsl.TimestampedSample-1.html#EmotionalCities_Lsl_TimestampedSample_1_ToString_
+  commentId: Overload:EmotionalCities.Lsl.TimestampedSample`1.ToString
+  isSpec: "True"
+  fullName: EmotionalCities.Lsl.TimestampedSample<T>.ToString
+  fullName.vb: EmotionalCities.Lsl.TimestampedSample(Of T).ToString
+  nameWithType: TimestampedSample<T>.ToString
+  nameWithType.vb: TimestampedSample(Of T).ToString

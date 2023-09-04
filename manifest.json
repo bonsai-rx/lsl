@@ -1,0 +1,334 @@
+{
+  "homepages": [],
+  "source_base_path": "/github/workspace/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.ChannelFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.ChannelFormat.html",
+          "hash": "hOqPaqqgm+kVNsd1LyuI6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.InternalException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.InternalException.html",
+          "hash": "S2wibqGCUwWzqLui4Zr/PQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.LostException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.LostException.html",
+          "hash": "uE4c0qWOFCr22U7x9tI7fg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.ProcessingOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.ProcessingOptions.html",
+          "hash": "3WVM/kvx0uuxfEXX747HFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.StreamInlet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.StreamInlet.html",
+          "hash": "USrN5HBv3LFOKW4EwawC2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.StreamOutlet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.StreamOutlet.html",
+          "hash": "7A1VRPXWY5HwiYlB1j8Bdg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.Timestamp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.Timestamp.html",
+          "hash": "fT+y6o1+qWkwJ1e59P0cEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.Timestamped-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.Timestamped-1.html",
+          "hash": "PgjrFoQNvrExZ38ogeNs6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.Timestamped.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.Timestamped.html",
+          "hash": "6sMemo76/S/LikxAei0hJg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.TimestampedChunk-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.TimestampedChunk-1.html",
+          "hash": "/zvsgjF6BjZ1j9iVkI9MJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.TimestampedChunk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.TimestampedChunk.html",
+          "hash": "pT3L8u1EW6OLwQgRc8WH7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.TimestampedChunkBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.TimestampedChunkBuffer.html",
+          "hash": "v6yojc8TCyETqUC7gbA7sQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.TimestampedSample-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.TimestampedSample-1.html",
+          "hash": "OOOJ5DG3t/JGSoYUme5mOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.TimestampedSample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.TimestampedSample.html",
+          "hash": "zbVqlF8aNqNBFkI7OlRjEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EmotionalCities.Lsl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EmotionalCities.Lsl.html",
+          "hash": "MccIHWHBVv1QvCTkNvJH+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "Z6yoAx+pMcFyJY7lW8OJkA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "or9ociULYKlSO+sMXhtgCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "Ic/lS+u8QR/BOC1ucbB59Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "logo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "rCtUyqPPJpiRUnHHGd5WLQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 2,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 15,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
