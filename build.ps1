@@ -23,10 +23,10 @@ function Get-Dependency {
 
 Write-Host ("Downloading Dependencies")
 Get-Dependency -TargetFile ".\win-x64.zip" `
-               -TargetHash "6C70ACF16ECDA3CBD657F17D388079CD" `
-               -Uri "https://github.com/sccn/liblsl/releases/download/v1.16.0/liblsl-1.16.0-Win_amd64.zip"
+               -TargetHash "3B53DFE537C057DF1AF35AAE05D79F19" `
+               -Uri "https://github.com/sccn/liblsl/releases/download/v1.14.0/liblsl-1.14.0-Win_amd64.zip"
 Get-Dependency -TargetFile ".\win-x86.zip" `
-               -TargetHash "E5CAB1330CB42E665FB74B343A859DA4" `
-               -Uri "https://github.com/sccn/liblsl/releases/download/v1.16.0/liblsl-1.16.0-Win_i386.zip"
+               -TargetHash "359E62226CABEFF98D7646BCED3173DD" `
+               -Uri "https://github.com/sccn/liblsl/releases/download/v1.14.0/liblsl-1.14.0-Win_i386.zip"
 Write-Host ("Building EmotionalCities.Lsl")
 & dotnet build -c Release .\src\EmotionalCities.Lsl.sln
